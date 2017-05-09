@@ -27,8 +27,8 @@
 -(UIView *)empyView{
     if (!_empyView) {
         _empyView = [[UIView alloc] init];
-        _empyView.center = (_GZMTableView?_GZMTableView:_GZMCollEctionView).center;
-        _empyView.bounds = CGRectMake(0, 0, Width, (_GZMTableView?_GZMTableView:_GZMCollEctionView).height);
+//        _empyView.center = (_GZMTableView?_GZMTableView:_GZMCollEctionView).center;
+        _empyView.frame = CGRectMake(0, 0, Width, (_GZMTableView?_GZMTableView:_GZMCollEctionView).height);
         [(_GZMTableView?_GZMTableView:_GZMCollEctionView) addSubview:_empyView];
         switch (_empytext) {
             case imageTitleNone:
@@ -127,7 +127,7 @@
         self.empyView.hidden = YES;
     }
     
-    return self.GZMDataArr.count?self.GZMDataArr.count:1;
+    return self.GZMDataArr.count?self.GZMDataArr.count:0;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
@@ -182,7 +182,7 @@
         self.empyView.hidden = YES;
     }
     
-    return self.GZMCollData.count?self.GZMCollData.count:1;
+    return self.GZMCollData.count?self.GZMCollData.count:0;
 }
 
 

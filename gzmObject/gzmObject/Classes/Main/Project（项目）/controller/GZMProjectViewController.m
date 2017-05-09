@@ -7,7 +7,7 @@
 //
 
 #import "GZMProjectViewController.h"
-
+#import "GZmprojectTableViewCell.h"
 @interface GZMProjectViewController ()
 
 @end
@@ -16,17 +16,34 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.view addSubview:self.GZMTableView];
-    self.GZMTableView.frame = CGRectMake(0, 64, Width, Height - 64);
+    [self GZM_setTableView];
     // Do any additional setup after loading the view.
 }
 -(void)leftbutton1Click{
     [self.navigationController popViewControllerAnimated:YES];
 }
+/*********tableView的*********/
+-(void)GZM_setTableView{
+    [self.view addSubview:self.GZMTableView];
+    [self.GZMTableView registerNib:[UINib nibWithNibName:@"GZmprojectTableViewCell" bundle:nil] forCellReuseIdentifier:@"cell"];
+    self.GZMTableView.frame = CGRectMake(0, 64, Width, Height - 64);
+    self.GZMTableView.rowHeight = 120;
+}
 -(void)creatData{
+    
     [self.GZMTableView.mj_header endRefreshing];
+    self.GZMDataArr = @[@"13",@"",@"",@""];
+    self.GZMTableView.dataSource = self;
+    [self.GZMTableView reloadData];
     NSLog(@"qweqe");
 }
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    GZmprojectTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+    return cell;
+}
+//-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+//    
+//}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

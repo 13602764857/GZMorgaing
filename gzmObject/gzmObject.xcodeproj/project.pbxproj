@@ -28,6 +28,8 @@
 		1505E16E1EB2C0E900C61DFC /* GZMTabbatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1505E16D1EB2C0E900C61DFC /* GZMTabbatViewController.m */; };
 		1505E1781EB2C6AD00C61DFC /* GZMMyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1505E1771EB2C6AD00C61DFC /* GZMMyViewController.m */; };
 		1505E1821EC0D9F200C61DFC /* GZMProjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1505E1811EC0D9F200C61DFC /* GZMProjectViewController.m */; };
+		151339861EC374E400BA798B /* GZmprojectTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 151339841EC374E400BA798B /* GZmprojectTableViewCell.m */; };
+		151339871EC374E400BA798B /* GZmprojectTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 151339851EC374E400BA798B /* GZmprojectTableViewCell.xib */; };
 		158797831EAFEF6100DA40CF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 158797821EAFEF6100DA40CF /* main.m */; };
 		1587978C1EAFEF6100DA40CF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1587978A1EAFEF6100DA40CF /* Main.storyboard */; };
 		1587978E1EAFEF6100DA40CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1587978D1EAFEF6100DA40CF /* Assets.xcassets */; };
@@ -115,6 +117,9 @@
 		1505E1771EB2C6AD00C61DFC /* GZMMyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GZMMyViewController.m; sourceTree = "<group>"; };
 		1505E1801EC0D9F200C61DFC /* GZMProjectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GZMProjectViewController.h; sourceTree = "<group>"; };
 		1505E1811EC0D9F200C61DFC /* GZMProjectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GZMProjectViewController.m; sourceTree = "<group>"; };
+		151339831EC374E400BA798B /* GZmprojectTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GZmprojectTableViewCell.h; path = "gzmObject/Classes/Main/Project（项目）/controller/GZmprojectTableViewCell.h"; sourceTree = SOURCE_ROOT; };
+		151339841EC374E400BA798B /* GZmprojectTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GZmprojectTableViewCell.m; path = "gzmObject/Classes/Main/Project（项目）/controller/GZmprojectTableViewCell.m"; sourceTree = SOURCE_ROOT; };
+		151339851EC374E400BA798B /* GZmprojectTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GZmprojectTableViewCell.xib; path = "gzmObject/Classes/Main/Project（项目）/controller/GZmprojectTableViewCell.xib"; sourceTree = SOURCE_ROOT; };
 		1587977E1EAFEF6100DA40CF /* gzmObject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gzmObject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		158797821EAFEF6100DA40CF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1587978B1EAFEF6100DA40CF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -315,6 +320,9 @@
 		1505E17E1EC0D95D00C61DFC /* View */ = {
 			isa = PBXGroup;
 			children = (
+				151339831EC374E400BA798B /* GZmprojectTableViewCell.h */,
+				151339841EC374E400BA798B /* GZmprojectTableViewCell.m */,
+				151339851EC374E400BA798B /* GZmprojectTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -619,6 +627,7 @@
 			files = (
 				158797911EAFEF6100DA40CF /* LaunchScreen.storyboard in Resources */,
 				1505E1631EB27EF900C61DFC /* GZMLoginViewController.xib in Resources */,
+				151339871EC374E400BA798B /* GZmprojectTableViewCell.xib in Resources */,
 				1505E1681EB2B10700C61DFC /* onrViewController.xib in Resources */,
 				1587978E1EAFEF6100DA40CF /* Assets.xcassets in Resources */,
 				1587978C1EAFEF6100DA40CF /* Main.storyboard in Resources */,
@@ -717,6 +726,7 @@
 				158797E71EB02C8400DA40CF /* UIImageView+GZM.m in Sources */,
 				1505E14F1EB15C4900C61DFC /* LoadIngView.m in Sources */,
 				1505E1411EB15A0300C61DFC /* AlerYangShi.m in Sources */,
+				151339861EC374E400BA798B /* GZmprojectTableViewCell.m in Sources */,
 				1505E1461EB15A0300C61DFC /* XLWave.m in Sources */,
 				1505E1431EB15A0300C61DFC /* FileUtils.m in Sources */,
 				1505E1441EB15A0300C61DFC /* GZMAlertView.m in Sources */,
