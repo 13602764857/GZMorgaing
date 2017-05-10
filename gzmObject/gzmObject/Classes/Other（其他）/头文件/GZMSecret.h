@@ -11,4 +11,5 @@
 #import "warnIngView.h"
 #import "AlerYangShi.h"
 #define toketen [[NSUserDefaults standardUserDefaults] stringForKey:@"toketen"]
+#define UserDefaults [NSUserDefaults standardUserDefaults]
 #endif /* GZMSecret_h */

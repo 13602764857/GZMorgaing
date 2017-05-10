@@ -9,6 +9,7 @@
 #import "RequestTool.h"
 #import "AppDelegate.h"
 #import "downLoadView.h"
+#import "GZMLoginViewController.h"
 @implementation RequestTool
 
 +(AFHTTPSessionManager *)initManager{
@@ -150,6 +151,10 @@
         }else{
             if ([responseObject[@"issuccess"] isEqualToNumber:@2]) {
                 successBlock(nil);
+                [UserDefaults removeObjectForKey:@"toketen"];
+                
+                GZMLoginViewController * loginVc = [[GZMLoginViewController alloc] init];
+                [delegate presentViewController:loginVc animated:YES completion:nil];
             }else{
                 NSLog(@"%@",responseObject);
                 downLoadView * down = [downLoadView shareDownView];

@@ -18,5 +18,7 @@
 #define ProjectDetails          @"api/Project/ProjectDetails"
 #define GetLanguageList          @"api/Project/GetLanguageList"
 #define GetPlatformList          @"api/Project/GetPlatformList"
-
+#define DeleteProject          @"api/Project/DeleteProject"
+#define ModifyProject          @"api/Project/ModifyProject"
+#define CreateProject          @"api/Project/CreateProject"
 #endif /* GZMApi_h */
