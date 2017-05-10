@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "withTableviewViewController.h"
 @interface FatherViewController :withTableviewViewController
-
+/********** ************/
 @property(nonatomic,strong)UIButton * leftbutton1;
 
 @property(nonatomic,strong)UIButton * rightbutton1;
