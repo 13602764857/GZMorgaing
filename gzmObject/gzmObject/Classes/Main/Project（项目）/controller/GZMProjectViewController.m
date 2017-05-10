@@ -30,16 +30,23 @@
     self.GZMTableView.rowHeight = 120;
 }
 -(void)creatData{
+    [RequestTool sendPostAFRequest:[BaseUrl stringByAppendingString:GetProjectList] parameters:@{@"token":toketen,@"pindex":@"1",@"pagesize":@"100"} successBlock:^(id message) {
+        [self.GZMTableView.mj_header endRefreshing];
+        self.GZMDataArr = @[@"13",@"",@"",@""];
+        self.GZMTableView.dataSource = self;
+        [self.GZMTableView reloadData];
+        NSLog(@"qweqe");
+    } failBlock:^(id message) {
+        
+    } delegate:self loadWith:mainLoading];
     
-    [self.GZMTableView.mj_header endRefreshing];
-    self.GZMDataArr = @[@"13",@"",@"",@""];
-    self.GZMTableView.dataSource = self;
-    [self.GZMTableView reloadData];
-    NSLog(@"qweqe");
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     GZmprojectTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
     return cell;
+}
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [super tableView:tableView didSelectRowAtIndexPath:indexPath];
 }
 //-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
 //    

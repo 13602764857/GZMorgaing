@@ -18,25 +18,25 @@
     return manager;
 }
 +(void)sendPostAFRequest:(NSString *)url parameters:(NSDictionary *)parameters successBlock:(requestBlock)successBlock failBlock:(requestBlock)failBlock delegate:(UIViewController *)delegate loadWith:(loadIngtype)tpye{
-    LoadIngView * loading = [[LoadIngView alloc] initWithFrame:CGRectMake(0, 0, delegate.view.width, delegate.view.height)];
-    
-    if (delegate.view.height == Height) {
-        loading.y = 64;
-    }
-    if (tpye == mainLoading) {
-        [delegate.view addSubview:loading];
-    }
+//    LoadIngView * loading = [[LoadIngView alloc] initWithFrame:CGRectMake(0, 0, delegate.view.width, delegate.view.height)];
+//    
+//    if (delegate.view.height == Height) {
+//        loading.y = 64;
+//    }
+//    if (tpye == mainLoading) {
+//        [delegate.view addSubview:loading];
+//    }
     
     AFHTTPSessionManager * manager = [self initManager];
     [manager POST:url parameters:parameters progress:^(NSProgress * _Nonnull uploadProgress) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        [loading removeFromSuperview];
+//        [loading removeFromSuperview];
         NSLog(@"%@",responseObject);
         [self success:successBlock dicResponseObject:responseObject delegate:delegate];
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        [loading removeFromSuperview];
+//        [loading removeFromSuperview];
         [self fail:failBlock error:error delegate:delegate];
         
     }];
@@ -145,10 +145,10 @@
 
 +(void)success:(requestBlock)successBlock dicResponseObject:(id)responseObject delegate:(UIViewController *)delegate{
     if(successBlock){
-        if ([responseObject[@"Status"] isEqualToNumber:@200]) {
+        if ([responseObject[@"issuccess"] isEqualToNumber:@1]) {
             successBlock(responseObject);
         }else{
-            if ([responseObject[@"Status"] isEqualToNumber:@400]) {
+            if ([responseObject[@"issuccess"] isEqualToNumber:@2]) {
                 successBlock(nil);
             }else{
                 NSLog(@"%@",responseObject);
@@ -156,7 +156,7 @@
                 down.netePrograss = 0.01;
                 [downLoadView tearDown];
                 [down removeFromSuperview];
-                [warnIngView warnWithstring:responseObject[@"Msg"] WithVc:delegate];
+                [warnIngView warnWithstring:responseObject[@"message"] WithVc:delegate];
                  successBlock(nil);
             }
             

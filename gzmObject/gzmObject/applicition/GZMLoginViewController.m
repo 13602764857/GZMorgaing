@@ -33,10 +33,20 @@
 }
 - (IBAction)loginClick:(id)sender {
     NSLog(@"23123");
-    GZMTabbatViewController * ZongVc = [[GZMTabbatViewController alloc] init];
-//    UINavigationController * nvc = [[UINavigationController alloc] initWithRootViewController:ZongVc];
-    [self presentViewController:ZongVc animated:YES completion:nil];
-//    [self.navigationController pushViewController:ZongVc animated:YES];
+    [RequestTool sendPostAFRequest:[BaseUrl stringByAppendingString:UserLogin] parameters:@{@"username":@"yangjian1",@"userpass":@"123qwe",@"valicode":@"zzzzzz"} successBlock:^(id message) {
+        if ([message[@"issuccess"] isEqualToNumber:@1]) {
+            NSUserDefaults * user = [NSUserDefaults standardUserDefaults];
+            [user setObject:message[@"message"] forKey:@"toketen"];
+            GZMTabbatViewController * ZongVc = [[GZMTabbatViewController alloc] init];
+            //    UINavigationController * nvc = [[UINavigationController alloc] initWithRootViewController:ZongVc];
+            [self presentViewController:ZongVc animated:YES completion:nil];
+        }
+        
+    } failBlock:^(id message) {
+        
+    } delegate:self loadWith:mainLoading];
+    
+    //    [self.navigationController pushViewController:ZongVc animated:YES];
 }
 -(void)textFieldDidBeginEditing:(UITextField *)textField{
     
@@ -53,13 +63,13 @@
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end

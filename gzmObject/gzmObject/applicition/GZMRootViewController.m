@@ -9,6 +9,7 @@
 #import "GZMRootViewController.h"
 #import "GZMZongViewController.h"
 #import "GZMLoginViewController.h"
+#import "GZMTabbatViewController.h"
 @interface GZMRootViewController ()
 
 @end
@@ -22,8 +23,14 @@
 /********创建rootView(外部可以调用)*******/
 + (UIViewController *)GZMCreatRootVc{
     UIViewController * RootVc;
+    NSLog(@"%@",toketen);
 //    RootVc = [[GZMZongViewController alloc] init];
-    RootVc = [[GZMLoginViewController alloc] init];
+    if (toketen.length > 0) {
+        RootVc = [[GZMTabbatViewController alloc] init];
+    }else{
+        RootVc = [[GZMLoginViewController alloc] init];
+    }
+    
     return RootVc;
 }
 - (void)didReceiveMemoryWarning {

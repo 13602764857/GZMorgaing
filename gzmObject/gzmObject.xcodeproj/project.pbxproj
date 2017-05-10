@@ -30,6 +30,7 @@
 		1505E1821EC0D9F200C61DFC /* GZMProjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1505E1811EC0D9F200C61DFC /* GZMProjectViewController.m */; };
 		151339861EC374E400BA798B /* GZmprojectTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 151339841EC374E400BA798B /* GZmprojectTableViewCell.m */; };
 		151339871EC374E400BA798B /* GZmprojectTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 151339851EC374E400BA798B /* GZmprojectTableViewCell.xib */; };
+		1513398A1EC374E400BA798B /* GZMProjectModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 151339891EC374E400BA798B /* GZMProjectModel.m */; };
 		158797831EAFEF6100DA40CF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 158797821EAFEF6100DA40CF /* main.m */; };
 		1587978C1EAFEF6100DA40CF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1587978A1EAFEF6100DA40CF /* Main.storyboard */; };
 		1587978E1EAFEF6100DA40CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1587978D1EAFEF6100DA40CF /* Assets.xcassets */; };
@@ -120,6 +121,8 @@
 		151339831EC374E400BA798B /* GZmprojectTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GZmprojectTableViewCell.h; path = "gzmObject/Classes/Main/Project（项目）/controller/GZmprojectTableViewCell.h"; sourceTree = SOURCE_ROOT; };
 		151339841EC374E400BA798B /* GZmprojectTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GZmprojectTableViewCell.m; path = "gzmObject/Classes/Main/Project（项目）/controller/GZmprojectTableViewCell.m"; sourceTree = SOURCE_ROOT; };
 		151339851EC374E400BA798B /* GZmprojectTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GZmprojectTableViewCell.xib; path = "gzmObject/Classes/Main/Project（项目）/controller/GZmprojectTableViewCell.xib"; sourceTree = SOURCE_ROOT; };
+		151339881EC374E400BA798B /* GZMProjectModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GZMProjectModel.h; path = "gzmObject/Classes/Main/Project（项目）/controller/GZMProjectModel.h"; sourceTree = SOURCE_ROOT; };
+		151339891EC374E400BA798B /* GZMProjectModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GZMProjectModel.m; path = "gzmObject/Classes/Main/Project（项目）/controller/GZMProjectModel.m"; sourceTree = SOURCE_ROOT; };
 		1587977E1EAFEF6100DA40CF /* gzmObject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gzmObject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		158797821EAFEF6100DA40CF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1587978B1EAFEF6100DA40CF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -313,6 +316,8 @@
 		1505E17D1EC0D95D00C61DFC /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				151339881EC374E400BA798B /* GZMProjectModel.h */,
+				151339891EC374E400BA798B /* GZMProjectModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -705,6 +710,7 @@
 			files = (
 				158797E41EB02C8400DA40CF /* UIButton+GZM.m in Sources */,
 				158797C71EB027C800DA40CF /* withTableviewViewController.m in Sources */,
+				1513398A1EC374E400BA798B /* GZMProjectModel.m in Sources */,
 				1505E15A1EB27B5500C61DFC /* AppDelegate.m in Sources */,
 				158797E21EB02C8400DA40CF /* NSString+GZM.m in Sources */,
 				158797E81EB02C8400DA40CF /* UILabel+GZMlable.m in Sources */,
