@@ -1,0 +1,26 @@
+//
+//  PrefixHeader.pch
+//  gzmObject
+//
+//  Created by gzm on 2017/4/26.
+//  Copyright © 2017年 gzm. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+#import "UIView+SYFrame.h"
+#import "GZMCAtegory.h"
+#import "notification.h"
+#import "GZMApi.h"
+#import "ThreePart.h"
+#import "LoadIngView.h"
+#import "GZMSecret.h"
+#define Width [UIScreen mainScreen].bounds.size.width
+#define Height [UIScreen mainScreen].bounds.size.height
+#define KeyWindow [UIApplication sharedApplication].keyWindow
+#define IOS_VERSION_10_OR_ABOVE (([[[UIDevice currentDevice]systemVersion]floatValue] >= 9.0)?YES:NO)
+#define MianColor [UIColor colorWithRed:255/255.0 green:157/255.0 blue:31/255.0 alpha:1]
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#endif /* PrefixHeader_pch */
