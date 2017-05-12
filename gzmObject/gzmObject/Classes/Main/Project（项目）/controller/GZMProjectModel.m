@@ -9,5 +9,10 @@
 #import "GZMProjectModel.h"
 
 @implementation GZMProjectModel
++(NSMutableArray *)setModelWithArray:(NSArray *)array{
+    NSMutableArray * modelArray = [GZMProjectModel mj_objectArrayWithKeyValuesArray:array];
+    
+    return modelArray;
+}
 
 @end

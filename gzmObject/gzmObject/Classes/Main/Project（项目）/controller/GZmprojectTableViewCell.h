@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "GZMProjectModel.h"
 @interface GZmprojectTableViewCell : UITableViewCell
-
+/**********模型 ************/
+@property(nonatomic,strong)GZMProjectModel * mo;
 @end

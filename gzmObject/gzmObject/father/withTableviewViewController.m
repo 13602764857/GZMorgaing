@@ -19,6 +19,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.GZMDataArr = [NSMutableArray array];
+    self.GZMCollData = [NSMutableArray array];
     self.empytext = onlyTitle;
     self.collType = collTypetwo;
     // Do any additional setup after loading the view.
@@ -111,6 +113,7 @@
         
         _GZMTableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(creatData)];
         [_GZMTableView.mj_header beginRefreshing];
+        _GZMTableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(creatMoreData)];
         _GZMTableView.backgroundColor = [UIColor whiteColor];
         _GZMTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
        

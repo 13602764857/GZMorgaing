@@ -161,8 +161,9 @@
                 down.netePrograss = 0.01;
                 [downLoadView tearDown];
                 [down removeFromSuperview];
-                [warnIngView warnWithstring:responseObject[@"message"] WithVc:delegate];
-                 successBlock(nil);
+//                [AlerYangShi showMessage:responseObject[@"message"] duration:0.5];
+//                [warnIngView warnWithstring:responseObject[@"message"] WithVc:delegate];
+                 successBlock(responseObject);
             }
             
         }

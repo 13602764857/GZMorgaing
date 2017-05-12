@@ -10,4 +10,15 @@
 
 @interface GZMProjectModel : NSObject
 
+@property (nonatomic,copy) NSString *Remark;
+@property (nonatomic,copy) NSString *CreateDate;
+@property (nonatomic,copy) NSString *PlatformName;
+@property (nonatomic,copy) NSString *ProjectID;
+@property (nonatomic,copy) NSString *ProjectName;
+@property (nonatomic,copy) NSString *AppID;
+@property (nonatomic,copy) NSString *Count;
+@property (nonatomic,copy) NSString *Versions;
+@property (nonatomic,copy) NSString *Effective;
+
++(NSMutableArray *)setModelWithArray:(NSArray *)array;
 @end

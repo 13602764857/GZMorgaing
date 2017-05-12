@@ -10,6 +10,7 @@
 #define ThreePart_h
 #import <MJRefresh.h>
 #import <AFNetworking.h>
-
+#import <MJExtension.h>
+#import "ZJModelTool.h"
 
 #endif /* ThreePart_h */

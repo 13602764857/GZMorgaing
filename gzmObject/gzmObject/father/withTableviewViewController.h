@@ -29,7 +29,7 @@ typedef NS_OPTIONS(NSInteger, collType) {
 @interface withTableviewViewController : UIViewController<UITableViewDelegate,UITableViewDataSource,UICollectionViewDelegate,UICollectionViewDataSource>
 
 @property(nonatomic,strong)UITableView * GZMTableView;
-@property(nonatomic,strong)NSArray * GZMDataArr;
+@property(nonatomic,strong)NSMutableArray * GZMDataArr;
 /******* 枚举类型  *******/
 @property(nonatomic,assign)empytype empytext;
 /******* 枚举类型  *******/
@@ -40,7 +40,7 @@ typedef NS_OPTIONS(NSInteger, collType) {
 @property(nonatomic,strong)UICollectionView *GZMCollEctionView;
 
 /******* <#name#>  *******/
-@property(nonatomic,strong)NSArray *GZMCollData;
+@property(nonatomic,strong)NSMutableArray *GZMCollData;
 
 
 /******* <#name#>  *******/
