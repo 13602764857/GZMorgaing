@@ -12,5 +12,6 @@
 /******* 比灰色暗一点的色系  *******/
 +(UIColor *)GZMLightColor;
 /******* color的色素  *******/
++ (UIColor *)GZMcolorWithRed:(CGFloat)red green:(CGFloat)green blue:(CGFloat)blue Withalpha:(CGFloat)alpha;
 + (UIColor *)GZMcolorWithRed:(CGFloat)red green:(CGFloat)green blue:(CGFloat)blue;
 @end

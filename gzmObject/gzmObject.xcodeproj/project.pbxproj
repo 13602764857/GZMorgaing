@@ -31,6 +31,7 @@
 		151339861EC374E400BA798B /* GZmprojectTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 151339841EC374E400BA798B /* GZmprojectTableViewCell.m */; };
 		151339871EC374E400BA798B /* GZmprojectTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 151339851EC374E400BA798B /* GZmprojectTableViewCell.xib */; };
 		1513398A1EC374E400BA798B /* GZMProjectModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 151339891EC374E400BA798B /* GZMProjectModel.m */; };
+		156DDB211ECA27D60050F037 /* UITextField+GZM.m in Sources */ = {isa = PBXBuildFile; fileRef = 156DDB201ECA27D60050F037 /* UITextField+GZM.m */; };
 		158797831EAFEF6100DA40CF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 158797821EAFEF6100DA40CF /* main.m */; };
 		1587978C1EAFEF6100DA40CF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1587978A1EAFEF6100DA40CF /* Main.storyboard */; };
 		1587978E1EAFEF6100DA40CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1587978D1EAFEF6100DA40CF /* Assets.xcassets */; };
@@ -123,6 +124,8 @@
 		151339851EC374E400BA798B /* GZmprojectTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GZmprojectTableViewCell.xib; path = "gzmObject/Classes/Main/Project（项目）/controller/GZmprojectTableViewCell.xib"; sourceTree = SOURCE_ROOT; };
 		151339881EC374E400BA798B /* GZMProjectModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GZMProjectModel.h; path = "gzmObject/Classes/Main/Project（项目）/controller/GZMProjectModel.h"; sourceTree = SOURCE_ROOT; };
 		151339891EC374E400BA798B /* GZMProjectModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GZMProjectModel.m; path = "gzmObject/Classes/Main/Project（项目）/controller/GZMProjectModel.m"; sourceTree = SOURCE_ROOT; };
+		156DDB1F1ECA27D60050F037 /* UITextField+GZM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+GZM.h"; sourceTree = "<group>"; };
+		156DDB201ECA27D60050F037 /* UITextField+GZM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+GZM.m"; sourceTree = "<group>"; };
 		1587977E1EAFEF6100DA40CF /* gzmObject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gzmObject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		158797821EAFEF6100DA40CF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1587978B1EAFEF6100DA40CF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -496,6 +499,8 @@
 				158797DB1EB02C8400DA40CF /* UILabel+GZMlable.m */,
 				158797DC1EB02C8400DA40CF /* UITextView+GZM.h */,
 				158797DD1EB02C8400DA40CF /* UITextView+GZM.m */,
+				156DDB1F1ECA27D60050F037 /* UITextField+GZM.h */,
+				156DDB201ECA27D60050F037 /* UITextField+GZM.m */,
 				158797DE1EB02C8400DA40CF /* UIView+GZM.h */,
 				158797DF1EB02C8400DA40CF /* UIView+GZM.m */,
 				158797EB1EB02DE300DA40CF /* UIView+SYFrame.h */,
@@ -725,6 +730,7 @@
 				158797EA1EB02C8400DA40CF /* UIView+GZM.m in Sources */,
 				1505E1421EB15A0300C61DFC /* downLoadView.m in Sources */,
 				1505E16E1EB2C0E900C61DFC /* GZMTabbatViewController.m in Sources */,
+				156DDB211ECA27D60050F037 /* UITextField+GZM.m in Sources */,
 				1505E1781EB2C6AD00C61DFC /* GZMMyViewController.m in Sources */,
 				1505E15B1EB27B5500C61DFC /* ViewController.m in Sources */,
 				158797E31EB02C8400DA40CF /* UIActivityIndicatorView+GZM.m in Sources */,

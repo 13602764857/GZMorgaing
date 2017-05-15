@@ -10,6 +10,7 @@
 #define GZMCAtegory_h
 #import "UIColor+GZM.h"
 #import "NSString+GZM.h"
+#import "UITextField+GZM.h"
 //请求加载动画枚举
 typedef NS_OPTIONS(NSInteger, loadIngtype) {
     mainLoading          =0,

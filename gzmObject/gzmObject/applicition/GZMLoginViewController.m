@@ -19,7 +19,13 @@
     [super viewDidLoad];
     self.userTextField.delegate = self;
     self.passWordTextField.delegate = self;
+    [self GZM_creatUI];
     // Do any additional setup after loading the view from its nib.
+}
+/*********修改UI*********/
+-(void)GZM_creatUI{
+    [self.userTextField GZMpublicTextFiledPlacehoderWith:[UIColor GZMLightColor] withSize:13 WithholderText:@"密码" Withalignment:NSTextAlignmentCenter];
+    
 }
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     
