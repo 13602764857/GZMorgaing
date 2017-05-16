@@ -13,7 +13,7 @@
 -(void)GZMpublicTextFiledPlacehoderWith:(UIColor *)color withSize:(CGFloat)lableSize WithholderText:(NSString *)holderText Withalignment:(NSTextAlignment)type{
     NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc] init];
     style.alignment = type;
-    NSAttributedString *attri = [[NSAttributedString alloc] initWithString:holderText attributes:@{NSForegroundColorAttributeName:color,NSFontAttributeName:[UIFont systemFontOfSize:lableSize], NSParagraphStyleAttributeName:style}];
+    NSAttributedString *attri = [[NSAttributedString alloc] initWithString:holderText attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:lableSize], NSParagraphStyleAttributeName:style}];
     self.attributedPlaceholder = attri;
 }
 

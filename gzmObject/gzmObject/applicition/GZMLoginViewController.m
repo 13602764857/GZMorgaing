@@ -24,7 +24,20 @@
 }
 /*********修改UI*********/
 -(void)GZM_creatUI{
-    [self.userTextField GZMpublicTextFiledPlacehoderWith:[UIColor GZMLightColor] withSize:13 WithholderText:@"密码" Withalignment:NSTextAlignmentCenter];
+    [self.userTextField GZMpublicTextFiledPlacehoderWith:[UIColor GZMLightColor] withSize:13 WithholderText:@"请输入账号" Withalignment:NSTextAlignmentCenter];
+    UIImageView * userTExtView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"账户"]];
+    self.userTextField.leftViewMode = UITextFieldViewModeAlways;
+    self.userTextField.clearButtonMode = UITextFieldViewModeAlways;
+    self.userTextField.leftView = userTExtView;
+    self.userTextField.textAlignment = NSTextAlignmentCenter;
+    
+    
+    [self.passWordTextField GZMpublicTextFiledPlacehoderWith:[UIColor GZMLightColor] withSize:13 WithholderText:@"请输入密码" Withalignment:NSTextAlignmentCenter];
+    UIImageView * userTExtView1 = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"账户"]];
+    self.passWordTextField.leftViewMode = UITextFieldViewModeAlways;
+    self.passWordTextField.clearButtonMode = UITextFieldViewModeAlways;
+    self.passWordTextField.leftView = userTExtView1;
+    self.passWordTextField.textAlignment = NSTextAlignmentCenter;
     
 }
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
