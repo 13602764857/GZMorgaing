@@ -12,5 +12,5 @@
 #import <AFNetworking.h>
 #import <MJExtension.h>
 #import "ZJModelTool.h"
-
+#import <Masonry.h>
 #endif /* ThreePart_h */

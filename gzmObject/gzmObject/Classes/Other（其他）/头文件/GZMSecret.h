@@ -12,4 +12,5 @@
 #import "AlerYangShi.h"
 #define toketen [[NSUserDefaults standardUserDefaults] stringForKey:@"toketen"]
 #define UserDefaults [NSUserDefaults standardUserDefaults]
+#define getMasonrySize(size) size * FITNUM
 #endif /* GZMSecret_h */

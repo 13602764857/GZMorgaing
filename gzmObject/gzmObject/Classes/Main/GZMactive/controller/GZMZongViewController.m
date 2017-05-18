@@ -33,6 +33,7 @@
 -(void)creatFather{
     /******* 头部隐藏  *******/
     self.imageView1.hidden = YES;
+
 }
 
 -(void)creatUI{
@@ -40,6 +41,9 @@
     button.backgroundColor = MianColor;
     [button addTarget:self action:@selector(buttonclick) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:button];
+    [button mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+    }];
 }
 -(void)buttonclick{
     self.tabBarController.tabBar.hidden = YES;

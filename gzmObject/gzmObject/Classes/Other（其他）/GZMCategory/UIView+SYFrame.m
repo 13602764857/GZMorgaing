@@ -127,8 +127,9 @@
 -(void)GZMchangeStyleWith:(CGFloat)size withborad:(CGFloat)borcdSize withBoardColor:(UIColor *)color{
     self.layer.cornerRadius = size;
     self.layer.masksToBounds = YES;
+    
+    self.layer.borderColor = color.CGColor;
     self.layer.borderWidth = borcdSize;
-    self.layer.borderColor = (__bridge CGColorRef _Nullable)(color);
 }
 
 

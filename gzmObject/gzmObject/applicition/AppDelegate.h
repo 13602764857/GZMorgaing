@@ -13,5 +13,7 @@
 @property (strong, nonatomic) UIWindow *window;
 
 @property(nonatomic,assign)AFNetworkReachabilityStatus reach;
+@property float autoSizeScale;
+
 @end
 
