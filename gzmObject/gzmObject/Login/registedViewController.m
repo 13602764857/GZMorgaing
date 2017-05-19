@@ -16,7 +16,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self GZM_CreatFather];
     // Do any additional setup after loading the view.
+}
+/*********私有父类的方法*********/
+-(void)GZM_CreatFather{
+    self.imageView1.hidden = YES;
+}
+- (IBAction)backClick:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)didReceiveMemoryWarning {

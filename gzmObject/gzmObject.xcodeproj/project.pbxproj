@@ -33,6 +33,7 @@
 		156DDB281ECB6CC20050F037 /* GZMLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 156DDB261ECB6CC20050F037 /* GZMLoginViewController.m */; };
 		156DDB291ECB6CC20050F037 /* GZMLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 156DDB271ECB6CC20050F037 /* GZMLoginViewController.xib */; };
 		156DDB2C1ECB6DC20050F037 /* registedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 156DDB2B1ECB6DC20050F037 /* registedViewController.m */; };
+		156DDB321ECE4EAC0050F037 /* registedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 156DDB311ECE4EAC0050F037 /* registedViewController.xib */; };
 		158797831EAFEF6100DA40CF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 158797821EAFEF6100DA40CF /* main.m */; };
 		1587978C1EAFEF6100DA40CF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1587978A1EAFEF6100DA40CF /* Main.storyboard */; };
 		1587978E1EAFEF6100DA40CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1587978D1EAFEF6100DA40CF /* Assets.xcassets */; };
@@ -128,6 +129,7 @@
 		156DDB271ECB6CC20050F037 /* GZMLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GZMLoginViewController.xib; sourceTree = "<group>"; };
 		156DDB2A1ECB6DC20050F037 /* registedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = registedViewController.h; sourceTree = "<group>"; };
 		156DDB2B1ECB6DC20050F037 /* registedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = registedViewController.m; sourceTree = "<group>"; };
+		156DDB311ECE4EAC0050F037 /* registedViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = registedViewController.xib; sourceTree = "<group>"; };
 		1587977E1EAFEF6100DA40CF /* gzmObject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gzmObject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		158797821EAFEF6100DA40CF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1587978B1EAFEF6100DA40CF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -340,6 +342,7 @@
 				156DDB271ECB6CC20050F037 /* GZMLoginViewController.xib */,
 				156DDB2A1ECB6DC20050F037 /* registedViewController.h */,
 				156DDB2B1ECB6DC20050F037 /* registedViewController.m */,
+				156DDB311ECE4EAC0050F037 /* registedViewController.xib */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -649,6 +652,7 @@
 				1505E1681EB2B10700C61DFC /* onrViewController.xib in Resources */,
 				1587978E1EAFEF6100DA40CF /* Assets.xcassets in Resources */,
 				1587978C1EAFEF6100DA40CF /* Main.storyboard in Resources */,
+				156DDB321ECE4EAC0050F037 /* registedViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
