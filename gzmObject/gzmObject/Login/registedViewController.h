@@ -9,5 +9,7 @@
 #import "FatherViewController.h"
 
 @interface registedViewController : FatherViewController
+@property (weak, nonatomic) IBOutlet UIPickerView *myPickerView;
+
 
 @end

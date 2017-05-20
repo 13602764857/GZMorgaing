@@ -8,7 +8,7 @@
 
 #import "registedViewController.h"
 
-@interface registedViewController ()
+@interface registedViewController ()<UIPickerViewDelegate,UIPickerViewDataSource>
 
 @end
 
@@ -21,8 +21,25 @@
 }
 /*********私有父类的方法*********/
 -(void)GZM_CreatFather{
-    self.imageView1.hidden = YES;
+//    self.imageView1.hidden = YES;
+    self.myPickerView.delegate = self;
+    self.myPickerView.dataSource = self;
+   
 }
+
+-(NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
+{
+    return 5;
+}
+
+-(void)leftbutton1Click{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+-(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
+    return 1;
+}
+
 - (IBAction)backClick:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
