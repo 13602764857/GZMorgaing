@@ -60,6 +60,7 @@
     self.leftbutton1 = [[UIButton alloc]initWithFrame:CGRectMake(0, 25, 60, 34)];
     [self.leftbutton1 setTitle:@"    " forState:UIControlStateNormal];
     [self.leftbutton1 addTarget:self action:@selector(leftbutton1Click) forControlEvents:UIControlEventTouchUpInside];
+    [self.leftbutton1 setImage:[UIImage imageNamed:@"返回"] forState:UIControlStateNormal];
     [self.imageView1 addSubview:self.leftbutton1];
     
     
@@ -74,7 +75,7 @@
     //    self.rightbutton1.backgroundColor = [UIColor whiteColor];
     [self.imageView1 addSubview:self.rightbutton1];
     
-    [self.leftbutton1 setImage:[UIImage imageNamed:@"Back_arrow"] forState:UIControlStateNormal];
+//    [self.leftbutton1 setImage:[UIImage imageNamed:@"Back_arrow"] forState:UIControlStateNormal];
     
     
 }

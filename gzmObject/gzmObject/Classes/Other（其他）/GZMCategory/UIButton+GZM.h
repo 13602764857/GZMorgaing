@@ -13,4 +13,6 @@
 -(void)GZMLeftBUtton;
 /******* 让button的文字和图片上下  *******/
 -(void)GZMTopBUtton;
+/********** 让button左边文字靠近 右边图片靠************/
+-(void)GZMlefiRightButton;
 @end

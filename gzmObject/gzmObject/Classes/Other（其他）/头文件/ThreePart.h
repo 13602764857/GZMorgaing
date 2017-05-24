@@ -13,4 +13,5 @@
 #import <MJExtension.h>
 #import "ZJModelTool.h"
 #import <Masonry.h>
+#import "UIImageView+WebCache.h"
 #endif /* ThreePart_h */

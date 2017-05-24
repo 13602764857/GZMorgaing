@@ -9,7 +9,7 @@
 #ifndef GZMApi_h
 #define GZMApi_h
 #import "RequestTool.h"
-#define BaseUrl @"http://192.168.87.160:8080/"
+#define BaseUrl @"http://192.168.0.160:8080/"
 /********** 登陆************/
 #define ModifyNickName          @"api/Account/ModifyNickName"
 #define UserLogin                   @"Author/UserLogin"
@@ -21,4 +21,10 @@
 #define DeleteProject          @"api/Project/DeleteProject"
 #define ModifyProject          @"api/Project/ModifyProject"
 #define CreateProject          @"api/Project/CreateProject"
+
+
+/********** 问题列表************/
+#define QuestionList          @"api/Account/QuestionList"
+
+
 #endif /* GZMApi_h */
