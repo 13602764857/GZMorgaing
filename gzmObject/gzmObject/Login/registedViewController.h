@@ -14,9 +14,9 @@
 @property (weak, nonatomic) IBOutlet UITextField *passWordTexield;
 @property (weak, nonatomic) IBOutlet UIButton *oneButton;
 @property (weak, nonatomic) IBOutlet UITextField *twoPasswordTextField;
-@property (weak, nonatomic) IBOutlet UITextField *imageTextfield;
+//@property (weak, nonatomic) IBOutlet UITextField *imageTextfield;
 @property (weak, nonatomic) IBOutlet UIScrollView *mainScrollView;
-@property (weak, nonatomic) IBOutlet UIImageView *yanzhengImageView;
+//@property (weak, nonatomic) IBOutlet UIImageView *yanzhengImageView;
 
 @property (weak, nonatomic) IBOutlet UIButton *twoButton;
 @property (weak, nonatomic) IBOutlet UIButton *threeButton;

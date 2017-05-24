@@ -13,6 +13,8 @@
 /********** 登陆************/
 #define ModifyNickName          @"api/Account/ModifyNickName"
 #define UserLogin                   @"Author/UserLogin"
+#define Register                   @"api/Account/Register"
+
 /********** 项目************/
 #define GetProjectList          @"api/Project/GetProjectList"
 #define ProjectDetails          @"api/Project/ProjectDetails"

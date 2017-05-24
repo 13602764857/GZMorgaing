@@ -31,7 +31,7 @@
 -(void)GZM_setTableView{
     [self.view addSubview:self.GZMTableView];
     [self.GZMTableView registerNib:[UINib nibWithNibName:@"GZmprojectTableViewCell" bundle:nil] forCellReuseIdentifier:@"cell"];
-    self.GZMTableView.frame = CGRectMake(0, 64, Width, Height - 64);
+    self.GZMTableView.frame = CGRectMake(0, 64, Width, Height - 64 - 49);
     self.GZMTableView.rowHeight = 120;
 }
 -(void)creatData{

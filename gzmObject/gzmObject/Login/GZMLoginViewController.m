@@ -10,6 +10,7 @@
 #import "GZMZongViewController.h"
 #import "GZMTabbatViewController.h"
 #import "registedViewController.h"
+#import "GZMForgetViewController.h"
 @interface GZMLoginViewController ()<UITextFieldDelegate>
 
 @end
@@ -71,6 +72,8 @@
 }
 - (IBAction)forgetPassWord:(id)sender {
     [self GZM_Hidden];
+    GZMForgetViewController * forget = [[GZMForgetViewController alloc] init];
+    [self presentViewController:forget animated:YES completion:nil];
 }
 - (IBAction)registered:(id)sender {
     [self GZM_Hidden];

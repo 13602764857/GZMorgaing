@@ -27,7 +27,7 @@
 //    RootVc = [[GZMZongViewController alloc] init];
     if (toketen.length > 0) {
         RootVc = [[GZMTabbatViewController alloc] init];
-        RootVc = [[GZMLoginViewController alloc] init];
+        //RootVc = [[GZMLoginViewController alloc] init];
     }else{
         RootVc = [[GZMLoginViewController alloc] init];
     }

@@ -17,23 +17,26 @@
 		1505E1481EB15A0300C61DFC /* ZJModelTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 1505E1401EB15A0300C61DFC /* ZJModelTool.m */; };
 		1505E14C1EB15B6100C61DFC /* RequestTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 1505E14B1EB15B6100C61DFC /* RequestTool.m */; };
 		1505E14F1EB15C4900C61DFC /* LoadIngView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1505E14E1EB15C4900C61DFC /* LoadIngView.m */; };
-		1505E1541EB1657400C61DFC /* GZMZongViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1505E1531EB1657400C61DFC /* GZMZongViewController.m */; };
 		1505E15A1EB27B5500C61DFC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1505E1571EB27B5500C61DFC /* AppDelegate.m */; };
 		1505E15B1EB27B5500C61DFC /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1505E1591EB27B5500C61DFC /* ViewController.m */; };
 		1505E15E1EB27BA100C61DFC /* GZMRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1505E15D1EB27BA100C61DFC /* GZMRootViewController.m */; };
 		1505E1671EB2B10700C61DFC /* onrViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1505E1651EB2B10700C61DFC /* onrViewController.m */; };
 		1505E1681EB2B10700C61DFC /* onrViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1505E1661EB2B10700C61DFC /* onrViewController.xib */; };
 		1505E16E1EB2C0E900C61DFC /* GZMTabbatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1505E16D1EB2C0E900C61DFC /* GZMTabbatViewController.m */; };
-		1505E1781EB2C6AD00C61DFC /* GZMMyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1505E1771EB2C6AD00C61DFC /* GZMMyViewController.m */; };
-		1505E1821EC0D9F200C61DFC /* GZMProjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1505E1811EC0D9F200C61DFC /* GZMProjectViewController.m */; };
-		151339861EC374E400BA798B /* GZmprojectTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 151339841EC374E400BA798B /* GZmprojectTableViewCell.m */; };
-		151339871EC374E400BA798B /* GZmprojectTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 151339851EC374E400BA798B /* GZmprojectTableViewCell.xib */; };
-		1513398A1EC374E400BA798B /* GZMProjectModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 151339891EC374E400BA798B /* GZMProjectModel.m */; };
 		156DDB211ECA27D60050F037 /* UITextField+GZM.m in Sources */ = {isa = PBXBuildFile; fileRef = 156DDB201ECA27D60050F037 /* UITextField+GZM.m */; };
 		156DDB281ECB6CC20050F037 /* GZMLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 156DDB261ECB6CC20050F037 /* GZMLoginViewController.m */; };
 		156DDB291ECB6CC20050F037 /* GZMLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 156DDB271ECB6CC20050F037 /* GZMLoginViewController.xib */; };
 		156DDB2C1ECB6DC20050F037 /* registedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 156DDB2B1ECB6DC20050F037 /* registedViewController.m */; };
 		156DDB321ECE4EAC0050F037 /* registedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 156DDB311ECE4EAC0050F037 /* registedViewController.xib */; };
+		1579B8EB1ED5F8E3000325FC /* GZMForgetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1579B8E91ED5F8E3000325FC /* GZMForgetViewController.m */; };
+		1579B8EC1ED5F8E3000325FC /* GZMForgetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1579B8EA1ED5F8E3000325FC /* GZMForgetViewController.xib */; };
+		1579B9551ED64732000325FC /* GZMMyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1579B9431ED64732000325FC /* GZMMyViewController.m */; };
+		1579B9561ED64732000325FC /* GZMZongViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1579B9471ED64732000325FC /* GZMZongViewController.m */; };
+		1579B9571ED64732000325FC /* GZMProjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1579B94D1ED64732000325FC /* GZMProjectViewController.m */; };
+		1579B9581ED64732000325FC /* GZMProjectModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1579B9501ED64732000325FC /* GZMProjectModel.m */; };
+		1579B9591ED64732000325FC /* GZmprojectTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1579B9531ED64732000325FC /* GZmprojectTableViewCell.m */; };
+		1579B95A1ED64732000325FC /* GZmprojectTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1579B9541ED64732000325FC /* GZmprojectTableViewCell.xib */; };
+		1579B95D1ED647B0000325FC /* GZMequipmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1579B95C1ED647B0000325FC /* GZMequipmentViewController.m */; };
 		158797831EAFEF6100DA40CF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 158797821EAFEF6100DA40CF /* main.m */; };
 		1587978C1EAFEF6100DA40CF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1587978A1EAFEF6100DA40CF /* Main.storyboard */; };
 		1587978E1EAFEF6100DA40CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1587978D1EAFEF6100DA40CF /* Assets.xcassets */; };
@@ -100,8 +103,6 @@
 		1505E14D1EB15C4900C61DFC /* LoadIngView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadIngView.h; sourceTree = "<group>"; };
 		1505E14E1EB15C4900C61DFC /* LoadIngView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadIngView.m; sourceTree = "<group>"; };
 		1505E1511EB15D9400C61DFC /* GZMSecret.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GZMSecret.h; sourceTree = "<group>"; };
-		1505E1521EB1657400C61DFC /* GZMZongViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GZMZongViewController.h; sourceTree = "<group>"; };
-		1505E1531EB1657400C61DFC /* GZMZongViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GZMZongViewController.m; sourceTree = "<group>"; };
 		1505E1561EB27B5500C61DFC /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		1505E1571EB27B5500C61DFC /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		1505E1581EB27B5500C61DFC /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
@@ -113,15 +114,6 @@
 		1505E1661EB2B10700C61DFC /* onrViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = onrViewController.xib; sourceTree = "<group>"; };
 		1505E16C1EB2C0E900C61DFC /* GZMTabbatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GZMTabbatViewController.h; sourceTree = "<group>"; };
 		1505E16D1EB2C0E900C61DFC /* GZMTabbatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GZMTabbatViewController.m; sourceTree = "<group>"; };
-		1505E1761EB2C6AD00C61DFC /* GZMMyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GZMMyViewController.h; sourceTree = "<group>"; };
-		1505E1771EB2C6AD00C61DFC /* GZMMyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GZMMyViewController.m; sourceTree = "<group>"; };
-		1505E1801EC0D9F200C61DFC /* GZMProjectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GZMProjectViewController.h; sourceTree = "<group>"; };
-		1505E1811EC0D9F200C61DFC /* GZMProjectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GZMProjectViewController.m; sourceTree = "<group>"; };
-		151339831EC374E400BA798B /* GZmprojectTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GZmprojectTableViewCell.h; path = "gzmObject/Classes/Main/Project（项目）/controller/GZmprojectTableViewCell.h"; sourceTree = SOURCE_ROOT; };
-		151339841EC374E400BA798B /* GZmprojectTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GZmprojectTableViewCell.m; path = "gzmObject/Classes/Main/Project（项目）/controller/GZmprojectTableViewCell.m"; sourceTree = SOURCE_ROOT; };
-		151339851EC374E400BA798B /* GZmprojectTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GZmprojectTableViewCell.xib; path = "gzmObject/Classes/Main/Project（项目）/controller/GZmprojectTableViewCell.xib"; sourceTree = SOURCE_ROOT; };
-		151339881EC374E400BA798B /* GZMProjectModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GZMProjectModel.h; path = "gzmObject/Classes/Main/Project（项目）/controller/GZMProjectModel.h"; sourceTree = SOURCE_ROOT; };
-		151339891EC374E400BA798B /* GZMProjectModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GZMProjectModel.m; path = "gzmObject/Classes/Main/Project（项目）/controller/GZMProjectModel.m"; sourceTree = SOURCE_ROOT; };
 		156DDB1F1ECA27D60050F037 /* UITextField+GZM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+GZM.h"; sourceTree = "<group>"; };
 		156DDB201ECA27D60050F037 /* UITextField+GZM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+GZM.m"; sourceTree = "<group>"; };
 		156DDB251ECB6CC20050F037 /* GZMLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GZMLoginViewController.h; sourceTree = "<group>"; };
@@ -130,6 +122,22 @@
 		156DDB2A1ECB6DC20050F037 /* registedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = registedViewController.h; sourceTree = "<group>"; };
 		156DDB2B1ECB6DC20050F037 /* registedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = registedViewController.m; sourceTree = "<group>"; };
 		156DDB311ECE4EAC0050F037 /* registedViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = registedViewController.xib; sourceTree = "<group>"; };
+		1579B8E81ED5F8E3000325FC /* GZMForgetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GZMForgetViewController.h; sourceTree = "<group>"; };
+		1579B8E91ED5F8E3000325FC /* GZMForgetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GZMForgetViewController.m; sourceTree = "<group>"; };
+		1579B8EA1ED5F8E3000325FC /* GZMForgetViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GZMForgetViewController.xib; sourceTree = "<group>"; };
+		1579B9421ED64732000325FC /* GZMMyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GZMMyViewController.h; sourceTree = "<group>"; };
+		1579B9431ED64732000325FC /* GZMMyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GZMMyViewController.m; sourceTree = "<group>"; };
+		1579B9461ED64732000325FC /* GZMZongViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GZMZongViewController.h; sourceTree = "<group>"; };
+		1579B9471ED64732000325FC /* GZMZongViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GZMZongViewController.m; sourceTree = "<group>"; };
+		1579B94C1ED64732000325FC /* GZMProjectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GZMProjectViewController.h; sourceTree = "<group>"; };
+		1579B94D1ED64732000325FC /* GZMProjectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GZMProjectViewController.m; sourceTree = "<group>"; };
+		1579B94F1ED64732000325FC /* GZMProjectModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GZMProjectModel.h; sourceTree = "<group>"; };
+		1579B9501ED64732000325FC /* GZMProjectModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GZMProjectModel.m; sourceTree = "<group>"; };
+		1579B9521ED64732000325FC /* GZmprojectTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GZmprojectTableViewCell.h; sourceTree = "<group>"; };
+		1579B9531ED64732000325FC /* GZmprojectTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GZmprojectTableViewCell.m; sourceTree = "<group>"; };
+		1579B9541ED64732000325FC /* GZmprojectTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GZmprojectTableViewCell.xib; sourceTree = "<group>"; };
+		1579B95B1ED647B0000325FC /* GZMequipmentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GZMequipmentViewController.h; sourceTree = "<group>"; };
+		1579B95C1ED647B0000325FC /* GZMequipmentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GZMequipmentViewController.m; sourceTree = "<group>"; };
 		1587977E1EAFEF6100DA40CF /* gzmObject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gzmObject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		158797821EAFEF6100DA40CF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1587978B1EAFEF6100DA40CF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -263,77 +271,6 @@
 			path = applicition;
 			sourceTree = "<group>";
 		};
-		1505E16F1EB2C63400C61DFC /* 我的 */ = {
-			isa = PBXGroup;
-			children = (
-				1505E1701EB2C66B00C61DFC /* controller */,
-				1505E1731EB2C66B00C61DFC /* Model */,
-				1505E1741EB2C66B00C61DFC /* View */,
-			);
-			path = "我的";
-			sourceTree = "<group>";
-		};
-		1505E1701EB2C66B00C61DFC /* controller */ = {
-			isa = PBXGroup;
-			children = (
-				1505E1761EB2C6AD00C61DFC /* GZMMyViewController.h */,
-				1505E1771EB2C6AD00C61DFC /* GZMMyViewController.m */,
-			);
-			path = controller;
-			sourceTree = "<group>";
-		};
-		1505E1731EB2C66B00C61DFC /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		1505E1741EB2C66B00C61DFC /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		1505E1791EC0D95D00C61DFC /* Project（项目） */ = {
-			isa = PBXGroup;
-			children = (
-				1505E17A1EC0D95D00C61DFC /* controller */,
-				1505E17D1EC0D95D00C61DFC /* Model */,
-				1505E17E1EC0D95D00C61DFC /* View */,
-			);
-			path = "Project（项目）";
-			sourceTree = "<group>";
-		};
-		1505E17A1EC0D95D00C61DFC /* controller */ = {
-			isa = PBXGroup;
-			children = (
-				1505E1801EC0D9F200C61DFC /* GZMProjectViewController.h */,
-				1505E1811EC0D9F200C61DFC /* GZMProjectViewController.m */,
-			);
-			path = controller;
-			sourceTree = "<group>";
-		};
-		1505E17D1EC0D95D00C61DFC /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				151339881EC374E400BA798B /* GZMProjectModel.h */,
-				151339891EC374E400BA798B /* GZMProjectModel.m */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		1505E17E1EC0D95D00C61DFC /* View */ = {
-			isa = PBXGroup;
-			children = (
-				151339831EC374E400BA798B /* GZmprojectTableViewCell.h */,
-				151339841EC374E400BA798B /* GZmprojectTableViewCell.m */,
-				151339851EC374E400BA798B /* GZmprojectTableViewCell.xib */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 		156DDB241ECB6CC20050F037 /* Login */ = {
 			isa = PBXGroup;
 			children = (
@@ -343,8 +280,132 @@
 				156DDB2A1ECB6DC20050F037 /* registedViewController.h */,
 				156DDB2B1ECB6DC20050F037 /* registedViewController.m */,
 				156DDB311ECE4EAC0050F037 /* registedViewController.xib */,
+				1579B8E81ED5F8E3000325FC /* GZMForgetViewController.h */,
+				1579B8E91ED5F8E3000325FC /* GZMForgetViewController.m */,
+				1579B8EA1ED5F8E3000325FC /* GZMForgetViewController.xib */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		1579B93C1ED64732000325FC /* 设备列表 */ = {
+			isa = PBXGroup;
+			children = (
+				1579B93D1ED64732000325FC /* controller */,
+				1579B93E1ED64732000325FC /* model */,
+				1579B93F1ED64732000325FC /* view */,
+			);
+			path = "设备列表";
+			sourceTree = "<group>";
+		};
+		1579B93D1ED64732000325FC /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				1579B95B1ED647B0000325FC /* GZMequipmentViewController.h */,
+				1579B95C1ED647B0000325FC /* GZMequipmentViewController.m */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		1579B93E1ED64732000325FC /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		1579B93F1ED64732000325FC /* view */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		1579B9401ED64732000325FC /* 我的 */ = {
+			isa = PBXGroup;
+			children = (
+				1579B9411ED64732000325FC /* controller */,
+			);
+			path = "我的";
+			sourceTree = "<group>";
+		};
+		1579B9411ED64732000325FC /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				1579B9421ED64732000325FC /* GZMMyViewController.h */,
+				1579B9431ED64732000325FC /* GZMMyViewController.m */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		1579B9441ED64732000325FC /* GZMactive */ = {
+			isa = PBXGroup;
+			children = (
+				1579B9451ED64732000325FC /* controller */,
+				1579B9481ED64732000325FC /* model */,
+				1579B9491ED64732000325FC /* view */,
+			);
+			path = GZMactive;
+			sourceTree = "<group>";
+		};
+		1579B9451ED64732000325FC /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				1579B9461ED64732000325FC /* GZMZongViewController.h */,
+				1579B9471ED64732000325FC /* GZMZongViewController.m */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		1579B9481ED64732000325FC /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		1579B9491ED64732000325FC /* view */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		1579B94A1ED64732000325FC /* Project（项目） */ = {
+			isa = PBXGroup;
+			children = (
+				1579B94B1ED64732000325FC /* controller */,
+				1579B94E1ED64732000325FC /* MOdel */,
+				1579B9511ED64732000325FC /* View */,
+			);
+			path = "Project（项目）";
+			sourceTree = "<group>";
+		};
+		1579B94B1ED64732000325FC /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				1579B94C1ED64732000325FC /* GZMProjectViewController.h */,
+				1579B94D1ED64732000325FC /* GZMProjectViewController.m */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		1579B94E1ED64732000325FC /* MOdel */ = {
+			isa = PBXGroup;
+			children = (
+				1579B94F1ED64732000325FC /* GZMProjectModel.h */,
+				1579B9501ED64732000325FC /* GZMProjectModel.m */,
+			);
+			path = MOdel;
+			sourceTree = "<group>";
+		};
+		1579B9511ED64732000325FC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1579B9521ED64732000325FC /* GZmprojectTableViewCell.h */,
+				1579B9531ED64732000325FC /* GZmprojectTableViewCell.m */,
+				1579B9541ED64732000325FC /* GZmprojectTableViewCell.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		158797751EAFEF6000DA40CF = {
@@ -437,45 +498,13 @@
 		158797BC1EB023C600DA40CF /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				158797BD1EB0278900DA40CF /* GZMactive */,
-				1505E1791EC0D95D00C61DFC /* Project（项目） */,
-				1505E16F1EB2C63400C61DFC /* 我的 */,
+				1579B93C1ED64732000325FC /* 设备列表 */,
+				1579B9401ED64732000325FC /* 我的 */,
+				1579B9441ED64732000325FC /* GZMactive */,
+				1579B94A1ED64732000325FC /* Project（项目） */,
 			);
 			name = Main;
 			path = Classes/Main;
-			sourceTree = "<group>";
-		};
-		158797BD1EB0278900DA40CF /* GZMactive */ = {
-			isa = PBXGroup;
-			children = (
-				158797BE1EB0278900DA40CF /* controller */,
-				158797BF1EB0278900DA40CF /* Model */,
-				158797C01EB0278900DA40CF /* View */,
-			);
-			path = GZMactive;
-			sourceTree = "<group>";
-		};
-		158797BE1EB0278900DA40CF /* controller */ = {
-			isa = PBXGroup;
-			children = (
-				1505E1521EB1657400C61DFC /* GZMZongViewController.h */,
-				1505E1531EB1657400C61DFC /* GZMZongViewController.m */,
-			);
-			path = controller;
-			sourceTree = "<group>";
-		};
-		158797BF1EB0278900DA40CF /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		158797C01EB0278900DA40CF /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		158797C11EB027C800DA40CF /* father */ = {
@@ -646,10 +675,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1579B8EC1ED5F8E3000325FC /* GZMForgetViewController.xib in Resources */,
 				158797911EAFEF6100DA40CF /* LaunchScreen.storyboard in Resources */,
 				156DDB291ECB6CC20050F037 /* GZMLoginViewController.xib in Resources */,
-				151339871EC374E400BA798B /* GZmprojectTableViewCell.xib in Resources */,
 				1505E1681EB2B10700C61DFC /* onrViewController.xib in Resources */,
+				1579B95A1ED64732000325FC /* GZmprojectTableViewCell.xib in Resources */,
 				1587978E1EAFEF6100DA40CF /* Assets.xcassets in Resources */,
 				1587978C1EAFEF6100DA40CF /* Main.storyboard in Resources */,
 				156DDB321ECE4EAC0050F037 /* registedViewController.xib in Resources */,
@@ -726,12 +756,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				158797E41EB02C8400DA40CF /* UIButton+GZM.m in Sources */,
+				1579B9571ED64732000325FC /* GZMProjectViewController.m in Sources */,
 				158797C71EB027C800DA40CF /* withTableviewViewController.m in Sources */,
-				1513398A1EC374E400BA798B /* GZMProjectModel.m in Sources */,
 				1505E15A1EB27B5500C61DFC /* AppDelegate.m in Sources */,
 				158797E21EB02C8400DA40CF /* NSString+GZM.m in Sources */,
 				158797E81EB02C8400DA40CF /* UILabel+GZMlable.m in Sources */,
-				1505E1541EB1657400C61DFC /* GZMZongViewController.m in Sources */,
+				1579B9561ED64732000325FC /* GZMZongViewController.m in Sources */,
 				1505E14C1EB15B6100C61DFC /* RequestTool.m in Sources */,
 				158797E51EB02C8400DA40CF /* UIColor+GZM.m in Sources */,
 				158797ED1EB02DE300DA40CF /* UIView+SYFrame.m in Sources */,
@@ -743,14 +773,15 @@
 				1505E1421EB15A0300C61DFC /* downLoadView.m in Sources */,
 				1505E16E1EB2C0E900C61DFC /* GZMTabbatViewController.m in Sources */,
 				156DDB211ECA27D60050F037 /* UITextField+GZM.m in Sources */,
-				1505E1781EB2C6AD00C61DFC /* GZMMyViewController.m in Sources */,
 				1505E15B1EB27B5500C61DFC /* ViewController.m in Sources */,
 				158797E31EB02C8400DA40CF /* UIActivityIndicatorView+GZM.m in Sources */,
-				1505E1821EC0D9F200C61DFC /* GZMProjectViewController.m in Sources */,
+				1579B9591ED64732000325FC /* GZmprojectTableViewCell.m in Sources */,
+				1579B9581ED64732000325FC /* GZMProjectModel.m in Sources */,
 				158797E71EB02C8400DA40CF /* UIImageView+GZM.m in Sources */,
 				1505E14F1EB15C4900C61DFC /* LoadIngView.m in Sources */,
+				1579B8EB1ED5F8E3000325FC /* GZMForgetViewController.m in Sources */,
+				1579B95D1ED647B0000325FC /* GZMequipmentViewController.m in Sources */,
 				1505E1411EB15A0300C61DFC /* AlerYangShi.m in Sources */,
-				151339861EC374E400BA798B /* GZmprojectTableViewCell.m in Sources */,
 				1505E1461EB15A0300C61DFC /* XLWave.m in Sources */,
 				1505E1431EB15A0300C61DFC /* FileUtils.m in Sources */,
 				1505E1441EB15A0300C61DFC /* GZMAlertView.m in Sources */,
@@ -762,6 +793,7 @@
 				156DDB281ECB6CC20050F037 /* GZMLoginViewController.m in Sources */,
 				1505E1471EB15A0300C61DFC /* XLWaveProgress.m in Sources */,
 				1505E1481EB15A0300C61DFC /* ZJModelTool.m in Sources */,
+				1579B9551ED64732000325FC /* GZMMyViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

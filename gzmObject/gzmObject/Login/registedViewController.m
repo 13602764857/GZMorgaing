@@ -16,6 +16,9 @@
 @implementation registedViewController
 {
     NSInteger num;
+    NSString * oneNum;
+    NSString * twoNum;
+    NSString * threeNum;
 }
 
 - (void)viewDidLoad {
@@ -58,26 +61,17 @@
     
     
     [self.passWordTexield GZMchangeStyleWith:4 withborad:1 withBoardColor:[UIColor GZMcolorWithHexString:@"#199fff"]];
+    self.passWordTexield.secureTextEntry = YES;
     UIImageView * userTExtView1 = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"密码"]];
     self.passWordTexield.leftViewMode = UITextFieldViewModeAlways;
     self.passWordTexield.leftView = userTExtView1;
     
     [self.twoPasswordTextField GZMchangeStyleWith:4 withborad:1 withBoardColor:[UIColor GZMcolorWithHexString:@"#199fff"]];
+    self.twoPasswordTextField.secureTextEntry = YES;
     UIImageView * userTExtView2 = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"密码"]];
     self.twoPasswordTextField.leftViewMode = UITextFieldViewModeAlways;
     self.twoPasswordTextField.leftView = userTExtView2;
     
-    
-    [self.imageTextfield GZMchangeStyleWith:4 withborad:1 withBoardColor:[UIColor GZMcolorWithHexString:@"#199fff"]];
-    UIImageView * userTExtView3 = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"验证码"]];
-    self.imageTextfield.leftViewMode = UITextFieldViewModeAlways;
-    self.imageTextfield.leftView = userTExtView3;
-    
-    [self.yanzhengImageView GZMchangeStyleWith:4 withborad:1 withBoardColor:[UIColor GZMcolorWithHexString:@"#199fff"]];
-    UITapGestureRecognizer * tap1 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imageTapClick)];
-    self.yanzhengImageView.userInteractionEnabled = YES;
-    [self.yanzhengImageView addGestureRecognizer:tap1];
-    [self.yanzhengImageView sd_setImageWithURL:[NSURL URLWithString:[BaseUrl stringByAppendingString:@"/Index/ValiCode"]] placeholderImage:nil];
     
     /********** 密保样式设置************/
      [self.oneButton GZMchangeStyleWith:4 withborad:1 withBoardColor:[UIColor GZMcolorWithHexString:@"#199fff"]];
@@ -86,11 +80,6 @@
     
 }
 
-/*********图片验证码点击*********/
--(void)imageTapClick{
-    NSString * str = [NSString stringWithFormat:@"/Index/ValiCode?t=%d",arc4random() % 10000];
-    [self.yanzhengImageView sd_setImageWithURL:[NSURL URLWithString:[BaseUrl stringByAppendingString:str]] placeholderImage:nil];
-}
 
 - (IBAction)oneClick:(id)sender {
 //    UIButton * button = (UIButton *)sender;
@@ -113,12 +102,15 @@
     NSLog(@"%ld",(long)row);
     if (num == 0) {
         [self.oneButton setTitle:self.dataArr[row][@"SafetyQuestion"] forState:UIControlStateNormal];
+        oneNum = [NSString stringWithFormat:@"%@",self.dataArr[row][@"QuestionID"]];
     }
     if (num == 1) {
         [self.twoButton setTitle:self.dataArr[row][@"SafetyQuestion"] forState:UIControlStateNormal];
+        twoNum = [NSString stringWithFormat:@"%@",self.dataArr[row][@"QuestionID"]];
     }
     if (num == 2) {
         [self.threeButton setTitle:self.dataArr[row][@"SafetyQuestion"] forState:UIControlStateNormal];
+        threeNum = [NSString stringWithFormat:@"%@",self.dataArr[row][@"QuestionID"]];
     }
 }
 -(void)leftbutton1Click{
@@ -141,22 +133,48 @@
         [AlerYangShi tishiWithMessage:@"两次密码请输入一致" WithVc:self];
         return;
     }
-    if (self.imageTextfield.text.length == 0) {
-        [AlerYangShi tishiWithMessage:@"请输入图形验证码" WithVc:self];
+//    if (self.imageTextfield.text.length == 0) {
+//        [AlerYangShi tishiWithMessage:@"请输入图形验证码" WithVc:self];
+//        return;
+//    }
+    if (oneNum.length == 0) {
+        [AlerYangShi tishiWithMessage:@"密保问题一不能为空" WithVc:self];
         return;
     }
+    if (twoNum.length == 0) {
+        [AlerYangShi tishiWithMessage:@"密保问题二不能为空" WithVc:self];
+        return;
+    }
+
+    if (threeNum.length == 0) {
+        [AlerYangShi tishiWithMessage:@"密保问题三不能为空" WithVc:self];
+        return;
+    }
+
     if (self.oneanswertextFiled.text.length == 0) {
-        [AlerYangShi tishiWithMessage:@"问题一不能为空" WithVc:self];
+        [AlerYangShi tishiWithMessage:@"问题一答案不能为空" WithVc:self];
         return;
     }
     if (self.TwoanswertextFiled.text.length == 0) {
-        [AlerYangShi tishiWithMessage:@"问题二不能为空" WithVc:self];
+        [AlerYangShi tishiWithMessage:@"问题二答案不能为空" WithVc:self];
         return;
     }
     if (self.threeanswertextFiled.text.length == 0) {
-        [AlerYangShi tishiWithMessage:@"问题三不能为空" WithVc:self];
+        [AlerYangShi tishiWithMessage:@"问题三答案不能为空" WithVc:self];
         return;
     }
+    
+    NSDictionary * dic = @{@"username":self.usertextField.text,@"userpass":self.passWordTexield.text,@"qid1":oneNum,@"answer1":self.oneanswertextFiled.text,@"qid2":twoNum,@"answer2":self.TwoanswertextFiled.text,@"qid3":threeNum,@"answer3":self.threeanswertextFiled.text,@"valicode":@"zzzzzz"};
+    [RequestTool sendPostAFRequest:[BaseUrl stringByAppendingString:Register] parameters:dic successBlock:^(id message) {
+        if ([message[@"issuccess"] isEqualToNumber:@0]) {
+            
+            [AlerYangShi tishiWithMessage:message[@"message"] WithVc:self];
+            return ;
+        }
+        
+    } failBlock:^(id message) {
+       
+    } delegate:self loadWith:mainLoading];
 }
 
 
