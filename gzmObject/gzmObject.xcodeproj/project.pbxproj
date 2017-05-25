@@ -37,6 +37,8 @@
 		1579B9591ED64732000325FC /* GZmprojectTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1579B9531ED64732000325FC /* GZmprojectTableViewCell.m */; };
 		1579B95A1ED64732000325FC /* GZmprojectTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1579B9541ED64732000325FC /* GZmprojectTableViewCell.xib */; };
 		1579B95D1ED647B0000325FC /* GZMequipmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1579B95C1ED647B0000325FC /* GZMequipmentViewController.m */; };
+		1579B9611ED66154000325FC /* GZMdetailProjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1579B95F1ED66154000325FC /* GZMdetailProjectViewController.m */; };
+		1579B9621ED66154000325FC /* GZMdetailProjectViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1579B9601ED66154000325FC /* GZMdetailProjectViewController.xib */; };
 		158797831EAFEF6100DA40CF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 158797821EAFEF6100DA40CF /* main.m */; };
 		1587978C1EAFEF6100DA40CF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1587978A1EAFEF6100DA40CF /* Main.storyboard */; };
 		1587978E1EAFEF6100DA40CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1587978D1EAFEF6100DA40CF /* Assets.xcassets */; };
@@ -138,6 +140,9 @@
 		1579B9541ED64732000325FC /* GZmprojectTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GZmprojectTableViewCell.xib; sourceTree = "<group>"; };
 		1579B95B1ED647B0000325FC /* GZMequipmentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GZMequipmentViewController.h; sourceTree = "<group>"; };
 		1579B95C1ED647B0000325FC /* GZMequipmentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GZMequipmentViewController.m; sourceTree = "<group>"; };
+		1579B95E1ED66154000325FC /* GZMdetailProjectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GZMdetailProjectViewController.h; sourceTree = "<group>"; };
+		1579B95F1ED66154000325FC /* GZMdetailProjectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GZMdetailProjectViewController.m; sourceTree = "<group>"; };
+		1579B9601ED66154000325FC /* GZMdetailProjectViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GZMdetailProjectViewController.xib; sourceTree = "<group>"; };
 		1587977E1EAFEF6100DA40CF /* gzmObject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gzmObject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		158797821EAFEF6100DA40CF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1587978B1EAFEF6100DA40CF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -385,6 +390,9 @@
 			children = (
 				1579B94C1ED64732000325FC /* GZMProjectViewController.h */,
 				1579B94D1ED64732000325FC /* GZMProjectViewController.m */,
+				1579B95E1ED66154000325FC /* GZMdetailProjectViewController.h */,
+				1579B95F1ED66154000325FC /* GZMdetailProjectViewController.m */,
+				1579B9601ED66154000325FC /* GZMdetailProjectViewController.xib */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -683,6 +691,7 @@
 				1587978E1EAFEF6100DA40CF /* Assets.xcassets in Resources */,
 				1587978C1EAFEF6100DA40CF /* Main.storyboard in Resources */,
 				156DDB321ECE4EAC0050F037 /* registedViewController.xib in Resources */,
+				1579B9621ED66154000325FC /* GZMdetailProjectViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -791,6 +800,7 @@
 				1505E15E1EB27BA100C61DFC /* GZMRootViewController.m in Sources */,
 				158797E11EB02C8400DA40CF /* NSDictionary+GZM.m in Sources */,
 				156DDB281ECB6CC20050F037 /* GZMLoginViewController.m in Sources */,
+				1579B9611ED66154000325FC /* GZMdetailProjectViewController.m in Sources */,
 				1505E1471EB15A0300C61DFC /* XLWaveProgress.m in Sources */,
 				1505E1481EB15A0300C61DFC /* ZJModelTool.m in Sources */,
 				1579B9551ED64732000325FC /* GZMMyViewController.m in Sources */,

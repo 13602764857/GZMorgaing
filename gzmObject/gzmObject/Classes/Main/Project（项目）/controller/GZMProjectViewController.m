@@ -9,7 +9,7 @@
 #import "GZMProjectViewController.h"
 #import "GZmprojectTableViewCell.h"
 #import "GZMProjectModel.h"
-
+#import "GZMdetailProjectViewController.h"
 @interface GZMProjectViewController ()
 
 @end
@@ -21,8 +21,24 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     pindex = 1;
+    [self GZM_creatFather];
     [self GZM_setTableView];
+    
     // Do any additional setup after loading the view.
+}
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    self.tabBarController.tabBar.hidden = NO;
+}
+
+/*********<#私有方法#>*********/
+-(void)GZM_creatFather{
+    self.leftbutton1.hidden = YES;
+    self.mainlable1.text = @"项目中心";
+    self.rightbutton1.x = Width - 10 - 100;
+    self.rightbutton1.width = 100;
+    [self.rightbutton1 setTitle:@"创建项目" forState:UIControlStateNormal];
+    
 }
 -(void)leftbutton1Click{
     [self.navigationController popViewControllerAnimated:YES];
@@ -91,7 +107,11 @@
     [super tableView:tableView didSelectRowAtIndexPath:indexPath];
     GZMProjectModel * mo = self.GZMDataArr[indexPath.row];
     [RequestTool sendPostAFRequest:[BaseUrl stringByAppendingString:ProjectDetails] parameters:@{@"token":toketen,@"projectid":mo.ProjectID} successBlock:^(id message) {
-        
+        if ([message[@"issuccess"] isEqualToNumber:@1]) {
+            self.tabBarController.tabBar.hidden = YES;
+            GZMdetailProjectViewController * detail = [[GZMdetailProjectViewController alloc] init];
+            [self.navigationController pushViewController:detail animated:YES];
+        }
     } failBlock:^(id message) {
         
     } delegate:self loadWith:mainLoading];
