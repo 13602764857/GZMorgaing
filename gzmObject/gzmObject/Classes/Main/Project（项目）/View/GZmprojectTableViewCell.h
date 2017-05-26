@@ -11,4 +11,10 @@
 @interface GZmprojectTableViewCell : UITableViewCell
 /**********模型 ************/
 @property(nonatomic,strong)GZMProjectModel * mo;
+@property (weak, nonatomic) IBOutlet UIImageView *bigImageView;
+@property (weak, nonatomic) IBOutlet UILabel *twoLable;
+@property (weak, nonatomic) IBOutlet UILabel *onelable;
+@property (weak, nonatomic) IBOutlet UILabel *threeLable;
+@property (weak, nonatomic) IBOutlet UILabel *fourLable;
+@property (weak, nonatomic) IBOutlet UILabel *fiveLable;
 @end

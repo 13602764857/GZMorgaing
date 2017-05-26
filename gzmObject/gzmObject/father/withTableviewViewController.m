@@ -19,6 +19,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.page = 1;
     self.GZMDataArr = [NSMutableArray array];
     self.GZMCollData = [NSMutableArray array];
     self.empytext = onlyTitle;
@@ -114,7 +115,7 @@
         _GZMTableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(creatData)];
         [_GZMTableView.mj_header beginRefreshing];
         _GZMTableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(creatMoreData)];
-        _GZMTableView.backgroundColor = [UIColor whiteColor];
+        _GZMTableView.backgroundColor = [UIColor GZMLightColor];
         _GZMTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
        
     }

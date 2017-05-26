@@ -225,7 +225,7 @@
     }];
 }
 
-/*********激活输入框*********/
+/*********输入框*********/
 -(void)GZM_Hidden{
     [UIView animateWithDuration:0.25 animations:^{
         self.view.y = 0;

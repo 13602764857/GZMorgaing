@@ -91,7 +91,7 @@
         [AlerYangShi showMessage:@"密码不能为空" duration:1];
         return;
     }
-    [RequestTool sendPostAFRequest:[BaseUrl stringByAppendingString:UserLogin] parameters:@{@"username":@"yangjian1",@"userpass":@"123qwe",@"valicode":@"zzzzzz"} successBlock:^(id message) {
+    [RequestTool sendPostAFRequest:[BaseUrl stringByAppendingString:UserLogin] parameters:@{@"username":@"yangjian",@"userpass":@"123qwe",@"valicode":@"zzzzzz"} successBlock:^(id message) {
         if ([message[@"issuccess"] isEqualToNumber:@1]) {
             NSUserDefaults * user = [NSUserDefaults standardUserDefaults];
             [user setObject:message[@"message"] forKey:@"toketen"];

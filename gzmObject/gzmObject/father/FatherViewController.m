@@ -48,7 +48,7 @@
 
 -(void)creatView
 {
-    self.view.backgroundColor = [UIColor whiteColor];
+    self.view.backgroundColor = [UIColor GZMLightColor];
     
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
     self.imageView1 = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0,Width, 64)];
@@ -67,10 +67,11 @@
     self.mainlable1  = [[UILabel alloc]initWithFrame:CGRectMake(55,25,Width-120, 34)];
     self.mainlable1.textAlignment = NSTextAlignmentCenter;
     self.mainlable1.textColor = [UIColor whiteColor];
+    self.mainlable1.font = [UIFont systemFontOfSize:19];
     [self.imageView1 addSubview:self.mainlable1];
     
     self.rightbutton1 = [[UIButton alloc]initWithFrame:CGRectMake(Width-45, 25, 40, 34)];
-    self.rightbutton1.titleLabel.font = [UIFont systemFontOfSize:15];
+    self.rightbutton1.titleLabel.font = [UIFont systemFontOfSize:13.3];
     [self.rightbutton1 addTarget:self action:@selector(rightbutton1Click) forControlEvents:UIControlEventTouchUpInside];
     //    self.rightbutton1.backgroundColor = [UIColor whiteColor];
     [self.imageView1 addSubview:self.rightbutton1];
@@ -88,6 +89,7 @@
 
 -(void)leftbutton1Click
 {
+    [self.navigationController popViewControllerAnimated:YES];
     //取消所有的请求
 //    [[AFHTTPSessionManager manager].operationQueue cancelAllOperations];
 }
@@ -99,7 +101,19 @@
 }
 
 
+-(void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    [self GZM_Hidden];
+}
 
+/*********输入框*********/
+-(void)GZM_Hidden{
+    [UIView animateWithDuration:0.25 animations:^{
+        self.view.y = 0;
+        [[[UIApplication sharedApplication] keyWindow] endEditing:YES];
+    } completion:^(BOOL finished) {
+        
+    }];
+}
 
 
 

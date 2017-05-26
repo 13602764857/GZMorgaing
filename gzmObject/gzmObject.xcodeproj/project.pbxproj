@@ -39,6 +39,13 @@
 		1579B95D1ED647B0000325FC /* GZMequipmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1579B95C1ED647B0000325FC /* GZMequipmentViewController.m */; };
 		1579B9611ED66154000325FC /* GZMdetailProjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1579B95F1ED66154000325FC /* GZMdetailProjectViewController.m */; };
 		1579B9621ED66154000325FC /* GZMdetailProjectViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1579B9601ED66154000325FC /* GZMdetailProjectViewController.xib */; };
+		1579B9661ED73ED1000325FC /* GZMCreatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1579B9641ED73ED1000325FC /* GZMCreatViewController.m */; };
+		1579B9671ED73ED1000325FC /* GZMCreatViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1579B9651ED73ED1000325FC /* GZMCreatViewController.xib */; };
+		1579B96A1ED75025000325FC /* GZMActivationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1579B9691ED75025000325FC /* GZMActivationViewController.m */; };
+		1579B96E1ED7545C000325FC /* GZMActiveTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1579B96C1ED7545C000325FC /* GZMActiveTableViewCell.m */; };
+		1579B96F1ED7545C000325FC /* GZMActiveTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1579B96D1ED7545C000325FC /* GZMActiveTableViewCell.xib */; };
+		1579B9731ED7633A000325FC /* GZMCreatActiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1579B9711ED7633A000325FC /* GZMCreatActiveViewController.m */; };
+		1579B9741ED7633A000325FC /* GZMCreatActiveViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1579B9721ED7633A000325FC /* GZMCreatActiveViewController.xib */; };
 		158797831EAFEF6100DA40CF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 158797821EAFEF6100DA40CF /* main.m */; };
 		1587978C1EAFEF6100DA40CF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1587978A1EAFEF6100DA40CF /* Main.storyboard */; };
 		1587978E1EAFEF6100DA40CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1587978D1EAFEF6100DA40CF /* Assets.xcassets */; };
@@ -143,6 +150,17 @@
 		1579B95E1ED66154000325FC /* GZMdetailProjectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GZMdetailProjectViewController.h; sourceTree = "<group>"; };
 		1579B95F1ED66154000325FC /* GZMdetailProjectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GZMdetailProjectViewController.m; sourceTree = "<group>"; };
 		1579B9601ED66154000325FC /* GZMdetailProjectViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GZMdetailProjectViewController.xib; sourceTree = "<group>"; };
+		1579B9631ED73ED1000325FC /* GZMCreatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GZMCreatViewController.h; sourceTree = "<group>"; };
+		1579B9641ED73ED1000325FC /* GZMCreatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GZMCreatViewController.m; sourceTree = "<group>"; };
+		1579B9651ED73ED1000325FC /* GZMCreatViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GZMCreatViewController.xib; sourceTree = "<group>"; };
+		1579B9681ED75025000325FC /* GZMActivationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GZMActivationViewController.h; sourceTree = "<group>"; };
+		1579B9691ED75025000325FC /* GZMActivationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GZMActivationViewController.m; sourceTree = "<group>"; };
+		1579B96B1ED7545C000325FC /* GZMActiveTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GZMActiveTableViewCell.h; sourceTree = "<group>"; };
+		1579B96C1ED7545C000325FC /* GZMActiveTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GZMActiveTableViewCell.m; sourceTree = "<group>"; };
+		1579B96D1ED7545C000325FC /* GZMActiveTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GZMActiveTableViewCell.xib; sourceTree = "<group>"; };
+		1579B9701ED7633A000325FC /* GZMCreatActiveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GZMCreatActiveViewController.h; sourceTree = "<group>"; };
+		1579B9711ED7633A000325FC /* GZMCreatActiveViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GZMCreatActiveViewController.m; sourceTree = "<group>"; };
+		1579B9721ED7633A000325FC /* GZMCreatActiveViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GZMCreatActiveViewController.xib; sourceTree = "<group>"; };
 		1587977E1EAFEF6100DA40CF /* gzmObject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gzmObject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		158797821EAFEF6100DA40CF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1587978B1EAFEF6100DA40CF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -390,9 +408,17 @@
 			children = (
 				1579B94C1ED64732000325FC /* GZMProjectViewController.h */,
 				1579B94D1ED64732000325FC /* GZMProjectViewController.m */,
+				1579B9631ED73ED1000325FC /* GZMCreatViewController.h */,
+				1579B9641ED73ED1000325FC /* GZMCreatViewController.m */,
+				1579B9651ED73ED1000325FC /* GZMCreatViewController.xib */,
 				1579B95E1ED66154000325FC /* GZMdetailProjectViewController.h */,
 				1579B95F1ED66154000325FC /* GZMdetailProjectViewController.m */,
 				1579B9601ED66154000325FC /* GZMdetailProjectViewController.xib */,
+				1579B9681ED75025000325FC /* GZMActivationViewController.h */,
+				1579B9691ED75025000325FC /* GZMActivationViewController.m */,
+				1579B9701ED7633A000325FC /* GZMCreatActiveViewController.h */,
+				1579B9711ED7633A000325FC /* GZMCreatActiveViewController.m */,
+				1579B9721ED7633A000325FC /* GZMCreatActiveViewController.xib */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -412,6 +438,9 @@
 				1579B9521ED64732000325FC /* GZmprojectTableViewCell.h */,
 				1579B9531ED64732000325FC /* GZmprojectTableViewCell.m */,
 				1579B9541ED64732000325FC /* GZmprojectTableViewCell.xib */,
+				1579B96B1ED7545C000325FC /* GZMActiveTableViewCell.h */,
+				1579B96C1ED7545C000325FC /* GZMActiveTableViewCell.m */,
+				1579B96D1ED7545C000325FC /* GZMActiveTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -685,11 +714,14 @@
 			files = (
 				1579B8EC1ED5F8E3000325FC /* GZMForgetViewController.xib in Resources */,
 				158797911EAFEF6100DA40CF /* LaunchScreen.storyboard in Resources */,
+				1579B9741ED7633A000325FC /* GZMCreatActiveViewController.xib in Resources */,
 				156DDB291ECB6CC20050F037 /* GZMLoginViewController.xib in Resources */,
 				1505E1681EB2B10700C61DFC /* onrViewController.xib in Resources */,
 				1579B95A1ED64732000325FC /* GZmprojectTableViewCell.xib in Resources */,
 				1587978E1EAFEF6100DA40CF /* Assets.xcassets in Resources */,
 				1587978C1EAFEF6100DA40CF /* Main.storyboard in Resources */,
+				1579B96F1ED7545C000325FC /* GZMActiveTableViewCell.xib in Resources */,
+				1579B9671ED73ED1000325FC /* GZMCreatViewController.xib in Resources */,
 				156DDB321ECE4EAC0050F037 /* registedViewController.xib in Resources */,
 				1579B9621ED66154000325FC /* GZMdetailProjectViewController.xib in Resources */,
 			);
@@ -781,6 +813,7 @@
 				158797E01EB02C8400DA40CF /* NSArray+GZM.m in Sources */,
 				1505E1421EB15A0300C61DFC /* downLoadView.m in Sources */,
 				1505E16E1EB2C0E900C61DFC /* GZMTabbatViewController.m in Sources */,
+				1579B96A1ED75025000325FC /* GZMActivationViewController.m in Sources */,
 				156DDB211ECA27D60050F037 /* UITextField+GZM.m in Sources */,
 				1505E15B1EB27B5500C61DFC /* ViewController.m in Sources */,
 				158797E31EB02C8400DA40CF /* UIActivityIndicatorView+GZM.m in Sources */,
@@ -788,6 +821,7 @@
 				1579B9581ED64732000325FC /* GZMProjectModel.m in Sources */,
 				158797E71EB02C8400DA40CF /* UIImageView+GZM.m in Sources */,
 				1505E14F1EB15C4900C61DFC /* LoadIngView.m in Sources */,
+				1579B9731ED7633A000325FC /* GZMCreatActiveViewController.m in Sources */,
 				1579B8EB1ED5F8E3000325FC /* GZMForgetViewController.m in Sources */,
 				1579B95D1ED647B0000325FC /* GZMequipmentViewController.m in Sources */,
 				1505E1411EB15A0300C61DFC /* AlerYangShi.m in Sources */,
@@ -798,6 +832,8 @@
 				158797C61EB027C800DA40CF /* FatherViewController.m in Sources */,
 				158797831EAFEF6100DA40CF /* main.m in Sources */,
 				1505E15E1EB27BA100C61DFC /* GZMRootViewController.m in Sources */,
+				1579B9661ED73ED1000325FC /* GZMCreatViewController.m in Sources */,
+				1579B96E1ED7545C000325FC /* GZMActiveTableViewCell.m in Sources */,
 				158797E11EB02C8400DA40CF /* NSDictionary+GZM.m in Sources */,
 				156DDB281ECB6CC20050F037 /* GZMLoginViewController.m in Sources */,
 				1579B9611ED66154000325FC /* GZMdetailProjectViewController.m in Sources */,

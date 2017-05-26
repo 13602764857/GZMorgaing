@@ -16,7 +16,15 @@
 }
 
 -(void)setMo:(GZMProjectModel *)mo{
-    
+    self.onelable.text = mo.ProjectName;
+    self.twoLable.text = mo.PlatformName;
+    if ([mo.Effective integerValue] == 1) {
+        self.threeLable.text = @"有效";
+    }else{
+        self.threeLable.text = @"无效";
+    }
+    self.fourLable.text = mo.Versions;
+    self.fiveLable.text = mo.Count;
     
     
 }

@@ -10,6 +10,7 @@
 #import "GZmprojectTableViewCell.h"
 #import "GZMProjectModel.h"
 #import "GZMdetailProjectViewController.h"
+#import "GZMCreatViewController.h"
 @interface GZMProjectViewController ()
 
 @end
@@ -43,18 +44,23 @@
 -(void)leftbutton1Click{
     [self.navigationController popViewControllerAnimated:YES];
 }
+-(void)rightbutton1Click{
+    self.tabBarController.tabBar.hidden = YES;
+    GZMCreatViewController * greatVc = [[GZMCreatViewController alloc] init];
+    [self.navigationController pushViewController:greatVc animated:YES];
+}
 /*********tableView的*********/
 -(void)GZM_setTableView{
     [self.view addSubview:self.GZMTableView];
     [self.GZMTableView registerNib:[UINib nibWithNibName:@"GZmprojectTableViewCell" bundle:nil] forCellReuseIdentifier:@"cell"];
-    self.GZMTableView.frame = CGRectMake(0, 64, Width, Height - 64 - 49);
+    self.GZMTableView.frame = CGRectMake(0, 64 + 7, Width, Height - 64 - 49 -7);
     self.GZMTableView.rowHeight = 120;
 }
 -(void)creatData{
     pindex = 1;
     /********** 下啦到底部时让其重新可以看到 ************/
     self.GZMTableView.mj_footer.state = MJRefreshStateIdle;
-    [RequestTool sendPostAFRequest:[BaseUrl stringByAppendingString:GetProjectList] parameters:@{@"token":toketen,@"pindex":[NSString stringWithFormat:@"%ld",(long)pindex],@"pagesize":@"2"} successBlock:^(id message) {
+    [RequestTool sendPostAFRequest:[BaseUrl stringByAppendingString:GetProjectList] parameters:@{@"token":toketen,@"pindex":[NSString stringWithFormat:@"%ld",(long)pindex],@"pagesize":@"10"} successBlock:^(id message) {
         self.GZMDataArr = [GZMProjectModel setModelWithArray:message[@"message"]];
         [self.GZMTableView.mj_header endRefreshing];
         
@@ -72,7 +78,7 @@
 /*********刷新加载跟多*********/
 -(void)creatMoreData{
     pindex += 1;
-    [RequestTool sendPostAFRequest:[BaseUrl stringByAppendingString:GetProjectList] parameters:@{@"token":toketen,@"pindex":[NSString stringWithFormat:@"%ld",(long)pindex],@"pagesize":@"2"} successBlock:^(id message) {
+    [RequestTool sendPostAFRequest:[BaseUrl stringByAppendingString:GetProjectList] parameters:@{@"token":toketen,@"pindex":[NSString stringWithFormat:@"%ld",(long)pindex],@"pagesize":@"10"} successBlock:^(id message) {
         
         if ([message[@"pageCount"] integerValue] < pindex ) {
             self.GZMTableView.mj_footer.state = MJRefreshStateNoMoreData;
@@ -106,15 +112,11 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [super tableView:tableView didSelectRowAtIndexPath:indexPath];
     GZMProjectModel * mo = self.GZMDataArr[indexPath.row];
-    [RequestTool sendPostAFRequest:[BaseUrl stringByAppendingString:ProjectDetails] parameters:@{@"token":toketen,@"projectid":mo.ProjectID} successBlock:^(id message) {
-        if ([message[@"issuccess"] isEqualToNumber:@1]) {
-            self.tabBarController.tabBar.hidden = YES;
-            GZMdetailProjectViewController * detail = [[GZMdetailProjectViewController alloc] init];
-            [self.navigationController pushViewController:detail animated:YES];
-        }
-    } failBlock:^(id message) {
-        
-    } delegate:self loadWith:mainLoading];
+    self.tabBarController.tabBar.hidden = YES;
+    GZMdetailProjectViewController * detail = [[GZMdetailProjectViewController alloc] init];
+    detail.Projectmodel = mo;
+    [self.navigationController pushViewController:detail animated:YES];
+    
 }
 //-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
 //

@@ -23,8 +23,16 @@
 +(UIColor *)GZMLightColor
 {
     
-    return [UIColor colorWithRed:86 /255.0 green:86 /255.0 blue:86 / 255.0 alpha:1];
+    return [UIColor GZMcolorWithHexString:@"#f0f0f0"];
 }
+
+/******* 文字的色系  *******/
++(UIColor *)GZMTitleColor
+{
+    
+    return [UIColor GZMcolorWithHexString:@"#cecece"];
+}
+
 /********** 颜色转换************/
 + (UIColor *) GZMcolorWithHexString: (NSString *)color
 {

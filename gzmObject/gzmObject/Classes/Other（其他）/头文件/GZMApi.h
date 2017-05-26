@@ -28,5 +28,9 @@
 /********** 问题列表************/
 #define QuestionList          @"api/Account/QuestionList"
 
+/********** 激活码************/
+#define GetAuthCodeList          @"api/AuthCode/GetAuthCodeList"
+#define GenAuthCode          @"api/AuthCode/GenAuthCode"
+#define DiscardCode          @"api/AuthCode/DiscardCode"
 
 #endif /* GZMApi_h */

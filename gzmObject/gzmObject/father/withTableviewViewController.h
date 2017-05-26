@@ -46,5 +46,7 @@ typedef NS_OPTIONS(NSInteger, collType) {
 /******* <#name#>  *******/
 @property(nonatomic,strong)void(^ImageClick)();
 
+/**********<#属性#> ************/
+@property(nonatomic,assign)NSInteger page;
 
 @end

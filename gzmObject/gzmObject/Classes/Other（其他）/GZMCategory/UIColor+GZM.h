@@ -16,4 +16,8 @@
 + (UIColor *)GZMcolorWithRed:(CGFloat)red green:(CGFloat)green blue:(CGFloat)blue;
 /********** 颜色转换************/
 + (UIColor *) GZMcolorWithHexString: (NSString *)color;
+
+/******* 文字的色系  *******/
++(UIColor *)GZMTitleColor;
+
 @end
