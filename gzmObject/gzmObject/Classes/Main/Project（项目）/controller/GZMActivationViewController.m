@@ -9,6 +9,7 @@
 #import "GZMActivationViewController.h"
 #import "GZMActiveTableViewCell.h"
 #import "GZMCreatActiveViewController.h"
+#import "ActiveModel.h"
 @interface GZMActivationViewController ()
 
 @end
@@ -38,16 +39,17 @@
     [self.view addSubview:self.GZMTableView];
     [self.GZMTableView registerNib:[UINib nibWithNibName:@"GZMActiveTableViewCell" bundle:nil] forCellReuseIdentifier:@"cell"];
     self.GZMTableView.frame = CGRectMake(0, 64, Width, Height - 64);
-    self.GZMTableView.rowHeight = 150;
+    self.GZMTableView.rowHeight = 110;
 }
 -(void)creatData{
     self.page = 1;
     /********** 下啦到底部时让其重新可以看到 ************/
     self.GZMTableView.mj_footer.state = MJRefreshStateIdle;
-    [RequestTool sendPostAFRequest:[BaseUrl stringByAppendingString:GetAuthCodeList] parameters:@{@"token":toketen,@"projectID":self.Projectmodel.ProjectID,@"pindex":[NSString stringWithFormat:@"%ld",(long)self.page],@"pagesize":@"10"} successBlock:^(id message) {
-//        self.GZMDataArr = [GZMProjectModel setModelWithArray:message[@"message"]];
-        NSLog(@"%@",message);
-        self.GZMDataArr = [NSMutableArray arrayWithObjects:@"",@"",@"",@"", nil];
+    NSDictionary * dic = @{@"token":toketen,@"projectID":self.Projectmodel.ProjectID,@"pindex":[NSString stringWithFormat:@"%ld",(long)self.page],@"pagesize":@"10",@"effective":@"true",@"code":@"",@"deviceID":@"",@"uniqueID":@""};
+    [RequestTool sendPostAFRequest:[BaseUrl stringByAppendingString:GetAuthCodeList] parameters:dic successBlock:^(id message) {
+        self.GZMDataArr = [ActiveModel setModelWithArray:message[@"message"]];
+        NSLog(@"%@",message[@"message"]);
+//        self.GZMDataArr = [NSMutableArray arrayWithObjects:@"",@"",@"",@"", nil];
         [self.GZMTableView.mj_header endRefreshing];
         
 //        [ZJModelTool createModelWithDictionary:message[@"message"][0] modelName:nil];
@@ -64,18 +66,19 @@
 /*********刷新加载跟多*********/
 -(void)creatMoreData{
     self.page += 1;
-    [RequestTool sendPostAFRequest:[BaseUrl stringByAppendingString:GetAuthCodeList] parameters:@{@"token":toketen,@"pindex":[NSString stringWithFormat:@"%ld",(long)self.page],@"pagesize":@"10"} successBlock:^(id message) {
+    NSDictionary * dic = @{@"token":toketen,@"projectID":self.Projectmodel.ProjectID,@"pindex":[NSString stringWithFormat:@"%ld",(long)self.page],@"pagesize":@"10",@"effective":@"true",@"code":@"",@"deviceID":@"",@"uniqueID":@""};
+    [RequestTool sendPostAFRequest:[BaseUrl stringByAppendingString:GetAuthCodeList] parameters:dic successBlock:^(id message) {
         
         if ([message[@"pageCount"] integerValue] < self.page ) {
             self.GZMTableView.mj_footer.state = MJRefreshStateNoMoreData;
             return ;
         }
         [self.GZMTableView.mj_footer endRefreshing];
-//        NSMutableArray * tempArray = [GZMProjectModel setModelWithArray:message[@"message"]];
-//        for (GZMProjectModel *model in tempArray) {
-//            
-//            [self.GZMDataArr addObject:model];
-//        }
+        NSMutableArray * tempArray = [ActiveModel setModelWithArray:message[@"message"]];
+        for (GZMProjectModel *model in tempArray) {
+            
+            [self.GZMDataArr addObject:model];
+        }
         
         
         //        [ZJModelTool createModelWithDictionary:message[@"message"][0] modelName:nil];
@@ -91,7 +94,7 @@
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     GZMActiveTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
-//    cell.mo = self.GZMDataArr[indexPath.row];
+    cell.mo = self.GZMDataArr[indexPath.row];
     return cell;
 }
 

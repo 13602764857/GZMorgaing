@@ -67,21 +67,21 @@
     /********** 装控件的数组************/
     NSMutableArray * Marr = [NSMutableArray array];
     NSArray * titleArr = @[@"项目名称：",@"创建日期：",@"APP ID   ：",@"使用人数：",@"版  本  号：",@"所属平台：",@"项目状态：",@"项目描述："];
-    NSArray * dataArr = @[self.Projectmodel.ProjectName,self.Projectmodel.CreateDate,self.Projectmodel.ProjectID,self.Projectmodel.Count,self.Projectmodel.Versions,self.Projectmodel.PlatformName,[self.Projectmodel.Effective integerValue] == 1 ?@"有效":@"无效",@""];
+    NSArray * dataArr = @[self.Projectmodel.ProjectName,self.Projectmodel.CreateDate,self.Projectmodel.AppID,self.Projectmodel.Count,self.Projectmodel.Versions,self.Projectmodel.PlatformName,[self.Projectmodel.Effective integerValue] == 1 ?@"有效":@"无效",@""];
     for (int i = 0; i < titleArr.count; i ++) {
         UILabel * imageLable = [[UILabel alloc] initWithFrame:CGRectMake(0, 44*i, Width, 0.5)];
         imageLable.backgroundColor = [UIColor GZMLightColor];
         [_MainScrollview addSubview:imageLable];
         
-        UILabel *titleLable = [[UILabel alloc] initWithFrame:CGRectMake(20, CGRectGetMaxY(imageLable.frame), 80, 43.5)];
+        UILabel *titleLable = [[UILabel alloc] initWithFrame:CGRectMake(15, CGRectGetMaxY(imageLable.frame), 70, 43.5)];
         titleLable.text = titleArr[i];
         titleLable.font = [UIFont systemFontOfSize:13];
         [_MainScrollview addSubview:titleLable];
         
-        UILabel *titleLable1 = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(titleLable.frame), CGRectGetMaxY(imageLable.frame), 180, 49.5)];
+        UILabel *titleLable1 = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(titleLable.frame), CGRectGetMaxY(imageLable.frame), 220, 43.5)];
         titleLable1.textColor = [UIColor GZMTitleColor];
         titleLable1.text = dataArr[i];
-        titleLable1.font = [UIFont systemFontOfSize:13];
+        titleLable1.font = [UIFont systemFontOfSize:12];
         [_MainScrollview addSubview:titleLable1];
         [Marr addObject:titleLable];
     }

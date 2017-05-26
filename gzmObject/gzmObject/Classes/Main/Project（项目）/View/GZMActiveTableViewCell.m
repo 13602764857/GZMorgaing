@@ -14,7 +14,12 @@
     [super awakeFromNib];
     // Initialization code
 }
-
+-(void)setMo:(ActiveModel *)mo{
+    self.oneLable.text = mo.Code;
+    self.twoLable.text = mo.AuthTime;
+    self.ThreeLable.text = [self.mo.Effective isEqualToString:@"1"]?@"有效":@"无效";
+    self.FourLable.text = self.mo.CreateDate;
+}
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];

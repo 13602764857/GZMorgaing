@@ -23,6 +23,7 @@
 		1505E1671EB2B10700C61DFC /* onrViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1505E1651EB2B10700C61DFC /* onrViewController.m */; };
 		1505E1681EB2B10700C61DFC /* onrViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1505E1661EB2B10700C61DFC /* onrViewController.xib */; };
 		1505E16E1EB2C0E900C61DFC /* GZMTabbatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1505E16D1EB2C0E900C61DFC /* GZMTabbatViewController.m */; };
+		150D013C1ED8AB8C004D97A1 /* GZMMyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 150D013B1ED8AB8C004D97A1 /* GZMMyViewController.m */; };
 		156DDB211ECA27D60050F037 /* UITextField+GZM.m in Sources */ = {isa = PBXBuildFile; fileRef = 156DDB201ECA27D60050F037 /* UITextField+GZM.m */; };
 		156DDB281ECB6CC20050F037 /* GZMLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 156DDB261ECB6CC20050F037 /* GZMLoginViewController.m */; };
 		156DDB291ECB6CC20050F037 /* GZMLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 156DDB271ECB6CC20050F037 /* GZMLoginViewController.xib */; };
@@ -30,7 +31,6 @@
 		156DDB321ECE4EAC0050F037 /* registedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 156DDB311ECE4EAC0050F037 /* registedViewController.xib */; };
 		1579B8EB1ED5F8E3000325FC /* GZMForgetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1579B8E91ED5F8E3000325FC /* GZMForgetViewController.m */; };
 		1579B8EC1ED5F8E3000325FC /* GZMForgetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1579B8EA1ED5F8E3000325FC /* GZMForgetViewController.xib */; };
-		1579B9551ED64732000325FC /* GZMMyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1579B9431ED64732000325FC /* GZMMyViewController.m */; };
 		1579B9561ED64732000325FC /* GZMZongViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1579B9471ED64732000325FC /* GZMZongViewController.m */; };
 		1579B9571ED64732000325FC /* GZMProjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1579B94D1ED64732000325FC /* GZMProjectViewController.m */; };
 		1579B9581ED64732000325FC /* GZMProjectModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1579B9501ED64732000325FC /* GZMProjectModel.m */; };
@@ -46,6 +46,7 @@
 		1579B96F1ED7545C000325FC /* GZMActiveTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1579B96D1ED7545C000325FC /* GZMActiveTableViewCell.xib */; };
 		1579B9731ED7633A000325FC /* GZMCreatActiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1579B9711ED7633A000325FC /* GZMCreatActiveViewController.m */; };
 		1579B9741ED7633A000325FC /* GZMCreatActiveViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1579B9721ED7633A000325FC /* GZMCreatActiveViewController.xib */; };
+		1579B9771ED89A55000325FC /* ActiveModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1579B9761ED89A55000325FC /* ActiveModel.m */; };
 		158797831EAFEF6100DA40CF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 158797821EAFEF6100DA40CF /* main.m */; };
 		1587978C1EAFEF6100DA40CF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1587978A1EAFEF6100DA40CF /* Main.storyboard */; };
 		1587978E1EAFEF6100DA40CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1587978D1EAFEF6100DA40CF /* Assets.xcassets */; };
@@ -123,6 +124,8 @@
 		1505E1661EB2B10700C61DFC /* onrViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = onrViewController.xib; sourceTree = "<group>"; };
 		1505E16C1EB2C0E900C61DFC /* GZMTabbatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GZMTabbatViewController.h; sourceTree = "<group>"; };
 		1505E16D1EB2C0E900C61DFC /* GZMTabbatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GZMTabbatViewController.m; sourceTree = "<group>"; };
+		150D013A1ED8AB8C004D97A1 /* GZMMyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GZMMyViewController.h; sourceTree = "<group>"; };
+		150D013B1ED8AB8C004D97A1 /* GZMMyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GZMMyViewController.m; sourceTree = "<group>"; };
 		156DDB1F1ECA27D60050F037 /* UITextField+GZM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+GZM.h"; sourceTree = "<group>"; };
 		156DDB201ECA27D60050F037 /* UITextField+GZM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+GZM.m"; sourceTree = "<group>"; };
 		156DDB251ECB6CC20050F037 /* GZMLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GZMLoginViewController.h; sourceTree = "<group>"; };
@@ -134,8 +137,6 @@
 		1579B8E81ED5F8E3000325FC /* GZMForgetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GZMForgetViewController.h; sourceTree = "<group>"; };
 		1579B8E91ED5F8E3000325FC /* GZMForgetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GZMForgetViewController.m; sourceTree = "<group>"; };
 		1579B8EA1ED5F8E3000325FC /* GZMForgetViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GZMForgetViewController.xib; sourceTree = "<group>"; };
-		1579B9421ED64732000325FC /* GZMMyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GZMMyViewController.h; sourceTree = "<group>"; };
-		1579B9431ED64732000325FC /* GZMMyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GZMMyViewController.m; sourceTree = "<group>"; };
 		1579B9461ED64732000325FC /* GZMZongViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GZMZongViewController.h; sourceTree = "<group>"; };
 		1579B9471ED64732000325FC /* GZMZongViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GZMZongViewController.m; sourceTree = "<group>"; };
 		1579B94C1ED64732000325FC /* GZMProjectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GZMProjectViewController.h; sourceTree = "<group>"; };
@@ -161,6 +162,8 @@
 		1579B9701ED7633A000325FC /* GZMCreatActiveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GZMCreatActiveViewController.h; sourceTree = "<group>"; };
 		1579B9711ED7633A000325FC /* GZMCreatActiveViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GZMCreatActiveViewController.m; sourceTree = "<group>"; };
 		1579B9721ED7633A000325FC /* GZMCreatActiveViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GZMCreatActiveViewController.xib; sourceTree = "<group>"; };
+		1579B9751ED89A55000325FC /* ActiveModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActiveModel.h; sourceTree = "<group>"; };
+		1579B9761ED89A55000325FC /* ActiveModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActiveModel.m; sourceTree = "<group>"; };
 		1587977E1EAFEF6100DA40CF /* gzmObject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gzmObject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		158797821EAFEF6100DA40CF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1587978B1EAFEF6100DA40CF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -294,6 +297,29 @@
 			path = applicition;
 			sourceTree = "<group>";
 		};
+		150D01371ED8AB8C004D97A1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		150D01381ED8AB8C004D97A1 /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		150D01391ED8AB8C004D97A1 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				150D013A1ED8AB8C004D97A1 /* GZMMyViewController.h */,
+				150D013B1ED8AB8C004D97A1 /* GZMMyViewController.m */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
 		156DDB241ECB6CC20050F037 /* Login */ = {
 			isa = PBXGroup;
 			children = (
@@ -346,18 +372,11 @@
 		1579B9401ED64732000325FC /* 我的 */ = {
 			isa = PBXGroup;
 			children = (
-				1579B9411ED64732000325FC /* controller */,
+				150D01391ED8AB8C004D97A1 /* controller */,
+				150D01371ED8AB8C004D97A1 /* View */,
+				150D01381ED8AB8C004D97A1 /* model */,
 			);
 			path = "我的";
-			sourceTree = "<group>";
-		};
-		1579B9411ED64732000325FC /* controller */ = {
-			isa = PBXGroup;
-			children = (
-				1579B9421ED64732000325FC /* GZMMyViewController.h */,
-				1579B9431ED64732000325FC /* GZMMyViewController.m */,
-			);
-			path = controller;
 			sourceTree = "<group>";
 		};
 		1579B9441ED64732000325FC /* GZMactive */ = {
@@ -428,6 +447,8 @@
 			children = (
 				1579B94F1ED64732000325FC /* GZMProjectModel.h */,
 				1579B9501ED64732000325FC /* GZMProjectModel.m */,
+				1579B9751ED89A55000325FC /* ActiveModel.h */,
+				1579B9761ED89A55000325FC /* ActiveModel.m */,
 			);
 			path = MOdel;
 			sourceTree = "<group>";
@@ -821,12 +842,14 @@
 				1579B9581ED64732000325FC /* GZMProjectModel.m in Sources */,
 				158797E71EB02C8400DA40CF /* UIImageView+GZM.m in Sources */,
 				1505E14F1EB15C4900C61DFC /* LoadIngView.m in Sources */,
+				150D013C1ED8AB8C004D97A1 /* GZMMyViewController.m in Sources */,
 				1579B9731ED7633A000325FC /* GZMCreatActiveViewController.m in Sources */,
 				1579B8EB1ED5F8E3000325FC /* GZMForgetViewController.m in Sources */,
 				1579B95D1ED647B0000325FC /* GZMequipmentViewController.m in Sources */,
 				1505E1411EB15A0300C61DFC /* AlerYangShi.m in Sources */,
 				1505E1461EB15A0300C61DFC /* XLWave.m in Sources */,
 				1505E1431EB15A0300C61DFC /* FileUtils.m in Sources */,
+				1579B9771ED89A55000325FC /* ActiveModel.m in Sources */,
 				1505E1441EB15A0300C61DFC /* GZMAlertView.m in Sources */,
 				158797E91EB02C8400DA40CF /* UITextView+GZM.m in Sources */,
 				158797C61EB027C800DA40CF /* FatherViewController.m in Sources */,
@@ -839,7 +862,6 @@
 				1579B9611ED66154000325FC /* GZMdetailProjectViewController.m in Sources */,
 				1505E1471EB15A0300C61DFC /* XLWaveProgress.m in Sources */,
 				1505E1481EB15A0300C61DFC /* ZJModelTool.m in Sources */,
-				1579B9551ED64732000325FC /* GZMMyViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

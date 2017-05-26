@@ -7,12 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "ActiveModel.h"
 @interface GZMActiveTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *oneLable;
 @property (weak, nonatomic) IBOutlet UILabel *twoLable;
 @property (weak, nonatomic) IBOutlet UILabel *ThreeLable;
 @property (weak, nonatomic) IBOutlet UILabel *FourLable;
-@property (weak, nonatomic) IBOutlet UIButton *loseButton;
 
+/**********<#属性#> ************/
+@property(nonatomic,strong)ActiveModel * mo;
 @end

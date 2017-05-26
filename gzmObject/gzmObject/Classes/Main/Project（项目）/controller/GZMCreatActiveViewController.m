@@ -40,7 +40,10 @@
     }
     NSDictionary * dic =@{@"token":toketen,@"projectID":self.Projectmodel.ProjectID,@"day":self.timeTextFiled.text,@"num":self.numTextFiled.text};
     [RequestTool sendPostAFRequest:[BaseUrl stringByAppendingString:GenAuthCode] parameters:dic successBlock:^(id message) {
-        
+        if ([message[@"issuccess"] isEqual:@0]) {
+            [AlerYangShi tishiWithMessage:message[@"message"] WithVc:self];
+            return ;
+        }
     } failBlock:^(id message) {
         
     } delegate:self loadWith:mainLoading];
