@@ -9,7 +9,7 @@
 #import "AlerYangShi.h"
 
 @implementation AlerYangShi
-
+static UITextField * MytextFile;
 
 
 +(void)creatStr1With:(NSString *)title creatStr2With:(NSString *)str2 WithVc:(UIViewController *)vc withBlock:(void(^)(id))block{
@@ -41,6 +41,7 @@
 /******* 确定和返回的双重提示  *******/
 +(void)creatTitleWith:(NSString *)title creatOneWith:(NSString *)oneStr withTwoStr:(NSString *)TwoStr WithVc:(UIViewController *)vc withSuccessBlock:(void (^)(void))Successblock withErrorBlock:(void (^)(void))Errorblock{
     NSString *mainTitle = title;
+   
     UIAlertController *AlertVc = [UIAlertController alertControllerWithTitle:title message:nil preferredStyle:UIAlertControllerStyleAlert];
     
     NSMutableAttributedString *titleText = [[NSMutableAttributedString alloc] initWithString:mainTitle];
@@ -71,6 +72,50 @@
     
     [vc presentViewController:AlertVc animated:YES completion:nil];
 }
+/******* (有textfiled)确定和返回的双重提示  *******/
++(void)creatTitleWithAndTexifiled:(NSString *)title creatOneWith:(NSString *)oneStr withTwoStr:(NSString *)TwoStr WithVc:(UIViewController *)vc withSuccessBlock:(void (^)(id str))Successblock withErrorBlock:(void (^)(void))Errorblock{
+    NSString *mainTitle = title;
+    
+    UIAlertController *AlertVc = [UIAlertController alertControllerWithTitle:title message:nil preferredStyle:UIAlertControllerStyleAlert];
+    
+    NSMutableAttributedString *titleText = [[NSMutableAttributedString alloc] initWithString:mainTitle];
+    [titleText addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:18] range:NSMakeRange(0, mainTitle.length)];
+    [titleText addAttribute:NSForegroundColorAttributeName value:[UIColor GZMcolorWithRed:51 green:51 blue:51] range:NSMakeRange(0, mainTitle.length)];
+    [AlertVc setValue:titleText forKey:@"attributedTitle"];
+    NSString * str1 = @"取消";
+    NSString * str2 = @"确定";
+    if (oneStr.length != 0) {
+        str1 = oneStr;
+    }
+    if (TwoStr.length != 0) {
+        str2 = TwoStr;
+    }
+    [AlertVc addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+        MytextFile = textField;
+        
+    }];
+    UIAlertAction *queding = [UIAlertAction actionWithTitle:str2 style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        Successblock(MytextFile.text);
+     
+    }];
+    [queding setValue:[UIColor GZMcolorWithRed:255 green:144 blue:1] forKey:@"titleTextColor"];
+    UIAlertAction *quXiao = [UIAlertAction actionWithTitle:str1 style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        Errorblock();
+        
+    }];
+    [quXiao setValue:[UIColor GZMcolorWithRed:0 green:132 blue:255] forKey:@"titleTextColor"];
+    
+    [AlertVc addAction:quXiao];
+    [AlertVc addAction:queding];
+    
+    
+    [vc presentViewController:AlertVc animated:YES completion:nil];
+}
+
+//-(void)usernameDidChange{
+////    textFiledStr = textFiled.text;
+//}
+
 /******* 单纯的提示框不做任何操作  *******/
 +(void)tishiWithMessage:(NSString *)messageStr WithVc:(UIViewController *)vc{
     UIAlertController * uiAlert = [UIAlertController alertControllerWithTitle:messageStr message:@"" preferredStyle:UIAlertControllerStyleAlert];

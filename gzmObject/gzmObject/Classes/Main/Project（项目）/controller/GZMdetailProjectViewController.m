@@ -8,6 +8,7 @@
 
 #import "GZMdetailProjectViewController.h"
 #import "GZMActivationViewController.h"
+#import "GZMChangeProgectViewController.h"
 @interface GZMdetailProjectViewController ()
 /**********<#属性#> ************/
 @property(nonatomic,strong)UIScrollView * MainScrollview;
@@ -29,23 +30,26 @@
 /*********<#私有方法#>*********/
 -(void)GZM_creatFather{
     self.mainlable1.text = @"项目详情";
+    [self.rightbutton1 setImage:[UIImage imageNamed:@"更多"] forState:UIControlStateNormal];
 }
 /*********更多的操作*********/
 -(void)GZM_creatMore{
-    Moreimage = [[UIImageView alloc] initWithFrame:CGRectMake(Width - 100 - 15, 64, 100, 160)];
+    Moreimage = [[UIImageView alloc] initWithFrame:CGRectMake(Width - 100 - 10, 64, 100, 130)];
     Moreimage.hidden = YES;
-    Moreimage.backgroundColor = MianColor;
+//    Moreimage.backgroundColor = MianColor;
+    Moreimage.image = [UIImage imageNamed:@"形状-13"];
     Moreimage.userInteractionEnabled = YES;
     [self.view addSubview:Moreimage];
     
     NSArray * titleArr = @[@"编辑项目",@"查看事例",@"查看激活码"];
     for (int i = 0; i < titleArr.count; i ++) {
-        UIButton * button = [[UIButton alloc] initWithFrame:CGRectMake(0, 10 + 50 *i, Moreimage.width, 50)];
+        UIButton * button = [[UIButton alloc] initWithFrame:CGRectMake(0, 10 + 40 *i, Moreimage.width, 40)];
         button.tag = 100 + i;
         [button addTarget:self action:@selector(moreClick:) forControlEvents:UIControlEventTouchUpInside];
+        button.titleLabel.font = [UIFont systemFontOfSize:14];
         [button setTitle:titleArr[i] forState:UIControlStateNormal];
         [Moreimage addSubview:button];
-        if (i != titleArr.count) {
+        if (i != titleArr.count - 1) {
             UILabel * lable = [[UILabel alloc] initWithFrame:CGRectMake(5, button.height - 1, button.width - 10, 1)];
             lable.backgroundColor = [UIColor whiteColor];
             [button addSubview:lable];
@@ -56,9 +60,30 @@
 
 -(void)moreClick:(UIButton *)button{
     [self hiddenClick];
-    GZMActivationViewController * GZMac = [[GZMActivationViewController alloc] init];
-    GZMac.Projectmodel = self.Projectmodel;
-    [self.navigationController pushViewController:GZMac animated:YES];
+    switch (button.tag) {
+        case 100:
+        {
+            GZMChangeProgectViewController * GZMac = [[GZMChangeProgectViewController alloc] init];
+            GZMac.Projectmodel = self.Projectmodel;
+            [self presentViewController:GZMac animated:YES completion:nil];
+        }
+            break;
+        case 101:
+        {
+            
+        }
+            break;
+        case 102:
+        {
+            GZMActivationViewController * GZMac = [[GZMActivationViewController alloc] init];
+            GZMac.Projectmodel = self.Projectmodel;
+            [self.navigationController pushViewController:GZMac animated:YES];
+        }
+            break;
+        default:
+            break;
+    }
+    
 }
 
 /*********<#私有方法#>*********/
@@ -82,6 +107,9 @@
         titleLable1.textColor = [UIColor GZMTitleColor];
         titleLable1.text = dataArr[i];
         titleLable1.font = [UIFont systemFontOfSize:12];
+        if (i == 2) {
+            titleLable1.font = [UIFont systemFontOfSize:11];
+        }
         [_MainScrollview addSubview:titleLable1];
         [Marr addObject:titleLable];
     }
@@ -98,6 +126,7 @@
         _MainScrollview.backgroundColor = [UIColor whiteColor];
         UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hiddenClick)];
         [_MainScrollview addGestureRecognizer:tap];
+        _MainScrollview.contentSize = CGSizeMake(Width, 500);
     }
     return _MainScrollview;
 }
@@ -105,6 +134,11 @@
     Moreimage.hidden = YES;
     self.rightbutton1.selected = NO;
 }
+
+-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    [self hiddenClick];
+}
+
 -(void)leftbutton1Click{
     [self.navigationController popViewControllerAnimated:YES];
 }

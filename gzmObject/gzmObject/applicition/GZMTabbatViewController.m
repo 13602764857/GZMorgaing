@@ -35,19 +35,21 @@
     //首页
     UINavigationController *leadNav = self.childViewControllers[0];
     leadNav.tabBarItem.title = @"项目中心";
-    leadNav.tabBarItem.image = [UIImage imageNamed:@"index_tab1"];
-    leadNav.tabBarItem.selectedImage = [UIImage imageNamed:@"index_tab1_a"];
+    leadNav.tabBarItem.image = [UIImage imageNamed:@"项目中心-待选"];
+    leadNav.tabBarItem.selectedImage = [[UIImage imageNamed:@"项目中心"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];;
     
     UINavigationController *dataNav = self.childViewControllers[1];
-    dataNav.tabBarItem.title = @"设备列表";
-    dataNav.tabBarItem.image = [UIImage imageNamed:@"index_tab2"];
     
+    dataNav.tabBarItem.title = @"设备列表";
+    dataNav.tabBarItem.image = [UIImage imageNamed:@"设备列表-待选"];
+    dataNav.tabBarItem.selectedImage = [[UIImage imageNamed:@"设备列表"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
 //    dataNav.tabBarItem.selectedImage = [UIImage imageNameWithOriginalMode:@"index_tab2_a"];
     
     
     UINavigationController *mineNav = self.childViewControllers[2];
     mineNav.tabBarItem.title = @"我的";
-    mineNav.tabBarItem.image = [UIImage imageNamed:@"index_tab3"];
+    mineNav.tabBarItem.image = [UIImage imageNamed:@"我的信息-待选"];
+    mineNav.tabBarItem.selectedImage = [[UIImage imageNamed:@"我的信息"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];;
     
 //    mineNav.tabBarItem.selectedImage = [UIImage imageNameWithOriginalMode:@"index_tab3_a"];
 }

@@ -38,7 +38,7 @@
 -(void)GZM_setTableView{
     [self.view addSubview:self.GZMTableView];
     [self.GZMTableView registerNib:[UINib nibWithNibName:@"GZMActiveTableViewCell" bundle:nil] forCellReuseIdentifier:@"cell"];
-    self.GZMTableView.frame = CGRectMake(0, 64, Width, Height - 64);
+    self.GZMTableView.frame = CGRectMake(0, 64 + 7, Width, Height - 64 - 7);
     self.GZMTableView.rowHeight = 110;
 }
 -(void)creatData{
@@ -96,6 +96,28 @@
     GZMActiveTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
     cell.mo = self.GZMDataArr[indexPath.row];
     return cell;
+}
+-(NSArray<UITableViewRowAction *> *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath{
+    UITableViewRowAction *deleteRowAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@"丢弃" handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
+        ActiveModel * mo = self.GZMDataArr[indexPath.row];
+        [AlerYangShi creatTitleWith:@"是否丢弃激活码" creatOneWith:nil withTwoStr:nil WithVc:self withSuccessBlock:^{
+            NSDictionary * dic = @{@"token":toketen,@"authid":mo.AuthID};
+            [RequestTool sendPostAFRequest:[BaseUrl stringByAppendingString:DiscardCode] parameters:dic successBlock:^(id message) {
+                if ([message[@"issuccess"] isEqual:@0]) {
+                    [AlerYangShi tishiWithMessage:message[@"message"] WithVc:self];
+                    return ;
+                }
+                [self.GZMDataArr removeObject:mo];
+                [self.GZMTableView reloadData];
+            } failBlock:^(id message) {
+                
+            } delegate:self loadWith:mainLoading];
+            
+        } withErrorBlock:^{
+//            [self.GZMTableView reloadData];
+        }];
+    }];
+    return @[deleteRowAction];
 }
 
 - (void)didReceiveMemoryWarning {

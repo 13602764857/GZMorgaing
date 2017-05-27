@@ -19,6 +19,11 @@
 @property (nonatomic,copy) NSString *Count;
 @property (nonatomic,copy) NSString *Versions;
 @property (nonatomic,copy) NSString *Effective;
+@property (nonatomic,copy) NSString *Image;
+@property (nonatomic,copy) NSString *PlatformID;
+
+
+
 
 +(NSMutableArray *)setModelWithArray:(NSArray *)array;
 @end

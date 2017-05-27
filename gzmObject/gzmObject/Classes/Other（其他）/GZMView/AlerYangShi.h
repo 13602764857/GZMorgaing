@@ -9,6 +9,9 @@
 #import <Foundation/Foundation.h>
 
 @interface AlerYangShi : NSObject
+
+/******* (有textfiled)确定和返回的双重提示  *******/
++(void)creatTitleWithAndTexifiled:(NSString *)title creatOneWith:(NSString *)oneStr withTwoStr:(NSString *)TwoStr WithVc:(UIViewController *)vc withSuccessBlock:(void (^)(id str))Successblock withErrorBlock:(void (^)(void))Errorblock;
  // 一些提示框的回调   block是返回确定的按钮(只有一个回调)总共有两个按钮
 +(void)creatStr1With:(NSString *)title creatStr2With:(NSString *)str2 WithVc:(UIViewController *)vc withBlock:(void(^)(id))block;
 /******* 确定和返回的双重提示()  *******/

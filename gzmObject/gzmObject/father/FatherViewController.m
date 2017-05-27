@@ -54,6 +54,7 @@
     self.imageView1 = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0,Width, 64)];
     self.imageView1.userInteractionEnabled = YES;
     self.imageView1.backgroundColor = MianColor;
+  
     [self.view addSubview:self.imageView1];
     
     

@@ -19,5 +19,8 @@
 
 /******* 文字的色系  *******/
 +(UIColor *)GZMTitleColor;
-
+/******* 主色系的色系  *******/
++(UIColor *)GZMMainColor;
+/********** (带有透明度)颜色转换************/
++ (UIColor *) GZMcolorWithHexString: (NSString *)color withalpha:(CGFloat)alpha;
 @end

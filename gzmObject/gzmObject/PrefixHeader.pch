@@ -19,7 +19,7 @@
 #define Height [UIScreen mainScreen].bounds.size.height
 #define KeyWindow [UIApplication sharedApplication].keyWindow
 #define IOS_VERSION_10_OR_ABOVE (([[[UIDevice currentDevice]systemVersion]floatValue] >= 9.0)?YES:NO)
-#define MianColor [UIColor GZMcolorWithHexString:@"#1592ff"]
+#define MianColor [UIColor GZMMainColor]
 // Include any system framework and library headers here that should be included in all compilation units.
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
 

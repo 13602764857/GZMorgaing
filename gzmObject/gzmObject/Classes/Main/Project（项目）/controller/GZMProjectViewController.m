@@ -116,8 +116,45 @@
     GZMdetailProjectViewController * detail = [[GZMdetailProjectViewController alloc] init];
     detail.Projectmodel = mo;
     [self.navigationController pushViewController:detail animated:YES];
+    NSDictionary * dic = @{@"token":toketen,@"projectid":mo.ProjectID};
+//    [RequestTool sendPostAFRequest:[BaseUrl stringByAppendingString:ProjectDetails] parameters:dic successBlock:^(id message) {
+//       NSArray * arr =  [GZMProjectModel setModelWithArray:message[@"message"]];
+////        [ZJModelTool createModelWithDictionary:message[@"message"][0] modelName:nil];
+//        GZMdetailProjectViewController * detail = [[GZMdetailProjectViewController alloc] init];
+//        detail.Projectmodel = (GZMProjectModel*)arr[0];
+//        [self.navigationController pushViewController:detail animated:YES];
+//    } failBlock:^(id message) {
+//        
+//    } delegate:self loadWith:mainLoading];
+    
     
 }
+
+-(NSArray<UITableViewRowAction *> *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath{
+    UITableViewRowAction *deleteRowAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@"删除" handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
+        [AlerYangShi creatTitleWithAndTexifiled:@"请输入密码再删除" creatOneWith:nil withTwoStr:nil WithVc:self withSuccessBlock:^(id str) {
+            NSLog(@"%@",str);
+            GZMProjectModel * mo = self.GZMDataArr[indexPath.row];
+            NSDictionary * dic =@{@"token":toketen,@"projectid":mo.ProjectID,@"effective":@"",@"userpass":str};
+            [RequestTool sendPostAFRequest:[BaseUrl stringByAppendingString:DeleteProject] parameters:dic successBlock:^(id message) {
+                if ([message[@"issuccess"] isEqual:@0]) {
+                    [AlerYangShi tishiWithMessage:@"密码错误" WithVc:self];
+                    return ;
+                }
+                [self.GZMDataArr removeObject:mo];
+                [self.GZMTableView reloadData];
+            } failBlock:^(id message) {
+                
+            } delegate:self loadWith:mainLoading];
+        } withErrorBlock:^{
+//            [self.GZMTableView reloadData];
+        }];
+        
+        ;
+    }];
+    return @[deleteRowAction];
+}
+
 //-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
 //
 //}

@@ -114,7 +114,7 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="bigImageView" destination="eYI-2k-5ei" id="dRp-6P-chJ"/>
+                <outlet property="bigImageView" destination="eYI-2k-5ei" id="XpM-pL-k7B"/>
                 <outlet property="fiveLable" destination="wj0-xF-T9h" id="6R8-F2-0sB"/>
                 <outlet property="fourLable" destination="oPx-sK-42F" id="1Ub-gc-uB8"/>
                 <outlet property="onelable" destination="uyH-Vp-qf2" id="jB9-fp-EYN"/>
