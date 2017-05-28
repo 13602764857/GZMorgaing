@@ -19,5 +19,13 @@ typedef NS_OPTIONS(NSInteger, loadIngtype) {
     //    imageAndTitle           = 1 << 2,
     //    onlyTitle               = 1 << 3,
 };
+//button的展示重写枚举
+typedef NS_OPTIONS(NSInteger, ButtonType) {
+    NormalType          =0,
+    leftType               = 1 << 0,
+    topeType                 = 1 << 1,
+    //    imageAndTitle           = 1 << 2,
+    //    onlyTitle               = 1 << 3,
+};
 
 #endif /* GZMCAtegory_h */

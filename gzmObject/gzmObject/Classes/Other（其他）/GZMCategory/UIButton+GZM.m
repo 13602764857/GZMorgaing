@@ -36,12 +36,13 @@
 /********** 让button左边文字靠近 右边图片靠************/
 -(void)GZMlefiRightButton{
     //设置lable
-    self.titleLabel.x = 10;
-    
-    
+    self.titleLabel.centerX = self.width * 3 / 4.0/2 +5;
+    self.titleLabel.centerY = self.height / 2;
+    self.titleLabel.contentMode = UIViewContentModeLeft;
     
     //设置图片
-    self.imageView.x = self.width - self.imageView.width - 10;
+    self.imageView.centerY = self.height/2;
+    self.imageView.centerX = self.width*3/4 + self.width/4/2 - 5;
     
 }
 @end

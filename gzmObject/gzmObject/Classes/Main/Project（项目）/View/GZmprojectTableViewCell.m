@@ -25,15 +25,13 @@
     }
     self.fourLable.text = mo.Versions;
     self.fiveLable.text = mo.Count;
-//    [self.bigImageView sd_setImageWithURL:[NSURL URLWithString:mo.Image] placeholderImage:[UIImage imageNamed:@"密码"] options:nil];
-    [self.bigImageView sd_setImageWithURL:[NSURL URLWithString:mo.Image] placeholderImage:nil];
-//    [self.bigImageView sd_setImageWithURL:[NSURL URLWithString:@"https://baike.baidu.com/pic/图片/372416/0/29381f30e924b899c83ff41c6d061d950a7bf697?fr=lemma&ct=single#aid=0&pic=29381f30e924b899c83ff41c6d061d950a7bf697"] placeholderImage:[UIImage imageNamed:@"密码"]];
-//    _bigImageView.image = [UIImage imageWithData:[[NSData alloc]initWithContentsOfURL:[NSURL URLWithString:@"https://baike.baidu.com/pic/图片/372416/0/29381f30e924b899c83ff41c6d061d950a7bf697?fr=lemma&ct=single#aid=0&pic=29381f30e924b899c83ff41c6d061d950a7bf697"]]];
-//    [self.bigImageView sd_setImageWithURL:[NSURL URLWithString:[mo.Image stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+
+    [self.bigImageView sd_setImageWithURL:[NSURL URLWithString:mo.Image] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
 //        NSLog(@"%@",error);
 //        NSLog(@"%@",image);
 //        NSLog(@"%ld",(long)cacheType);
-//    }];
+    }];
+//    [self.bigImageView sd_setImageWithURL:[NSURL URLWithString:mo.Image] placeholderImage:nil];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

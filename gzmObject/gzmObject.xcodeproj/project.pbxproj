@@ -25,6 +25,8 @@
 		1505E16E1EB2C0E900C61DFC /* GZMTabbatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1505E16D1EB2C0E900C61DFC /* GZMTabbatViewController.m */; };
 		150D013C1ED8AB8C004D97A1 /* GZMMyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 150D013B1ED8AB8C004D97A1 /* GZMMyViewController.m */; };
 		150D013F1ED8F3B6004D97A1 /* GZMChangeProgectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 150D013E1ED8F3B6004D97A1 /* GZMChangeProgectViewController.m */; };
+		150D01421EDA3B9E004D97A1 /* leftButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 150D01411EDA3B9E004D97A1 /* leftButton.m */; };
+		150D01481EDA4C13004D97A1 /* tableVIew.m in Sources */ = {isa = PBXBuildFile; fileRef = 150D01471EDA4C13004D97A1 /* tableVIew.m */; };
 		156DDB211ECA27D60050F037 /* UITextField+GZM.m in Sources */ = {isa = PBXBuildFile; fileRef = 156DDB201ECA27D60050F037 /* UITextField+GZM.m */; };
 		156DDB281ECB6CC20050F037 /* GZMLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 156DDB261ECB6CC20050F037 /* GZMLoginViewController.m */; };
 		156DDB291ECB6CC20050F037 /* GZMLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 156DDB271ECB6CC20050F037 /* GZMLoginViewController.xib */; };
@@ -129,6 +131,10 @@
 		150D013B1ED8AB8C004D97A1 /* GZMMyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GZMMyViewController.m; sourceTree = "<group>"; };
 		150D013D1ED8F3B6004D97A1 /* GZMChangeProgectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GZMChangeProgectViewController.h; sourceTree = "<group>"; };
 		150D013E1ED8F3B6004D97A1 /* GZMChangeProgectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GZMChangeProgectViewController.m; sourceTree = "<group>"; };
+		150D01401EDA3B9E004D97A1 /* leftButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = leftButton.h; sourceTree = "<group>"; };
+		150D01411EDA3B9E004D97A1 /* leftButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = leftButton.m; sourceTree = "<group>"; };
+		150D01461EDA4C13004D97A1 /* tableVIew.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tableVIew.h; sourceTree = "<group>"; };
+		150D01471EDA4C13004D97A1 /* tableVIew.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = tableVIew.m; sourceTree = "<group>"; };
 		156DDB1F1ECA27D60050F037 /* UITextField+GZM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+GZM.h"; sourceTree = "<group>"; };
 		156DDB201ECA27D60050F037 /* UITextField+GZM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+GZM.m"; sourceTree = "<group>"; };
 		156DDB251ECB6CC20050F037 /* GZMLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GZMLoginViewController.h; sourceTree = "<group>"; };
@@ -269,6 +275,10 @@
 				1505E1401EB15A0300C61DFC /* ZJModelTool.m */,
 				1505E14D1EB15C4900C61DFC /* LoadIngView.h */,
 				1505E14E1EB15C4900C61DFC /* LoadIngView.m */,
+				150D01401EDA3B9E004D97A1 /* leftButton.h */,
+				150D01411EDA3B9E004D97A1 /* leftButton.m */,
+				150D01461EDA4C13004D97A1 /* tableVIew.h */,
+				150D01471EDA4C13004D97A1 /* tableVIew.m */,
 			);
 			path = GZMView;
 			sourceTree = "<group>";
@@ -831,10 +841,12 @@
 				1579B9561ED64732000325FC /* GZMZongViewController.m in Sources */,
 				1505E14C1EB15B6100C61DFC /* RequestTool.m in Sources */,
 				158797E51EB02C8400DA40CF /* UIColor+GZM.m in Sources */,
+				150D01481EDA4C13004D97A1 /* tableVIew.m in Sources */,
 				158797ED1EB02DE300DA40CF /* UIView+SYFrame.m in Sources */,
 				1505E1451EB15A0300C61DFC /* warnIngView.m in Sources */,
 				158797E61EB02C8400DA40CF /* UIImage+GZM.m in Sources */,
 				1505E1671EB2B10700C61DFC /* onrViewController.m in Sources */,
+				150D01421EDA3B9E004D97A1 /* leftButton.m in Sources */,
 				156DDB2C1ECB6DC20050F037 /* registedViewController.m in Sources */,
 				158797E01EB02C8400DA40CF /* NSArray+GZM.m in Sources */,
 				1505E1421EB15A0300C61DFC /* downLoadView.m in Sources */,

@@ -9,5 +9,6 @@
 #import "FatherViewController.h"
 
 @interface GZMCreatViewController : FatherViewController
-
+/**********<#属性#> ************/
+@property(nonatomic,strong)NSArray * languageArr;
 @end

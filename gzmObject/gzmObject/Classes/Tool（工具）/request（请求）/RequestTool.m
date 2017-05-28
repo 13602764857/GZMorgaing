@@ -47,24 +47,24 @@
 /******* get请求  *******/
 +(void)sendGetAFRequest:(NSString *)url parameters:(NSDictionary *)parameters successBlock:(requestBlock)successBlock failBlock:(requestBlock)failBlock delegate:(UIViewController *)delegate loadWith:(loadIngtype)tpye{
     AFHTTPSessionManager * manager = [self initManager];
-    LoadIngView * loading = [[LoadIngView alloc] initWithFrame:CGRectMake(0, 0, delegate.view.width, delegate.view.height)];
-    if (delegate) {
-        if (delegate.view.height == Height) {
-            loading.y = 64;
-        }
-    }
+//    LoadIngView * loading = [[LoadIngView alloc] initWithFrame:CGRectMake(0, 0, delegate.view.width, delegate.view.height)];
+//    if (delegate) {
+//        if (delegate.view.height == Height) {
+//            loading.y = 64;
+//        }
+//    }
     
-    if (tpye == mainLoading) {
-        [delegate.view addSubview:loading];
-    }
+//    if (tpye == mainLoading) {
+//        [delegate.view addSubview:loading];
+//    }
     [manager GET:url parameters:parameters progress:^(NSProgress * _Nonnull uploadProgress) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        [loading removeFromSuperview];
+//        [loading removeFromSuperview];
         [self success:successBlock dicResponseObject:responseObject delegate:delegate];
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        [loading removeFromSuperview];
+//        [loading removeFromSuperview];
         
         [self fail:failBlock error:error delegate:delegate];
     }];

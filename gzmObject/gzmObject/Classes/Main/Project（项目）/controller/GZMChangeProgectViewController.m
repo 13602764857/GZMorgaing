@@ -8,7 +8,7 @@
 
 #import "GZMChangeProgectViewController.h"
 
-@interface GZMChangeProgectViewController ()<UITextFieldDelegate>
+@interface GZMChangeProgectViewController ()<UITextFieldDelegate,UITextViewDelegate>
 /**********<#属性#> ************/
 @property(nonatomic,strong)UIScrollView * MainScrollview;
 @end
@@ -70,10 +70,12 @@
 //    textView.editable = NO;
     textView.textColor = [UIColor GZMTitleColor];
     [textView GZMchangeStyleWith:0 withborad:1 withBoardColor:[UIColor GZMLightColor]];
+    textView.delegate = self;
     textView.text = self.Projectmodel.Remark;
     [_MainScrollview addSubview:textView];
     
-    UIButton * button = [[UIButton alloc] initWithFrame:CGRectMake(0, _MainScrollview.contentSize.height - 50, Width, 50)];
+    CGFloat btHeight = (_MainScrollview.height > _MainScrollview.contentSize.height)?_MainScrollview.height:_MainScrollview.contentSize.height;
+    UIButton * button = [[UIButton alloc] initWithFrame:CGRectMake(0, btHeight - 50, Width, 50)];
     button.backgroundColor = MianColor;
     [button setTitle:@"保存" forState:UIControlStateNormal];
     [button addTarget:self action:@selector(proClick) forControlEvents:UIControlEventTouchUpInside];
@@ -133,6 +135,18 @@
     } completion:^(BOOL finished) {
         
     }];
+}
+/*********激活输入框*********/
+-(void)GZM_Show{
+    [UIView animateWithDuration:0.25 animations:^{
+        self.view.y = -200;
+    } completion:^(BOOL finished) {
+        
+    }];
+}
+
+-(void)textViewDidBeginEditing:(UITextView *)textView{
+     [self GZM_Show];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

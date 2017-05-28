@@ -31,6 +31,7 @@
 -(void)GZM_creatFather{
     self.mainlable1.text = @"项目详情";
     [self.rightbutton1 setImage:[UIImage imageNamed:@"更多"] forState:UIControlStateNormal];
+
 }
 /*********更多的操作*********/
 -(void)GZM_creatMore{

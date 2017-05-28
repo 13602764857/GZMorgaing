@@ -45,16 +45,22 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 -(void)rightbutton1Click{
-    self.tabBarController.tabBar.hidden = YES;
-    GZMCreatViewController * greatVc = [[GZMCreatViewController alloc] init];
-    [self.navigationController pushViewController:greatVc animated:YES];
+    [RequestTool sendGetAFRequest:[BaseUrl stringByAppendingString:GetLanguageList] parameters:@{@"":@""} successBlock:^(id message) {
+        self.tabBarController.tabBar.hidden = YES;
+        GZMCreatViewController * greatVc = [[GZMCreatViewController alloc] init];
+        greatVc.languageArr = message[@"message"];
+        [self.navigationController pushViewController:greatVc animated:YES];
+    } failBlock:^(id message) {
+        
+    } delegate:self loadWith:mainLoading];
+    
 }
 /*********tableView的*********/
 -(void)GZM_setTableView{
     [self.view addSubview:self.GZMTableView];
     [self.GZMTableView registerNib:[UINib nibWithNibName:@"GZmprojectTableViewCell" bundle:nil] forCellReuseIdentifier:@"cell"];
     self.GZMTableView.frame = CGRectMake(0, 64 + 7, Width, Height - 64 - 49 -7);
-    self.GZMTableView.rowHeight = 120;
+    self.GZMTableView.rowHeight = 80;
 }
 -(void)creatData{
     pindex = 1;
@@ -119,10 +125,11 @@
     NSDictionary * dic = @{@"token":toketen,@"projectid":mo.ProjectID};
 //    [RequestTool sendPostAFRequest:[BaseUrl stringByAppendingString:ProjectDetails] parameters:dic successBlock:^(id message) {
 //       NSArray * arr =  [GZMProjectModel setModelWithArray:message[@"message"]];
+//        
 ////        [ZJModelTool createModelWithDictionary:message[@"message"][0] modelName:nil];
-//        GZMdetailProjectViewController * detail = [[GZMdetailProjectViewController alloc] init];
-//        detail.Projectmodel = (GZMProjectModel*)arr[0];
-//        [self.navigationController pushViewController:detail animated:YES];
+////        GZMdetailProjectViewController * detail = [[GZMdetailProjectViewController alloc] init];
+////        detail.Projectmodel = (GZMProjectModel*)arr[0];
+////        [self.navigationController pushViewController:detail animated:YES];
 //    } failBlock:^(id message) {
 //        
 //    } delegate:self loadWith:mainLoading];
@@ -135,7 +142,7 @@
         [AlerYangShi creatTitleWithAndTexifiled:@"请输入密码再删除" creatOneWith:nil withTwoStr:nil WithVc:self withSuccessBlock:^(id str) {
             NSLog(@"%@",str);
             GZMProjectModel * mo = self.GZMDataArr[indexPath.row];
-            NSDictionary * dic =@{@"token":toketen,@"projectid":mo.ProjectID,@"effective":@"",@"userpass":str};
+            NSDictionary * dic =@{@"token":toketen,@"projectid":mo.ProjectID,@"effective":@"",@"userpass":((NSString *)str).length > 0?str:@"12"};
             [RequestTool sendPostAFRequest:[BaseUrl stringByAppendingString:DeleteProject] parameters:dic successBlock:^(id message) {
                 if ([message[@"issuccess"] isEqual:@0]) {
                     [AlerYangShi tishiWithMessage:@"密码错误" WithVc:self];
