@@ -44,7 +44,7 @@
         titleLable.font = [UIFont systemFontOfSize:13];
         [_MainScrollview addSubview:titleLable];
         
-        UITextField *titleLable1 = [[UITextField alloc] initWithFrame:CGRectMake(CGRectGetMaxX(titleLable.frame), CGRectGetMaxY(imageLable.frame), 220, 43.5)];
+        UITextField *titleLable1 = [[UITextField alloc] initWithFrame:CGRectMake(CGRectGetMaxX(titleLable.frame), CGRectGetMaxY(imageLable.frame), 250, 43.5)];
         titleLable1.tag = 100 + i;
         titleLable1.text = dataArr[i];
         titleLable1.font = [UIFont systemFontOfSize:12];

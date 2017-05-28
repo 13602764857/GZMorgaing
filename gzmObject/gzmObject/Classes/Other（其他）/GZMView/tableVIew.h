@@ -10,4 +10,6 @@
 typedef void (^DataBlock)(id message);
 @interface tableVIew : UIView<UITableViewDelegate,UITableViewDataSource>
 -(instancetype)initWithFrame:(CGRect)frame withArr:(NSArray *)dataArr With:(DataBlock)dataBlock;
+/**********<#属性#> ************/
+@property(nonatomic,strong)DataBlock datablock;
 @end

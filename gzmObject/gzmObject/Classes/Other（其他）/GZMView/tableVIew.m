@@ -9,17 +9,32 @@
 #import "tableVIew.h"
 
 @implementation tableVIew
+{
+    NSArray * dataArr1;
+}
 -(instancetype)initWithFrame:(CGRect)frame withArr:(NSArray *)dataArr With:(DataBlock)dataBlock{
     if (self = [super initWithFrame:frame]) {
+        _datablock = dataBlock;
         UITableView * tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.width, self.height) style:UITableViewStylePlain];
+        tableView.delegate = self;
+        tableView.dataSource = self;
+        dataArr1 = dataArr;
         [self addSubview:tableView];
+        
     }return self;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 10;
+    return dataArr1.count;
 }
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    
+    self.datablock(dataArr1[indexPath.row][@"LangName"]);
+    
+    
+}
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     static NSString * cellID = @"cell";
@@ -27,6 +42,9 @@
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
     }
+    cell.textLabel.text = dataArr1[indexPath.row][@"LangName"];
+    cell.textLabel.textAlignment = NSTextAlignmentCenter;
+    cell.textLabel.font = [UIFont systemFontOfSize:14];
     return cell;
 }
 /*

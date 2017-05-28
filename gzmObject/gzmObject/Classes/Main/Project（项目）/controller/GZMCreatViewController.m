@@ -8,6 +8,7 @@
 
 #import "GZMCreatViewController.h"
 #import "leftButton.h"
+#import "tableVIew.h"
 @interface GZMCreatViewController ()<UITextFieldDelegate,UITextViewDelegate>
 /**********<#属性#> ************/
 @property(nonatomic,strong)UIScrollView * MainScrollview;
@@ -23,6 +24,7 @@
     NSString * langID;
     NSString * platformid;
     NSString * projectid;
+    tableVIew * tableView;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -34,14 +36,14 @@
 /*********<#私有方法#>*********/
 -(void)GZM_creatFather{
     langID = [NSString stringWithFormat:@"%@",_languageArr[0][@"langID"]];
-    platformid = [NSString stringWithFormat:@"%@",_languageArr[0][@"PlatformID"]];
+    
     self.mainlable1.text = @"创建项目";
 }
 
 -(void)creatData{
     [RequestTool sendGetAFRequest:[BaseUrl stringByAppendingString:GetPlatformList] parameters:@{@"langID":langID} successBlock:^(id message) {
         _langIDArr = message[@"message"];
-        
+        platformid = [NSString stringWithFormat:@"%@",_langIDArr[0][@"PlatformID"]];
         if (!textView) {
             [self GZM_creatUI];
         }
@@ -114,6 +116,13 @@
 /********** 选择语言分类点击事件  ************/
 -(void)leftbuttonClick:(UIButton *)button{
     
+    tableView = [[tableVIew alloc]initWithFrame:CGRectMake(CGRectGetMinX(button.frame), CGRectGetMaxY(button.frame), button.width, 150) withArr:self.languageArr With:^(id message) {
+        NSLog(@"%@",message);
+        [languageButton setTitle:message forState:UIControlStateNormal];
+//        [tableView removeFromSuperview];
+    }];
+//    [tableView removeFromSuperview];
+    [_MainScrollview addSubview:tableView];
 }
 
 -(UIScrollView *)MainScrollview{
@@ -130,6 +139,7 @@
     [self GZM_Hidden];
 }
 -(void)proClick{
+    [self GZM_Hidden];
     UITextField * protextFile = (UITextField *)[self.view viewWithTag:100];
     UITextField * VersionstextFile = (UITextField *)[self.view viewWithTag:101];
     if (protextFile.text.length == 0) {
@@ -146,6 +156,7 @@
         return;
     }
     NSDictionary * dic = @{@"token":toketen,@"pname":protextFile.text,@"version":VersionstextFile.text,@"remark":textView.text,@"platformid":platformid,@"effective":@"true",@"projectid":@""};
+    NSLog(@"%@",dic);
     [RequestTool sendPostAFRequest:[BaseUrl stringByAppendingString:CreateProject] parameters:dic successBlock:^(id message) {
         
     } failBlock:^(id message) {
@@ -155,6 +166,7 @@
 }
 /*********输入框*********/
 -(void)GZM_Hidden{
+//    [tableView removeFromSuperview];
     [UIView animateWithDuration:0.25 animations:^{
         self.view.y = 0;
         [[[UIApplication sharedApplication] keyWindow] endEditing:YES];

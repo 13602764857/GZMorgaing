@@ -104,12 +104,12 @@
         titleLable.font = [UIFont systemFontOfSize:13];
         [_MainScrollview addSubview:titleLable];
         
-        UILabel *titleLable1 = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(titleLable.frame), CGRectGetMaxY(imageLable.frame), 220, 43.5)];
+        UILabel *titleLable1 = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(titleLable.frame), CGRectGetMaxY(imageLable.frame), 250, 43.5)];
         titleLable1.textColor = [UIColor GZMTitleColor];
         titleLable1.text = dataArr[i];
-        titleLable1.font = [UIFont systemFontOfSize:12];
+        titleLable1.font = [UIFont systemFontOfSize:13];
         if (i == 2) {
-            titleLable1.font = [UIFont systemFontOfSize:11];
+            titleLable1.font = [UIFont systemFontOfSize:12];
         }
         [_MainScrollview addSubview:titleLable1];
         [Marr addObject:titleLable];
