@@ -18,9 +18,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(GZMNotReshAction) name:@"GZMActivationViewController" object:nil];
     [self GZM_creatFather];
     [self GZM_setTableView];
     // Do any additional setup after loading the view.
+}
+/********** 通知刷新************/
+-(void)GZMNotReshAction{
+    [self creatData];
 }
 /*********<#私有方法#>*********/
 -(void)GZM_creatFather{
@@ -118,6 +123,10 @@
         }];
     }];
     return @[deleteRowAction];
+}
+-(void)dealloc{
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"GZMActivationViewController" object:nil];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -47,7 +47,7 @@
     
     
     UINavigationController *mineNav = self.childViewControllers[2];
-    mineNav.tabBarItem.title = @"我的";
+    mineNav.tabBarItem.title = @"我的信息";
     mineNav.tabBarItem.image = [UIImage imageNamed:@"我的信息-待选"];
     mineNav.tabBarItem.selectedImage = [[UIImage imageNamed:@"我的信息"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];;
     

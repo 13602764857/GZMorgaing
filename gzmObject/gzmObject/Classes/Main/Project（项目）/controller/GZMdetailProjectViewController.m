@@ -64,9 +64,16 @@
     switch (button.tag) {
         case 100:
         {
-            GZMChangeProgectViewController * GZMac = [[GZMChangeProgectViewController alloc] init];
-            GZMac.Projectmodel = self.Projectmodel;
-            [self presentViewController:GZMac animated:YES completion:nil];
+            [RequestTool sendGetAFRequest:[BaseUrl stringByAppendingString:GetLanguageList] parameters:@{@"":@""} successBlock:^(id message) {
+//                self.tabBarController.tabBar.hidden = YES;
+                GZMChangeProgectViewController * greatVc = [[GZMChangeProgectViewController alloc] init];
+                greatVc.languageArr = message[@"message"];
+                greatVc.Projectmodel = self.Projectmodel;
+                [self.navigationController pushViewController:greatVc animated:YES];
+            } failBlock:^(id message) {
+                
+            } delegate:self loadWith:mainLoading];
+
         }
             break;
         case 101:

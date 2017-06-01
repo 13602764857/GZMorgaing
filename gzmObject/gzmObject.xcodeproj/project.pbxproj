@@ -27,6 +27,11 @@
 		150D013F1ED8F3B6004D97A1 /* GZMChangeProgectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 150D013E1ED8F3B6004D97A1 /* GZMChangeProgectViewController.m */; };
 		150D01421EDA3B9E004D97A1 /* leftButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 150D01411EDA3B9E004D97A1 /* leftButton.m */; };
 		150D01481EDA4C13004D97A1 /* tableVIew.m in Sources */ = {isa = PBXBuildFile; fileRef = 150D01471EDA4C13004D97A1 /* tableVIew.m */; };
+		150D014C1EDF7C01004D97A1 /* GZMMyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 150D014B1EDF7C01004D97A1 /* GZMMyViewController.xib */; };
+		150D014F1EDF8491004D97A1 /* GZmSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 150D014E1EDF8491004D97A1 /* GZmSettingViewController.m */; };
+		150D01521EDF8A34004D97A1 /* simpleTableVIew.m in Sources */ = {isa = PBXBuildFile; fileRef = 150D01511EDF8A34004D97A1 /* simpleTableVIew.m */; };
+		150D01551EDF9A8E004D97A1 /* GZMpassWordSecurityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 150D01541EDF9A8E004D97A1 /* GZMpassWordSecurityViewController.m */; };
+		150D01581EDFA2C5004D97A1 /* GZMpickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 150D01571EDFA2C5004D97A1 /* GZMpickerView.m */; };
 		156DDB211ECA27D60050F037 /* UITextField+GZM.m in Sources */ = {isa = PBXBuildFile; fileRef = 156DDB201ECA27D60050F037 /* UITextField+GZM.m */; };
 		156DDB281ECB6CC20050F037 /* GZMLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 156DDB261ECB6CC20050F037 /* GZMLoginViewController.m */; };
 		156DDB291ECB6CC20050F037 /* GZMLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 156DDB271ECB6CC20050F037 /* GZMLoginViewController.xib */; };
@@ -135,6 +140,15 @@
 		150D01411EDA3B9E004D97A1 /* leftButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = leftButton.m; sourceTree = "<group>"; };
 		150D01461EDA4C13004D97A1 /* tableVIew.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tableVIew.h; sourceTree = "<group>"; };
 		150D01471EDA4C13004D97A1 /* tableVIew.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = tableVIew.m; sourceTree = "<group>"; };
+		150D014B1EDF7C01004D97A1 /* GZMMyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GZMMyViewController.xib; sourceTree = "<group>"; };
+		150D014D1EDF8491004D97A1 /* GZmSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GZmSettingViewController.h; sourceTree = "<group>"; };
+		150D014E1EDF8491004D97A1 /* GZmSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GZmSettingViewController.m; sourceTree = "<group>"; };
+		150D01501EDF8A34004D97A1 /* simpleTableVIew.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = simpleTableVIew.h; sourceTree = "<group>"; };
+		150D01511EDF8A34004D97A1 /* simpleTableVIew.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = simpleTableVIew.m; sourceTree = "<group>"; };
+		150D01531EDF9A8E004D97A1 /* GZMpassWordSecurityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GZMpassWordSecurityViewController.h; sourceTree = "<group>"; };
+		150D01541EDF9A8E004D97A1 /* GZMpassWordSecurityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GZMpassWordSecurityViewController.m; sourceTree = "<group>"; };
+		150D01561EDFA2C5004D97A1 /* GZMpickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GZMpickerView.h; sourceTree = "<group>"; };
+		150D01571EDFA2C5004D97A1 /* GZMpickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GZMpickerView.m; sourceTree = "<group>"; };
 		156DDB1F1ECA27D60050F037 /* UITextField+GZM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+GZM.h"; sourceTree = "<group>"; };
 		156DDB201ECA27D60050F037 /* UITextField+GZM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+GZM.m"; sourceTree = "<group>"; };
 		156DDB251ECB6CC20050F037 /* GZMLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GZMLoginViewController.h; sourceTree = "<group>"; };
@@ -279,6 +293,10 @@
 				150D01411EDA3B9E004D97A1 /* leftButton.m */,
 				150D01461EDA4C13004D97A1 /* tableVIew.h */,
 				150D01471EDA4C13004D97A1 /* tableVIew.m */,
+				150D01561EDFA2C5004D97A1 /* GZMpickerView.h */,
+				150D01571EDFA2C5004D97A1 /* GZMpickerView.m */,
+				150D01501EDF8A34004D97A1 /* simpleTableVIew.h */,
+				150D01511EDF8A34004D97A1 /* simpleTableVIew.m */,
 			);
 			path = GZMView;
 			sourceTree = "<group>";
@@ -329,6 +347,11 @@
 			children = (
 				150D013A1ED8AB8C004D97A1 /* GZMMyViewController.h */,
 				150D013B1ED8AB8C004D97A1 /* GZMMyViewController.m */,
+				150D014B1EDF7C01004D97A1 /* GZMMyViewController.xib */,
+				150D014D1EDF8491004D97A1 /* GZmSettingViewController.h */,
+				150D014E1EDF8491004D97A1 /* GZmSettingViewController.m */,
+				150D01531EDF9A8E004D97A1 /* GZMpassWordSecurityViewController.h */,
+				150D01541EDF9A8E004D97A1 /* GZMpassWordSecurityViewController.m */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -758,6 +781,7 @@
 				1587978C1EAFEF6100DA40CF /* Main.storyboard in Resources */,
 				1579B96F1ED7545C000325FC /* GZMActiveTableViewCell.xib in Resources */,
 				1579B9671ED73ED1000325FC /* GZMCreatViewController.xib in Resources */,
+				150D014C1EDF7C01004D97A1 /* GZMMyViewController.xib in Resources */,
 				156DDB321ECE4EAC0050F037 /* registedViewController.xib in Resources */,
 				1579B9621ED66154000325FC /* GZMdetailProjectViewController.xib in Resources */,
 			);
@@ -851,6 +875,7 @@
 				158797E01EB02C8400DA40CF /* NSArray+GZM.m in Sources */,
 				1505E1421EB15A0300C61DFC /* downLoadView.m in Sources */,
 				1505E16E1EB2C0E900C61DFC /* GZMTabbatViewController.m in Sources */,
+				150D01521EDF8A34004D97A1 /* simpleTableVIew.m in Sources */,
 				1579B96A1ED75025000325FC /* GZMActivationViewController.m in Sources */,
 				156DDB211ECA27D60050F037 /* UITextField+GZM.m in Sources */,
 				1505E15B1EB27B5500C61DFC /* ViewController.m in Sources */,
@@ -865,15 +890,18 @@
 				1579B95D1ED647B0000325FC /* GZMequipmentViewController.m in Sources */,
 				1505E1411EB15A0300C61DFC /* AlerYangShi.m in Sources */,
 				1505E1461EB15A0300C61DFC /* XLWave.m in Sources */,
+				150D014F1EDF8491004D97A1 /* GZmSettingViewController.m in Sources */,
 				1505E1431EB15A0300C61DFC /* FileUtils.m in Sources */,
 				1579B9771ED89A55000325FC /* ActiveModel.m in Sources */,
 				1505E1441EB15A0300C61DFC /* GZMAlertView.m in Sources */,
 				150D013F1ED8F3B6004D97A1 /* GZMChangeProgectViewController.m in Sources */,
 				158797E91EB02C8400DA40CF /* UITextView+GZM.m in Sources */,
 				158797C61EB027C800DA40CF /* FatherViewController.m in Sources */,
+				150D01551EDF9A8E004D97A1 /* GZMpassWordSecurityViewController.m in Sources */,
 				158797831EAFEF6100DA40CF /* main.m in Sources */,
 				1505E15E1EB27BA100C61DFC /* GZMRootViewController.m in Sources */,
 				1579B9661ED73ED1000325FC /* GZMCreatViewController.m in Sources */,
+				150D01581EDFA2C5004D97A1 /* GZMpickerView.m in Sources */,
 				1579B96E1ED7545C000325FC /* GZMActiveTableViewCell.m in Sources */,
 				158797E11EB02C8400DA40CF /* NSDictionary+GZM.m in Sources */,
 				156DDB281ECB6CC20050F037 /* GZMLoginViewController.m in Sources */,

@@ -7,15 +7,30 @@
 //
 
 #import "GZMChangeProgectViewController.h"
-
-@interface GZMChangeProgectViewController ()<UITextFieldDelegate,UITextViewDelegate>
+#import "leftButton.h"
+#import "tableVIew.h"
+#import "GZMpickerView.h"
+@interface GZMChangeProgectViewController ()<UITextFieldDelegate,UITextViewDelegate,UIGestureRecognizerDelegate>
 /**********<#属性#> ************/
 @property(nonatomic,strong)UIScrollView * MainScrollview;
+/**********<#属性#> ************/
+@property(nonatomic,strong)NSArray * langIDArr;
 @end
 
 @implementation GZMChangeProgectViewController
 {
     UITextView * textView;
+    leftButton * languageButton;
+    leftButton * ClassButton;
+    NSString * langID;
+    NSString * platformid;
+    NSString * projectid;
+//    tableVIew * tableView;
+    GZMpickerView * MypickerView;
+    NSArray * dataArr;
+    UIButton * trueButton;
+    UIButton * falseButton;
+    NSString * languageStr;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -26,7 +41,9 @@
 /*********<#私有方法#>*********/
 -(void)GZM_creatFather{
     self.mainlable1.text = @"项目修改";
-    }
+    langID = self.Projectmodel.LangID;
+    platformid = self.Projectmodel.PlatformID;
+}
 /*********<#私有方法#>*********/
 -(void)GZM_creatUI{
     [self.view addSubview:self.MainScrollview];
@@ -59,7 +76,56 @@
             titleLable1.textColor = [UIColor GZMTitleColor];
         }
         if (i == 5 || i == 6 || i == 7) {
-            
+            if (i == 5) {
+                languageButton = [[leftButton alloc] initWithFrame:CGRectMake(CGRectGetMaxX(titleLable.frame) + 10, CGRectGetMaxY(imageLable.frame), (Width - titleLable.width - 10 - 20) - 10, 43.5)];
+                //            languageButton.backgroundColor = [UIColor redColor];
+                NSString * str = [NSString stringWithFormat:@"%@,%@",[self.languageArr GZMpublicSetStrWith:self.Projectmodel.LangID andStr:@"LangID" getStr:@"LangName"],self.Projectmodel.PlatformName];
+                [languageButton setTitle:str forState:UIControlStateNormal];
+                languageButton.titleLabel.font = [UIFont systemFontOfSize:13];
+                [languageButton setImage:[UIImage imageNamed:@"下拉"] forState:UIControlStateNormal];
+                [languageButton addTarget:self action:@selector(leftbuttonClick:) forControlEvents:UIControlEventTouchUpInside];
+                [_MainScrollview addSubview:languageButton];
+                
+//                ClassButton = [[leftButton alloc] initWithFrame:CGRectMake(CGRectGetMaxX(languageButton.frame) + 10, CGRectGetMaxY(imageLable.frame), (Width - titleLable.width - 10)/2 - 10, 43.5)];
+//                [ClassButton setTitle:self.Projectmodel.PlatformName forState:UIControlStateNormal];
+//                ClassButton.titleLabel.font = [UIFont systemFontOfSize:13];
+//                [ClassButton setImage:[UIImage imageNamed:@"下拉"] forState:UIControlStateNormal];
+//                [ClassButton addTarget:self action:@selector(leftbuttonClick:) forControlEvents:UIControlEventTouchUpInside];
+//                //            ClassButton.backgroundColor = [UIColor redColor];
+//                [_MainScrollview addSubview:ClassButton];
+            }
+            if (i == 6) {
+                
+                trueButton = [[UIButton alloc] initWithFrame:CGRectMake(CGRectGetMaxX(titleLable.frame), CGRectGetMaxY(imageLable.frame), (Width - titleLable.width - 10)/2 - 10, 43.5)];
+                [trueButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+                [trueButton setTitle:@"  有效" forState:UIControlStateNormal];
+                [trueButton setImage:[UIImage imageNamed:@"待选"] forState:UIControlStateNormal];
+                if ([self.Projectmodel.Effective isEqualToString:@"1"]) {
+                   trueButton.selected = YES;
+                }
+                [trueButton setImage:[UIImage imageNamed:@"选择"] forState:UIControlStateSelected];
+                trueButton.titleLabel.font = [UIFont systemFontOfSize:14];
+                [trueButton addTarget:self action:@selector(trueClick:) forControlEvents:UIControlEventTouchUpInside];
+                
+//                trueButton.backgroundColor = MianColor;
+                [_MainScrollview addSubview:trueButton];
+               
+                falseButton = [[UIButton alloc] initWithFrame:CGRectMake(CGRectGetMaxX(trueButton.frame) + 10, CGRectGetMaxY(imageLable.frame), (Width - titleLable.width - 10)/2 - 10, 43.5)];
+                [falseButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+                if ([self.Projectmodel.Effective isEqualToString:@"0"]) {
+                    falseButton.selected = YES;
+                }
+                [falseButton setTitle:@"  无效" forState:UIControlStateNormal];
+                [falseButton setImage:[UIImage imageNamed:@"待选"] forState:UIControlStateNormal];
+                [falseButton setImage:[UIImage imageNamed:@"选择"] forState:UIControlStateSelected];
+                falseButton.titleLabel.font = [UIFont systemFontOfSize:14];
+                [falseButton addTarget:self action:@selector(trueClick:) forControlEvents:UIControlEventTouchUpInside];
+                
+                //                trueButton.backgroundColor = MianColor;
+                [_MainScrollview addSubview:falseButton];
+                
+                
+            }
         }else{
             [_MainScrollview addSubview:titleLable1];
         }
@@ -81,12 +147,83 @@
     [button addTarget:self action:@selector(proClick) forControlEvents:UIControlEventTouchUpInside];
     [_MainScrollview addSubview:button];
 }
+/********** 有效无效的选择************/
+-(void)trueClick:(UIButton *)button{
+    trueButton.selected = NO;
+    falseButton.selected = NO;
+    button.selected = YES;
+}
+/*********获取平台列表*********/
+-(void)GZM_getPlatformList{
+    [RequestTool sendGetAFRequest:[BaseUrl stringByAppendingString:GetPlatformList] parameters:@{@"langID":langID} successBlock:^(id message) {
+        
+        dataArr = message[@"message"];
+        platformid = dataArr[0][@"PlatformID"];
+        MypickerView.secondData = [dataArr GZMpublicSetArrWithStr:@"PlatformName"];
+        [MypickerView.myPickerView reloadAllComponents ];
+        [languageButton setTitle:[NSString stringWithFormat:@"%@,%@",languageStr,MypickerView.secondData[0]] forState:UIControlStateNormal];
+//        tableView = [[tableVIew alloc]initWithFrame:CGRectMake(CGRectGetMinX(ClassButton.frame), CGRectGetMaxY(ClassButton.frame), ClassButton.width, 150) withArr:[arr GZMpublicSetArrWithStr:@"PlatformName"] With:^(id message) {
+//            NSLog(@"%@",message);
+//            [ClassButton setTitle:message forState:UIControlStateNormal];
+//            platformid = [arr GZMpublicSetStrWith:message andStr:@"PlatformName" getStr:@"PlatformID"];
+//            [tableView removeFromSuperview];
+//        }];
+//        [_MainScrollview addSubview:tableView];
+    } failBlock:^(id message) {
+        
+    } delegate:self loadWith:mainLoading];
+}
+/********** 选择语言分类点击事件  ************/
+-(void)leftbuttonClick:(UIButton *)button{
+//    [tableView removeFromSuperview];
+//    if (button != languageButton) {
+//        [self GZM_getPlatformList];
+//        return;
+//    }
+//    tableView = [[tableVIew alloc]initWithFrame:CGRectMake(CGRectGetMinX(button.frame), CGRectGetMaxY(button.frame), button.width, 150) withArr:[self.languageArr GZMpublicSetArrWithStr:@"LangName"] With:^(id message) {
+//        NSLog(@"%@",message);
+//        langID =  [self.languageArr GZMpublicSetStrWith:message andStr:@"LangName" getStr:@"LangID"];
+//        [languageButton setTitle:message forState:UIControlStateNormal];
+//        [tableView removeFromSuperview];
+//        [self leftbuttonClick:ClassButton];
+//    }];
+//    [_MainScrollview addSubview:tableView];
+    [MypickerView removeFromSuperview];
+    MypickerView = [[GZMpickerView alloc] initWithFrame:CGRectMake(0, Height - 250, Width, 250) withArr:[self.languageArr GZMpublicSetArrWithStr:@"LangName"] With:^(id message) {
+        if ([message[@"component"] isEqualToString:@"0"]) {
+            langID =  [self.languageArr GZMpublicSetStrWith:message[@"row"] andStr:@"LangName" getStr:@"LangID"];
+            languageStr = message[@"row"];
+            [self GZM_getPlatformList];
+        }else{
+            platformid = [dataArr GZMpublicSetStrWith:message[@"row"] andStr:@"PlatformName" getStr:@"PlatformID"];
+            [languageButton setTitle:[NSString stringWithFormat:@"%@,%@",languageStr,message[@"row"]] forState:UIControlStateNormal];
+        }
+        
+    }];
+    [self.view addSubview:MypickerView];
+}
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch
+{
+    
+    // 输出点击的view的类名
+    // 若为UITableViewCellContentView（即点击了tableViewCell），则不截获Touch事件
+    if ([NSStringFromClass([touch.view class]) isEqualToString:@"UITableViewCellContentView"])
+    {
+        return NO;
+    }
+    
+    //截获Touch事件
+    return  YES;
+    
+}
+
 -(UIScrollView *)MainScrollview{
     if (!_MainScrollview) {
         _MainScrollview = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 64 + 7, Width, Height - 64 -7)];
         _MainScrollview.backgroundColor = [UIColor whiteColor];
         UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hiddenClick)];
         [_MainScrollview addGestureRecognizer:tap];
+        tap.delegate = self;
         _MainScrollview.contentSize = CGSizeMake(Width, 550);
     }
     return _MainScrollview;
@@ -110,9 +247,14 @@
         [AlerYangShi tishiWithMessage:@"项目名称不能为零" WithVc:self];
         return;
     }
-    NSDictionary * dic = @{@"token":toketen,@"projectid":self.Projectmodel.ProjectID,@"pname":@"",@"version":@"",@"platformid":@"",@"remark":@"",@"trialTime":@"",@"userpass":@"",@"effective":@""};
+    NSDictionary * dic = @{@"token":toketen,@"projectid":self.Projectmodel.ProjectID,@"pname":protextFile.text,@"version":VersionstextFile.text,@"platformid":platformid,@"remark":textView.text,@"trialTime":@"",@"userpass":@"",@"effective":trueButton.selected == YES?@"true":@"false"};
     [RequestTool sendPostAFRequest:[BaseUrl stringByAppendingString:ModifyProject] parameters:dic successBlock:^(id message) {
-        
+        if ([message[@"issuccess"] isEqual:@1]) {
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"GZMProjectViewController" object:nil userInfo:nil];
+            [self.navigationController popToRootViewControllerAnimated:YES];
+        }else{
+            [AlerYangShi tishiWithMessage:message[@"message"] WithVc:self];
+        }
     } failBlock:^(id message) {
         
     } delegate:self loadWith:mainLoading];
@@ -125,10 +267,11 @@
     return NO;
 }
 -(void)leftbutton1Click{
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 /*********输入框*********/
 -(void)GZM_Hidden{
+    [MypickerView removeFromSuperview];
     [UIView animateWithDuration:0.25 animations:^{
         self.view.y = 0;
         [[[UIApplication sharedApplication] keyWindow] endEditing:YES];

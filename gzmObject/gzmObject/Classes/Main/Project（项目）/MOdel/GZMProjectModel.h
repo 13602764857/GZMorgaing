@@ -21,7 +21,7 @@
 @property (nonatomic,copy) NSString *Effective;
 @property (nonatomic,copy) NSString *Image;
 @property (nonatomic,copy) NSString *PlatformID;
-
+@property (nonatomic,copy) NSString *LangID;
 
 
 

@@ -71,5 +71,25 @@
     return str;
 }
 
+/*********数组处理后返回需要的数组*********/
+-(NSArray *)GZMpublicSetArrWithStr:(NSString *)str{
+    NSMutableArray * MArr = [NSMutableArray array];
+    for (int i = 0; i < self.count; i ++) {
+        [MArr addObject:self[i][str]];
+    }
+    return MArr;
+}
+
+/*********穿进来一个字符串得到数组的相映的字符串*********/
+-(NSString *)GZMpublicSetStrWith:(NSString *)str andStr:(NSString *)str1 getStr:(NSString *)str2{
+    for (int i = 0; i < self.count; i ++) {
+//        NSLog(@"==%@===%@",str,self[i][str1]);
+        if ([str isEqualToString:[NSString stringWithFormat:@"%@",self[i][str1]] ]) {
+            return self[i][str2];
+        }
+    }
+    return nil;
+}
+
 
 @end

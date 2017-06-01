@@ -21,6 +21,7 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(GZMNotReshProject) name:@"GZMProjectViewController" object:nil];
     pindex = 1;
     [self GZM_creatFather];
     [self GZM_setTableView];
@@ -31,7 +32,10 @@
     [super viewWillAppear:animated];
     self.tabBarController.tabBar.hidden = NO;
 }
-
+/********** 通知刷新************/
+-(void)GZMNotReshProject{
+    [self creatData];
+}
 /*********<#私有方法#>*********/
 -(void)GZM_creatFather{
     self.leftbutton1.hidden = YES;
@@ -161,7 +165,9 @@
     }];
     return @[deleteRowAction];
 }
-
+-(void)dealloc{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"GZMProjectViewController" object:nil];
+}
 //-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
 //
 //}

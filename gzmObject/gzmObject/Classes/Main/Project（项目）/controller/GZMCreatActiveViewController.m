@@ -44,6 +44,8 @@
             [AlerYangShi tishiWithMessage:message[@"message"] WithVc:self];
             return ;
         }
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"GZMActivationViewController" object:nil userInfo:nil];
+        [self.navigationController popViewControllerAnimated:YES];
     } failBlock:^(id message) {
         
     } delegate:self loadWith:mainLoading];

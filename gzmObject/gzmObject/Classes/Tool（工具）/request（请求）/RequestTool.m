@@ -162,7 +162,9 @@
                 [downLoadView tearDown];
                 [down removeFromSuperview];
 //                [AlerYangShi showMessage:responseObject[@"message"] duration:0.5];
-                [warnIngView warnWithstring:responseObject[@"message"] WithVc:delegate];
+                [AlerYangShi showMessage:responseObject[@"message"] duration:0.5];
+//                [AlerYangShi tishiWithMessage:responseObject[@"message"] WithVc:delegate];
+//                [warnIngView warnWithstring:responseObject[@"message"] WithVc:delegate];
                  successBlock(responseObject);
             }
             

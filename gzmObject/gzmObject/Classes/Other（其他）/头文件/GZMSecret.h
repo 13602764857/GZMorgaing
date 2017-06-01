@@ -11,6 +11,7 @@
 #import "warnIngView.h"
 #import "AlerYangShi.h"
 #import "UIButton+GZM.h"
+#import "NSArray+GZM.h"
 #define toketen [[NSUserDefaults standardUserDefaults] stringForKey:@"toketen"]
 #define UserDefaults [NSUserDefaults standardUserDefaults]
 #define getMasonrySize(size) size * FITNUM

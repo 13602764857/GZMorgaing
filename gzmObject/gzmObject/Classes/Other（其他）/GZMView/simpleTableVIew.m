@@ -1,25 +1,25 @@
 //
-//  tableVIew.m
+//  simpleTableVIew.m
 //  gzmObject
 //
-//  Created by gzm on 2017/5/27.
+//  Created by gzm on 2017/5/31.
 //  Copyright © 2017年 gzm. All rights reserved.
 //
 
-#import "tableVIew.h"
+#import "simpleTableVIew.h"
 
-@implementation tableVIew
+@implementation simpleTableVIew
 {
     NSArray * dataArr1;
 }
 -(instancetype)initWithFrame:(CGRect)frame withArr:(NSArray *)dataArr With:(DataBlock)dataBlock{
     if (self = [super initWithFrame:frame]) {
         _datablock = dataBlock;
-        UITableView * tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.width, self.height) style:UITableViewStylePlain];
-        tableView.delegate = self;
-        tableView.dataSource = self;
         dataArr1 = dataArr;
-        [self addSubview:tableView];
+        _mainTableview = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.width, self.height) style:UITableViewStylePlain];
+        _mainTableview.delegate = self;
+        _mainTableview.dataSource = self;
+        [self addSubview:_mainTableview];
         
     }return self;
 }
@@ -30,8 +30,8 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    
-    self.datablock(dataArr1[indexPath.row]);
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    self.datablock([NSString stringWithFormat:@"%ld",(long)indexPath.row]);
     
     
 }
@@ -42,11 +42,15 @@
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
     }
-    cell.textLabel.text = dataArr1[indexPath.row];
-    cell.textLabel.textAlignment = NSTextAlignmentCenter;
-    cell.textLabel.font = [UIFont systemFontOfSize:14];
+    cell.imageView.image = [UIImage imageNamed:dataArr1[indexPath.row][@"image"]];
+    cell.textLabel.text = dataArr1[indexPath.row][@"text"];
+//    cell.textLabel.textAlignment = NSTextAlignmentCenter;
+
+//    cell.imageView.backgroundColor = MianColor;
+    cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
     return cell;
 }
+
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.

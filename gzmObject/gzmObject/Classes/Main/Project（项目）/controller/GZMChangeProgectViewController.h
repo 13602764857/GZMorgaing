@@ -11,5 +11,7 @@
 @interface GZMChangeProgectViewController : FatherViewController
 /**********<#属性#> ************/
 @property(nonatomic,strong)GZMProjectModel * Projectmodel;
+/**********<#属性#> ************/
+@property(nonatomic,strong)NSArray * languageArr;
 @end
 

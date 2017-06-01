@@ -9,7 +9,7 @@
 #import "GZMCreatViewController.h"
 #import "leftButton.h"
 #import "tableVIew.h"
-@interface GZMCreatViewController ()<UITextFieldDelegate,UITextViewDelegate>
+@interface GZMCreatViewController ()<UITextFieldDelegate,UITextViewDelegate,UIGestureRecognizerDelegate>
 /**********<#属性#> ************/
 @property(nonatomic,strong)UIScrollView * MainScrollview;
 /**********<#属性#> ************/
@@ -39,7 +39,6 @@
     
     self.mainlable1.text = @"创建项目";
 }
-
 -(void)creatData{
     [RequestTool sendGetAFRequest:[BaseUrl stringByAppendingString:GetPlatformList] parameters:@{@"langID":langID} successBlock:^(id message) {
         _langIDArr = message[@"message"];
@@ -113,15 +112,39 @@
     [button addTarget:self action:@selector(proClick) forControlEvents:UIControlEventTouchUpInside];
     [_MainScrollview addSubview:button];
 }
+
+/*********获取平台列表*********/
+-(void)GZM_getPlatformList{
+    [RequestTool sendGetAFRequest:[BaseUrl stringByAppendingString:GetPlatformList] parameters:@{@"langID":langID} successBlock:^(id message) {
+
+        NSArray * arr = message[@"message"];
+        [ClassButton setTitle:arr[0][@"PlatformName"] forState:UIControlStateNormal];
+        platformid = arr[0][@"PlatformID"];
+        tableView = [[tableVIew alloc]initWithFrame:CGRectMake(CGRectGetMinX(ClassButton.frame), CGRectGetMaxY(ClassButton.frame), ClassButton.width, 150) withArr:[arr GZMpublicSetArrWithStr:@"PlatformName"] With:^(id message) {
+            NSLog(@"%@",message);
+            [ClassButton setTitle:message forState:UIControlStateNormal];
+            platformid = [arr GZMpublicSetStrWith:message andStr:@"PlatformName" getStr:@"PlatformID"];
+            [tableView removeFromSuperview];
+        }];
+        [_MainScrollview addSubview:tableView];
+    } failBlock:^(id message) {
+        
+    } delegate:self loadWith:mainLoading];
+}
 /********** 选择语言分类点击事件  ************/
 -(void)leftbuttonClick:(UIButton *)button{
-    
-    tableView = [[tableVIew alloc]initWithFrame:CGRectMake(CGRectGetMinX(button.frame), CGRectGetMaxY(button.frame), button.width, 150) withArr:self.languageArr With:^(id message) {
+    [tableView removeFromSuperview];
+    if (button != languageButton) {
+        [self GZM_getPlatformList];
+        return;
+    }
+    tableView = [[tableVIew alloc]initWithFrame:CGRectMake(CGRectGetMinX(button.frame), CGRectGetMaxY(button.frame), button.width, 150) withArr:[self.languageArr GZMpublicSetArrWithStr:@"LangName"] With:^(id message) {
         NSLog(@"%@",message);
+        langID =  [self.languageArr GZMpublicSetStrWith:message andStr:@"LangName" getStr:@"LangID"];
         [languageButton setTitle:message forState:UIControlStateNormal];
-//        [tableView removeFromSuperview];
+        [tableView removeFromSuperview];
+        [self leftbuttonClick:ClassButton];
     }];
-//    [tableView removeFromSuperview];
     [_MainScrollview addSubview:tableView];
 }
 
@@ -131,10 +154,28 @@
         _MainScrollview.backgroundColor = [UIColor whiteColor];
         UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hiddenClick)];
         [_MainScrollview addGestureRecognizer:tap];
+//        _MainScrollview.cancelsTouchesInView = NO;
+        tap.delegate = self;
         _MainScrollview.contentSize = CGSizeMake(Width, 490);
     }
     return _MainScrollview;
 }
+
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch
+{
+    
+    // 输出点击的view的类名
+    // 若为UITableViewCellContentView（即点击了tableViewCell），则不截获Touch事件
+    if ([NSStringFromClass([touch.view class]) isEqualToString:@"UITableViewCellContentView"])
+    {
+        return NO;
+    }
+    
+    //截获Touch事件
+    return  YES;
+    
+}
+
 -(void)hiddenClick{
     [self GZM_Hidden];
 }
@@ -158,7 +199,11 @@
     NSDictionary * dic = @{@"token":toketen,@"pname":protextFile.text,@"version":VersionstextFile.text,@"remark":textView.text,@"platformid":platformid,@"effective":@"true",@"projectid":@""};
     NSLog(@"%@",dic);
     [RequestTool sendPostAFRequest:[BaseUrl stringByAppendingString:CreateProject] parameters:dic successBlock:^(id message) {
-        
+        if ([message[@"issuccess"] isEqual:@1]) {
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"GZMProjectViewController" object:nil userInfo:nil];
+            [self.navigationController popToRootViewControllerAnimated:YES];
+        }
+
     } failBlock:^(id message) {
         
     } delegate:self loadWith:mainLoading];
@@ -166,7 +211,7 @@
 }
 /*********输入框*********/
 -(void)GZM_Hidden{
-//    [tableView removeFromSuperview];
+    [tableView removeFromSuperview];
     [UIView animateWithDuration:0.25 animations:^{
         self.view.y = 0;
         [[[UIApplication sharedApplication] keyWindow] endEditing:YES];

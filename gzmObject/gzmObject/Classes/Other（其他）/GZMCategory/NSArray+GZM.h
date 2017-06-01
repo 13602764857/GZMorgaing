@@ -15,4 +15,8 @@
 -(NSArray *)GZMsetArrayWith:(NSString *)str;
 /******* 数组变格式字符串  *******/
 -(NSString *)GZMarrayToJson;
+/*********数组处理后返回需要的数组*********/
+-(NSArray *)GZMpublicSetArrWithStr:(NSString *)str;
+/*********穿进来一个字符串得到数组的相映的字符串*********/
+-(NSString *)GZMpublicSetStrWith:(NSString *)str andStr:(NSString *)str1 getStr:(NSString *)str2;
 @end
