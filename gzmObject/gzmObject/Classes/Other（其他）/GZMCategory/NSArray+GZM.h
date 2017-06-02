@@ -19,4 +19,6 @@
 -(NSArray *)GZMpublicSetArrWithStr:(NSString *)str;
 /*********穿进来一个字符串得到数组的相映的字符串*********/
 -(NSString *)GZMpublicSetStrWith:(NSString *)str andStr:(NSString *)str1 getStr:(NSString *)str2;
+/*********穿进来一个字符串得到数组的相映的字符串*********/
+//-(NSString *)GZMpublicSetStrWith:(NSString *)str getStr:(NSString *)str2;
 @end

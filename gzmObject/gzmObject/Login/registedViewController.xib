@@ -75,15 +75,6 @@
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits"/>
                                 </textField>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="设置密保：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="diQ-ud-F5t">
-                                    <rect key="frame" x="30" y="240" width="82" height="30"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="30" id="wcf-rr-0G8"/>
-                                    </constraints>
-                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                    <nil key="textColor"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H5Q-qk-oJD">
                                     <rect key="frame" x="0.0" y="750" width="375" height="50"/>
                                     <color key="backgroundColor" red="0.098039215690000001" green="0.62352941179999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -255,6 +246,15 @@
                                         <constraint firstAttribute="height" constant="27" id="9lc-as-LyJ"/>
                                     </constraints>
                                 </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="设置密保：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="diQ-ud-F5t">
+                                    <rect key="frame" x="30" y="240" width="82" height="30"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="30" id="wcf-rr-0G8"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>

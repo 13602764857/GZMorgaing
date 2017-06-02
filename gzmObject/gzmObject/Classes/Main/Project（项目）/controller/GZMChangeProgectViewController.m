@@ -175,6 +175,7 @@
 }
 /********** 选择语言分类点击事件  ************/
 -(void)leftbuttonClick:(UIButton *)button{
+    [self GZM_Hidden];
 //    [tableView removeFromSuperview];
 //    if (button != languageButton) {
 //        [self GZM_getPlatformList];

@@ -11,6 +11,7 @@
 #import "GZMProjectModel.h"
 #import "GZMdetailProjectViewController.h"
 #import "GZMCreatViewController.h"
+#import "GZMChangeProgectViewController.h"
 @interface GZMProjectViewController ()
 
 @end
@@ -64,7 +65,7 @@
     [self.view addSubview:self.GZMTableView];
     [self.GZMTableView registerNib:[UINib nibWithNibName:@"GZmprojectTableViewCell" bundle:nil] forCellReuseIdentifier:@"cell"];
     self.GZMTableView.frame = CGRectMake(0, 64 + 7, Width, Height - 64 - 49 -7);
-    self.GZMTableView.rowHeight = 80;
+    self.GZMTableView.rowHeight = 60;
 }
 -(void)creatData{
     pindex = 1;
@@ -163,7 +164,23 @@
         
         ;
     }];
-    return @[deleteRowAction];
+    UITableViewRowAction *deleteRowAction1 = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@"编辑" handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
+        
+        [RequestTool sendGetAFRequest:[BaseUrl stringByAppendingString:GetLanguageList] parameters:@{@"":@""} successBlock:^(id message) {
+            self.tabBarController.tabBar.hidden = YES;
+            GZMProjectModel * mo = self.GZMDataArr[indexPath.row];
+            [self.GZMTableView reloadData];
+            GZMChangeProgectViewController * greatVc = [[GZMChangeProgectViewController alloc] init];
+            greatVc.languageArr = message[@"message"];
+            greatVc.Projectmodel = mo;
+            [self.navigationController pushViewController:greatVc animated:YES];
+        } failBlock:^(id message) {
+            
+        } delegate:self loadWith:mainLoading];
+    
+    }];
+
+    return @[deleteRowAction,deleteRowAction1];
 }
 -(void)dealloc{
     [[NSNotificationCenter defaultCenter] removeObserver:self name:@"GZMProjectViewController" object:nil];

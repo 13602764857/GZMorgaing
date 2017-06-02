@@ -90,6 +90,10 @@
     }
     return nil;
 }
-
+/*********穿进来一个字符串得到数组的相映的字符串*********/
+-(NSString *)GZMpublicSetStrWith:(NSString *)str getStr:(NSString *)str2{
+   NSInteger index = [self indexOfObject:str];
+    return self[index][str2];
+}
 
 @end

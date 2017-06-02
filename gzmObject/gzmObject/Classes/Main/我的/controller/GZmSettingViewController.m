@@ -9,6 +9,7 @@
 #import "GZmSettingViewController.h"
 #import "simpleTableVIew.h"
 #import "GZMpassWordSecurityViewController.h"
+#import "GZMperSonMessageViewController.h"
 @interface GZmSettingViewController ()
 
 @end
@@ -29,7 +30,8 @@
         switch (num) {
             case 0:
             {
-                
+                GZMperSonMessageViewController * GZMVc = [[GZMperSonMessageViewController alloc] init];
+                [self.navigationController pushViewController:GZMVc animated:YES];
             }
                 break;
             case 1:

@@ -32,5 +32,11 @@
 #define GetAuthCodeList          @"api/AuthCode/GetAuthCodeList"
 #define GenAuthCode          @"api/AuthCode/GenAuthCode"
 #define DiscardCode          @"api/AuthCode/DiscardCode"
+/********** 登陆注册************/
+#define GetSafetyQuestion          @"api/Account/GetSafetyQuestion"
+#define VerifySafetyQuestion          @"api/Account/VerifySafetyQuestion"
+#define ModifySafety          @"api/Account/ModifySafety"
+#define ModifyUserPass          @"api/Account/ModifyUserPass"
+#define ModifyNickName          @"api/Account/ModifyNickName"
 
 #endif /* GZMApi_h */

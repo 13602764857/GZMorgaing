@@ -7,6 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+//button的展示重写枚举
+typedef NS_OPTIONS(NSInteger, GZMtableViewCellTpye) {
+    TableViewcellType          =0,
+//    TableViewcellType               = 1 << 0,
+//    TableViewcellType                 = 1 << 1,
+    //    imageAndTitle           = 1 << 2,
+    //    onlyTitle               = 1 << 3,
+};
 
 typedef void (^DataBlock)(id message);
 @interface simpleTableVIew : UIView<UITableViewDelegate,UITableViewDataSource>

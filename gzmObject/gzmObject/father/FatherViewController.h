@@ -21,8 +21,9 @@
 -(void)leftbutton1Click;
 
 -(void)rightbutton1Click;
-
-
+-(void)GZM_Hidden;
+/*********<#共有方法#>*********/
+-(void)GZMpublic_show;
 -(void)creatFather;
 -(void)creatUI;
 -(void)creatData;

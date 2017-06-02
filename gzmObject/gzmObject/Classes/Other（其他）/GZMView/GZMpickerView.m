@@ -16,6 +16,7 @@
     if (self = [super initWithFrame:frame]) {
         _datablock = dataBlock;
         dataArr1 = dataArr;
+        _picketType = PicketTypeTwo;
         [self addSubview:self.myPickerView];
         
     }return self;
@@ -62,7 +63,26 @@
 
 
 -(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
-    return 2;
+    
+    switch (_picketType) {
+        case PicketTypeOne:
+        {
+            return 1;
+        }
+            break;
+        case PicketTypeTwo:
+        {
+             return 2;
+        }
+            break;
+        case PicketTypeThree:
+        {
+            return 3;
+        }
+            break;
+        default:
+            break;
+    }
 }
 
 

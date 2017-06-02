@@ -74,6 +74,14 @@
 		158797E81EB02C8400DA40CF /* UILabel+GZMlable.m in Sources */ = {isa = PBXBuildFile; fileRef = 158797DB1EB02C8400DA40CF /* UILabel+GZMlable.m */; };
 		158797E91EB02C8400DA40CF /* UITextView+GZM.m in Sources */ = {isa = PBXBuildFile; fileRef = 158797DD1EB02C8400DA40CF /* UITextView+GZM.m */; };
 		158797ED1EB02DE300DA40CF /* UIView+SYFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 158797EC1EB02DE300DA40CF /* UIView+SYFrame.m */; };
+		15E5D7E01EE07CF00040172E /* ChangePasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E5D7DE1EE07CF00040172E /* ChangePasswordViewController.m */; };
+		15E5D7E11EE07CF00040172E /* ChangePasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15E5D7DF1EE07CF00040172E /* ChangePasswordViewController.xib */; };
+		15E5D7E51EE084440040172E /* GZMChangeencryptedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E5D7E31EE084440040172E /* GZMChangeencryptedViewController.m */; };
+		15E5D7E61EE084440040172E /* GZMChangeencryptedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15E5D7E41EE084440040172E /* GZMChangeencryptedViewController.xib */; };
+		15E5D7EA1EE0C2310040172E /* GZMChnageOneencryptedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E5D7E81EE0C2310040172E /* GZMChnageOneencryptedViewController.m */; };
+		15E5D7EB1EE0C2310040172E /* GZMChnageOneencryptedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15E5D7E91EE0C2310040172E /* GZMChnageOneencryptedViewController.xib */; };
+		15E5D7EF1EE0CAFD0040172E /* GZMperSonMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E5D7ED1EE0CAFD0040172E /* GZMperSonMessageViewController.m */; };
+		15E5D7F01EE0CAFD0040172E /* GZMperSonMessageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15E5D7EE1EE0CAFD0040172E /* GZMperSonMessageViewController.xib */; };
 		F3A25B0F93C6F2AE90B79CE1 /* libPods-gzmObject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADB4F17963CABA003DDAEB3A /* libPods-gzmObject.a */; };
 /* End PBXBuildFile section */
 
@@ -225,6 +233,18 @@
 		158797DD1EB02C8400DA40CF /* UITextView+GZM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextView+GZM.m"; sourceTree = "<group>"; };
 		158797EB1EB02DE300DA40CF /* UIView+SYFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+SYFrame.h"; sourceTree = "<group>"; };
 		158797EC1EB02DE300DA40CF /* UIView+SYFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+SYFrame.m"; sourceTree = "<group>"; };
+		15E5D7DD1EE07CF00040172E /* ChangePasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangePasswordViewController.h; sourceTree = "<group>"; };
+		15E5D7DE1EE07CF00040172E /* ChangePasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChangePasswordViewController.m; sourceTree = "<group>"; };
+		15E5D7DF1EE07CF00040172E /* ChangePasswordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChangePasswordViewController.xib; sourceTree = "<group>"; };
+		15E5D7E21EE084440040172E /* GZMChangeencryptedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GZMChangeencryptedViewController.h; sourceTree = "<group>"; };
+		15E5D7E31EE084440040172E /* GZMChangeencryptedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GZMChangeencryptedViewController.m; sourceTree = "<group>"; };
+		15E5D7E41EE084440040172E /* GZMChangeencryptedViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GZMChangeencryptedViewController.xib; sourceTree = "<group>"; };
+		15E5D7E71EE0C2310040172E /* GZMChnageOneencryptedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GZMChnageOneencryptedViewController.h; sourceTree = "<group>"; };
+		15E5D7E81EE0C2310040172E /* GZMChnageOneencryptedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GZMChnageOneencryptedViewController.m; sourceTree = "<group>"; };
+		15E5D7E91EE0C2310040172E /* GZMChnageOneencryptedViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GZMChnageOneencryptedViewController.xib; sourceTree = "<group>"; };
+		15E5D7EC1EE0CAFD0040172E /* GZMperSonMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GZMperSonMessageViewController.h; sourceTree = "<group>"; };
+		15E5D7ED1EE0CAFD0040172E /* GZMperSonMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GZMperSonMessageViewController.m; sourceTree = "<group>"; };
+		15E5D7EE1EE0CAFD0040172E /* GZMperSonMessageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GZMperSonMessageViewController.xib; sourceTree = "<group>"; };
 		9568F3247A7056AEF5115234 /* Pods-gzmObject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gzmObject.release.xcconfig"; path = "Pods/Target Support Files/Pods-gzmObject/Pods-gzmObject.release.xcconfig"; sourceTree = "<group>"; };
 		A79306C1D935AE284618FC12 /* Pods-gzmObject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gzmObject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-gzmObject/Pods-gzmObject.debug.xcconfig"; sourceTree = "<group>"; };
 		ADB4F17963CABA003DDAEB3A /* libPods-gzmObject.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-gzmObject.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -350,8 +370,20 @@
 				150D014B1EDF7C01004D97A1 /* GZMMyViewController.xib */,
 				150D014D1EDF8491004D97A1 /* GZmSettingViewController.h */,
 				150D014E1EDF8491004D97A1 /* GZmSettingViewController.m */,
+				15E5D7EC1EE0CAFD0040172E /* GZMperSonMessageViewController.h */,
+				15E5D7ED1EE0CAFD0040172E /* GZMperSonMessageViewController.m */,
+				15E5D7EE1EE0CAFD0040172E /* GZMperSonMessageViewController.xib */,
 				150D01531EDF9A8E004D97A1 /* GZMpassWordSecurityViewController.h */,
 				150D01541EDF9A8E004D97A1 /* GZMpassWordSecurityViewController.m */,
+				15E5D7DD1EE07CF00040172E /* ChangePasswordViewController.h */,
+				15E5D7DE1EE07CF00040172E /* ChangePasswordViewController.m */,
+				15E5D7DF1EE07CF00040172E /* ChangePasswordViewController.xib */,
+				15E5D7E71EE0C2310040172E /* GZMChnageOneencryptedViewController.h */,
+				15E5D7E81EE0C2310040172E /* GZMChnageOneencryptedViewController.m */,
+				15E5D7E91EE0C2310040172E /* GZMChnageOneencryptedViewController.xib */,
+				15E5D7E21EE084440040172E /* GZMChangeencryptedViewController.h */,
+				15E5D7E31EE084440040172E /* GZMChangeencryptedViewController.m */,
+				15E5D7E41EE084440040172E /* GZMChangeencryptedViewController.xib */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -771,15 +803,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15E5D7E11EE07CF00040172E /* ChangePasswordViewController.xib in Resources */,
 				1579B8EC1ED5F8E3000325FC /* GZMForgetViewController.xib in Resources */,
 				158797911EAFEF6100DA40CF /* LaunchScreen.storyboard in Resources */,
 				1579B9741ED7633A000325FC /* GZMCreatActiveViewController.xib in Resources */,
 				156DDB291ECB6CC20050F037 /* GZMLoginViewController.xib in Resources */,
 				1505E1681EB2B10700C61DFC /* onrViewController.xib in Resources */,
+				15E5D7E61EE084440040172E /* GZMChangeencryptedViewController.xib in Resources */,
 				1579B95A1ED64732000325FC /* GZmprojectTableViewCell.xib in Resources */,
+				15E5D7F01EE0CAFD0040172E /* GZMperSonMessageViewController.xib in Resources */,
 				1587978E1EAFEF6100DA40CF /* Assets.xcassets in Resources */,
 				1587978C1EAFEF6100DA40CF /* Main.storyboard in Resources */,
 				1579B96F1ED7545C000325FC /* GZMActiveTableViewCell.xib in Resources */,
+				15E5D7EB1EE0C2310040172E /* GZMChnageOneencryptedViewController.xib in Resources */,
 				1579B9671ED73ED1000325FC /* GZMCreatViewController.xib in Resources */,
 				150D014C1EDF7C01004D97A1 /* GZMMyViewController.xib in Resources */,
 				156DDB321ECE4EAC0050F037 /* registedViewController.xib in Resources */,
@@ -900,11 +936,15 @@
 				150D01551EDF9A8E004D97A1 /* GZMpassWordSecurityViewController.m in Sources */,
 				158797831EAFEF6100DA40CF /* main.m in Sources */,
 				1505E15E1EB27BA100C61DFC /* GZMRootViewController.m in Sources */,
+				15E5D7EA1EE0C2310040172E /* GZMChnageOneencryptedViewController.m in Sources */,
 				1579B9661ED73ED1000325FC /* GZMCreatViewController.m in Sources */,
 				150D01581EDFA2C5004D97A1 /* GZMpickerView.m in Sources */,
 				1579B96E1ED7545C000325FC /* GZMActiveTableViewCell.m in Sources */,
+				15E5D7EF1EE0CAFD0040172E /* GZMperSonMessageViewController.m in Sources */,
 				158797E11EB02C8400DA40CF /* NSDictionary+GZM.m in Sources */,
+				15E5D7E01EE07CF00040172E /* ChangePasswordViewController.m in Sources */,
 				156DDB281ECB6CC20050F037 /* GZMLoginViewController.m in Sources */,
+				15E5D7E51EE084440040172E /* GZMChangeencryptedViewController.m in Sources */,
 				1579B9611ED66154000325FC /* GZMdetailProjectViewController.m in Sources */,
 				1505E1471EB15A0300C61DFC /* XLWaveProgress.m in Sources */,
 				1505E1481EB15A0300C61DFC /* ZJModelTool.m in Sources */,

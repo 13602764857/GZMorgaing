@@ -9,6 +9,7 @@
 #import "GZMCreatViewController.h"
 #import "leftButton.h"
 #import "tableVIew.h"
+#import "GZMpickerView.h"
 @interface GZMCreatViewController ()<UITextFieldDelegate,UITextViewDelegate,UIGestureRecognizerDelegate>
 /**********<#属性#> ************/
 @property(nonatomic,strong)UIScrollView * MainScrollview;
@@ -25,6 +26,9 @@
     NSString * platformid;
     NSString * projectid;
     tableVIew * tableView;
+    GZMpickerView * MypickerView;
+    NSArray * dataArr;
+    NSString * languageStr;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -77,22 +81,21 @@
         }
         
         if (i == 2) {
-            languageButton = [[leftButton alloc] initWithFrame:CGRectMake(CGRectGetMaxX(titleLable.frame), CGRectGetMaxY(imageLable.frame), (Width - titleLable.width - 10)/2 - 10, 43.5)];
-//            languageButton.backgroundColor = [UIColor redColor];
+            languageButton = [[leftButton alloc] initWithFrame:CGRectMake(CGRectGetMaxX(titleLable.frame) + 10, CGRectGetMaxY(imageLable.frame), (Width - titleLable.width - 10 - 20) - 10, 43.5)];
             
-            [languageButton setTitle:_languageArr[0][@"LangName"] forState:UIControlStateNormal];
+            [languageButton setTitle:@"请选择平台" forState:UIControlStateNormal];
             languageButton.titleLabel.font = [UIFont systemFontOfSize:13];
             [languageButton setImage:[UIImage imageNamed:@"下拉"] forState:UIControlStateNormal];
             [languageButton addTarget:self action:@selector(leftbuttonClick:) forControlEvents:UIControlEventTouchUpInside];
             [_MainScrollview addSubview:languageButton];
             
-            ClassButton = [[leftButton alloc] initWithFrame:CGRectMake(CGRectGetMaxX(languageButton.frame) + 10, CGRectGetMaxY(imageLable.frame), (Width - titleLable.width - 10)/2 - 10, 43.5)];
-            [ClassButton setTitle:_langIDArr[0][@"PlatformName"] forState:UIControlStateNormal];
-            ClassButton.titleLabel.font = [UIFont systemFontOfSize:13];
-            [ClassButton setImage:[UIImage imageNamed:@"下拉"] forState:UIControlStateNormal];
-            [ClassButton addTarget:self action:@selector(leftbuttonClick:) forControlEvents:UIControlEventTouchUpInside];
-//            ClassButton.backgroundColor = [UIColor redColor];
-            [_MainScrollview addSubview:ClassButton];
+//            ClassButton = [[leftButton alloc] initWithFrame:CGRectMake(CGRectGetMaxX(languageButton.frame) + 10, CGRectGetMaxY(imageLable.frame), (Width - titleLable.width - 10)/2 - 10, 43.5)];
+//            [ClassButton setTitle:_langIDArr[0][@"PlatformName"] forState:UIControlStateNormal];
+//            ClassButton.titleLabel.font = [UIFont systemFontOfSize:13];
+//            [ClassButton setImage:[UIImage imageNamed:@"下拉"] forState:UIControlStateNormal];
+//            [ClassButton addTarget:self action:@selector(leftbuttonClick:) forControlEvents:UIControlEventTouchUpInside];
+////            ClassButton.backgroundColor = [UIColor redColor];
+//            [_MainScrollview addSubview:ClassButton];
         }
         
         [Marr addObject:titleLable];
@@ -117,35 +120,53 @@
 -(void)GZM_getPlatformList{
     [RequestTool sendGetAFRequest:[BaseUrl stringByAppendingString:GetPlatformList] parameters:@{@"langID":langID} successBlock:^(id message) {
 
-        NSArray * arr = message[@"message"];
-        [ClassButton setTitle:arr[0][@"PlatformName"] forState:UIControlStateNormal];
-        platformid = arr[0][@"PlatformID"];
-        tableView = [[tableVIew alloc]initWithFrame:CGRectMake(CGRectGetMinX(ClassButton.frame), CGRectGetMaxY(ClassButton.frame), ClassButton.width, 150) withArr:[arr GZMpublicSetArrWithStr:@"PlatformName"] With:^(id message) {
-            NSLog(@"%@",message);
-            [ClassButton setTitle:message forState:UIControlStateNormal];
-            platformid = [arr GZMpublicSetStrWith:message andStr:@"PlatformName" getStr:@"PlatformID"];
-            [tableView removeFromSuperview];
-        }];
-        [_MainScrollview addSubview:tableView];
+        dataArr = message[@"message"];
+        [ClassButton setTitle:dataArr[0][@"PlatformName"] forState:UIControlStateNormal];
+        platformid = dataArr[0][@"PlatformID"];
+        MypickerView.secondData = [dataArr GZMpublicSetArrWithStr:@"PlatformName"];
+        [MypickerView.myPickerView reloadAllComponents ];
+        [languageButton setTitle:[NSString stringWithFormat:@"%@,%@",languageStr,MypickerView.secondData[0]] forState:UIControlStateNormal];
+
+//        tableView = [[tableVIew alloc]initWithFrame:CGRectMake(CGRectGetMinX(ClassButton.frame), CGRectGetMaxY(ClassButton.frame), ClassButton.width, 150) withArr:[arr GZMpublicSetArrWithStr:@"PlatformName"] With:^(id message) {
+//            NSLog(@"%@",message);
+//            [ClassButton setTitle:message forState:UIControlStateNormal];
+//            platformid = [arr GZMpublicSetStrWith:message andStr:@"PlatformName" getStr:@"PlatformID"];
+//            [tableView removeFromSuperview];
+//        }];
+//        [_MainScrollview addSubview:tableView];
     } failBlock:^(id message) {
         
     } delegate:self loadWith:mainLoading];
 }
 /********** 选择语言分类点击事件  ************/
 -(void)leftbuttonClick:(UIButton *)button{
-    [tableView removeFromSuperview];
-    if (button != languageButton) {
-        [self GZM_getPlatformList];
-        return;
-    }
-    tableView = [[tableVIew alloc]initWithFrame:CGRectMake(CGRectGetMinX(button.frame), CGRectGetMaxY(button.frame), button.width, 150) withArr:[self.languageArr GZMpublicSetArrWithStr:@"LangName"] With:^(id message) {
-        NSLog(@"%@",message);
-        langID =  [self.languageArr GZMpublicSetStrWith:message andStr:@"LangName" getStr:@"LangID"];
-        [languageButton setTitle:message forState:UIControlStateNormal];
-        [tableView removeFromSuperview];
-        [self leftbuttonClick:ClassButton];
+    [self GZM_Hidden];
+//    [tableView removeFromSuperview];
+//    if (button != languageButton) {
+//        [self GZM_getPlatformList];
+//        return;
+//    }
+//    tableView = [[tableVIew alloc]initWithFrame:CGRectMake(CGRectGetMinX(button.frame), CGRectGetMaxY(button.frame), button.width, 150) withArr:[self.languageArr GZMpublicSetArrWithStr:@"LangName"] With:^(id message) {
+//        NSLog(@"%@",message);
+//        langID =  [self.languageArr GZMpublicSetStrWith:message andStr:@"LangName" getStr:@"LangID"];
+//        [languageButton setTitle:message forState:UIControlStateNormal];
+//        [tableView removeFromSuperview];
+//        [self leftbuttonClick:ClassButton];
+//    }];
+//    [_MainScrollview addSubview:tableView];
+    [MypickerView removeFromSuperview];
+    MypickerView = [[GZMpickerView alloc] initWithFrame:CGRectMake(0, Height - 250, Width, 250) withArr:[self.languageArr GZMpublicSetArrWithStr:@"LangName"] With:^(id message) {
+        if ([message[@"component"] isEqualToString:@"0"]) {
+            langID =  [self.languageArr GZMpublicSetStrWith:message[@"row"] andStr:@"LangName" getStr:@"LangID"];
+            languageStr = message[@"row"];
+            [self GZM_getPlatformList];
+        }else{
+            platformid = [dataArr GZMpublicSetStrWith:message[@"row"] andStr:@"PlatformName" getStr:@"PlatformID"];
+            [languageButton setTitle:[NSString stringWithFormat:@"%@,%@",languageStr,message[@"row"]] forState:UIControlStateNormal];
+        }
+        
     }];
-    [_MainScrollview addSubview:tableView];
+    [self.view addSubview:MypickerView];
 }
 
 -(UIScrollView *)MainScrollview{
@@ -211,7 +232,7 @@
 }
 /*********输入框*********/
 -(void)GZM_Hidden{
-    [tableView removeFromSuperview];
+    [MypickerView removeFromSuperview];
     [UIView animateWithDuration:0.25 animations:^{
         self.view.y = 0;
         [[[UIApplication sharedApplication] keyWindow] endEditing:YES];

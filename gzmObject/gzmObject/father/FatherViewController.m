@@ -116,6 +116,14 @@
     }];
 }
 
+/*********<#共有方法#>*********/
+-(void)GZMpublic_show{
+    [UIView animateWithDuration:0.25 animations:^{
+        self.view.y = -200;
+    } completion:^(BOOL finished) {
+        
+    }];
+}
 
 
 - (void)didReceiveMemoryWarning {
