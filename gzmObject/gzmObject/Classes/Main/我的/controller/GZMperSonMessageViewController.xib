@@ -34,9 +34,9 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XgF-T3-cuS">
-                                    <rect key="frame" x="295" y="5" width="60" height="51"/>
+                                    <rect key="frame" x="305" y="5" width="50" height="51"/>
                                     <constraints>
-                                        <constraint firstAttribute="width" constant="60" id="QcA-3Z-T0S"/>
+                                        <constraint firstAttribute="width" constant="50" id="QcA-3Z-T0S"/>
                                     </constraints>
                                 </imageView>
                             </subviews>

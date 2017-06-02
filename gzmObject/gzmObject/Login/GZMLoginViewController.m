@@ -72,7 +72,12 @@
 }
 - (IBAction)forgetPassWord:(id)sender {
     [self GZM_Hidden];
+    if (self.userTextField.text.length == 0) {
+        [AlerYangShi tishiWithMessage:@"用户名不能为空" WithVc:self];
+        return;
+    }
     GZMForgetViewController * forget = [[GZMForgetViewController alloc] init];
+    forget.username = self.userTextField.text;
     [self presentViewController:forget animated:YES completion:nil];
 }
 - (IBAction)registered:(id)sender {

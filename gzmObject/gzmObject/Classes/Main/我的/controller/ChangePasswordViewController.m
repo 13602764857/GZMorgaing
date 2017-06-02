@@ -7,7 +7,7 @@
 //
 
 #import "ChangePasswordViewController.h"
-
+#import "GZMLoginViewController.h"
 @interface ChangePasswordViewController ()
 
 @end
@@ -40,6 +40,11 @@
     }
     [RequestTool sendPostAFRequest:[BaseUrl stringByAppendingString:ModifyUserPass] parameters:@{@"token":toketen,@"oldpass":_oneTextfile.text,@"userpass":_twoTextFiled.text} successBlock:^(id message) {
         if ([message[@"issuccess"] isEqual:@1]) {
+            if (self.navigationController.viewControllers.count < 1) {
+                GZMLoginViewController * loginVc = [[GZMLoginViewController alloc] init];
+                [self presentViewController:loginVc animated:YES completion:nil];
+                return ;
+            }
             [self.navigationController popToRootViewControllerAnimated:YES];
         }else{
 //            [AlerYangShi tishiWithMessage:message[@"message"] WithVc:self];

@@ -23,6 +23,7 @@
 		1505E1671EB2B10700C61DFC /* onrViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1505E1651EB2B10700C61DFC /* onrViewController.m */; };
 		1505E1681EB2B10700C61DFC /* onrViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1505E1661EB2B10700C61DFC /* onrViewController.xib */; };
 		1505E16E1EB2C0E900C61DFC /* GZMTabbatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1505E16D1EB2C0E900C61DFC /* GZMTabbatViewController.m */; };
+		150BBDA11EE1DB9A0010A8D1 /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 150BBDA01EE1DB9A0010A8D1 /* UserModel.m */; };
 		150D013C1ED8AB8C004D97A1 /* GZMMyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 150D013B1ED8AB8C004D97A1 /* GZMMyViewController.m */; };
 		150D013F1ED8F3B6004D97A1 /* GZMChangeProgectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 150D013E1ED8F3B6004D97A1 /* GZMChangeProgectViewController.m */; };
 		150D01421EDA3B9E004D97A1 /* leftButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 150D01411EDA3B9E004D97A1 /* leftButton.m */; };
@@ -140,6 +141,8 @@
 		1505E1661EB2B10700C61DFC /* onrViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = onrViewController.xib; sourceTree = "<group>"; };
 		1505E16C1EB2C0E900C61DFC /* GZMTabbatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GZMTabbatViewController.h; sourceTree = "<group>"; };
 		1505E16D1EB2C0E900C61DFC /* GZMTabbatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GZMTabbatViewController.m; sourceTree = "<group>"; };
+		150BBD9F1EE1DB9A0010A8D1 /* UserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserModel.h; sourceTree = "<group>"; };
+		150BBDA01EE1DB9A0010A8D1 /* UserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserModel.m; sourceTree = "<group>"; };
 		150D013A1ED8AB8C004D97A1 /* GZMMyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GZMMyViewController.h; sourceTree = "<group>"; };
 		150D013B1ED8AB8C004D97A1 /* GZMMyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GZMMyViewController.m; sourceTree = "<group>"; };
 		150D013D1ED8F3B6004D97A1 /* GZMChangeProgectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GZMChangeProgectViewController.h; sourceTree = "<group>"; };
@@ -358,6 +361,8 @@
 		150D01381ED8AB8C004D97A1 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				150BBD9F1EE1DB9A0010A8D1 /* UserModel.h */,
+				150BBDA01EE1DB9A0010A8D1 /* UserModel.m */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -764,6 +769,7 @@
 				TargetAttributes = {
 					1587977D1EAFEF6000DA40CF = {
 						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = 9QWJDSLGEA;
 						ProvisioningStyle = Automatic;
 					};
 					158797961EAFEF6100DA40CF = {
@@ -927,6 +933,7 @@
 				1505E1411EB15A0300C61DFC /* AlerYangShi.m in Sources */,
 				1505E1461EB15A0300C61DFC /* XLWave.m in Sources */,
 				150D014F1EDF8491004D97A1 /* GZmSettingViewController.m in Sources */,
+				150BBDA11EE1DB9A0010A8D1 /* UserModel.m in Sources */,
 				1505E1431EB15A0300C61DFC /* FileUtils.m in Sources */,
 				1579B9771ED89A55000325FC /* ActiveModel.m in Sources */,
 				1505E1441EB15A0300C61DFC /* GZMAlertView.m in Sources */,
@@ -1098,7 +1105,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 9QWJDSLGEA;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = gzmObject/PrefixHeader.pch;
 				INFOPLIST_FILE = gzmObject/Info.plist;
@@ -1115,7 +1122,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 9QWJDSLGEA;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = gzmObject/PrefixHeader.pch;
 				INFOPLIST_FILE = gzmObject/Info.plist;

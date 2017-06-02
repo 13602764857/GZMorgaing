@@ -7,9 +7,10 @@
 //
 
 #import "FatherViewController.h"
-
+#import "UserModel.h"
 @interface GZMperSonMessageViewController : FatherViewController
 @property (weak, nonatomic) IBOutlet UITextField *nameTExtfiled;
 @property (weak, nonatomic) IBOutlet UIImageView *imageImageView;
-
+/**********<#属性#> ************/
+@property(nonatomic,strong)UserModel * userMo;
 @end

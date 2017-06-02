@@ -31,6 +31,7 @@
             case 0:
             {
                 GZMperSonMessageViewController * GZMVc = [[GZMperSonMessageViewController alloc] init];
+                GZMVc.userMo = self.userMo;
                 [self.navigationController pushViewController:GZMVc animated:YES];
             }
                 break;

@@ -7,7 +7,8 @@
 //
 
 #import "FatherViewController.h"
-
+#import "UserModel.h"
 @interface GZmSettingViewController : FatherViewController
-
+/**********<#属性#> ************/
+@property(nonatomic,strong)UserModel * userMo;
 @end

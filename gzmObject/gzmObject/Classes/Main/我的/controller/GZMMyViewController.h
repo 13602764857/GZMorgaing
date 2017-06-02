@@ -9,5 +9,15 @@
 #import <UIKit/UIKit.h>
 #import "FatherViewController.h"
 @interface GZMMyViewController : FatherViewController
+@property (weak, nonatomic) IBOutlet UIImageView *oneImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *TwoImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *ThreeImageView;
+@property (weak, nonatomic) IBOutlet UILabel *oneLable;
+@property (weak, nonatomic) IBOutlet UILabel *twoLable;
+@property (weak, nonatomic) IBOutlet UILabel *threeLable;
+@property (weak, nonatomic) IBOutlet UIImageView *nameImageView;
+@property (weak, nonatomic) IBOutlet UILabel *NickNameLable;
+@property (weak, nonatomic) IBOutlet UILabel *timeLable;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *imageHeight;
 
 @end

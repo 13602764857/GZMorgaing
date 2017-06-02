@@ -38,5 +38,8 @@
 #define ModifySafety          @"api/Account/ModifySafety"
 #define ModifyUserPass          @"api/Account/ModifyUserPass"
 #define ModifyNickName          @"api/Account/ModifyNickName"
+#define GetQuestionByUserName          @"api/Account/GetQuestionByUserName"
+#define GetAuthorInfo          @"api/Account/GetAuthorInfo"
+
 
 #endif /* GZMApi_h */

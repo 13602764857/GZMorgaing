@@ -30,6 +30,7 @@
     [RequestTool sendPostAFRequest:[BaseUrl stringByAppendingString:GetSafetyQuestion] parameters:@{@"token":toketen} successBlock:^(id message) {
         dic = message[@"message"];
         self.questionLable.text = dic[@"SafetyQuestion"];
+        self.questionTextFiled.text = @"";
     } failBlock:^(id message) {
         
     } delegate:self loadWith:mainLoading];

@@ -22,11 +22,15 @@
 /*********<#私有方法#>*********/
 -(void)GZM_creatFather{
     self.mainlable1.text = @"个人信息";
+//    [self.imageImageView GZMchangeStyleWith:self.imageImageView.width withborad:0 withBoardColor:nil];
+    [self.imageImageView sd_setImageWithURL:[NSURL URLWithString:self.userMo.ULogo] placeholderImage:nil];
+    self.nameTExtfiled.text = self.userMo.NickName;
     [self.rightbutton1 setTitle:@"保存" forState:UIControlStateNormal];
 }
 -(void)rightbutton1Click{
     [RequestTool sendPostAFRequest:[BaseUrl stringByAppendingString:ModifyNickName] parameters:@{@"token":toketen,@"nickname":self.nameTExtfiled.text} successBlock:^(id message) {
         if ([message[@"issuccess"] isEqual:@1]) {
+            [[NSNotificationCenter defaultCenter]postNotificationName:@"GZMMyViewController" object:nil];
             [self.navigationController popToRootViewControllerAnimated:YES];
         }
     } failBlock:^(id message) {
