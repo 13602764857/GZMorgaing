@@ -13,12 +13,18 @@
 -(instancetype)initWithFrame:(CGRect)frame
 {
     if (self = [super initWithFrame:frame]) {
-        [self creatView];
+        [self creatView1];
         self.backgroundColor = [UIColor clearColor];
      
         
     }
     return self;
+}
+-(void)creatView1{
+    UIActivityIndicatorView *testActivityIndicator = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    testActivityIndicator.center = CGPointMake(Width/2 , self.height /2);//只能设置中心，不能设置大小
+    [testActivityIndicator startAnimating];
+    [self addSubview:testActivityIndicator];
 }
 -(void)creatView
 {

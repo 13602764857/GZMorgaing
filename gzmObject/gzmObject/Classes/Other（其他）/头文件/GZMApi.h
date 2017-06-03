@@ -32,6 +32,8 @@
 #define GetAuthCodeList          @"api/AuthCode/GetAuthCodeList"
 #define GenAuthCode          @"api/AuthCode/GenAuthCode"
 #define DiscardCode          @"api/AuthCode/DiscardCode"
+#define ExtractCodeBatch          @"api/AuthCode/ExtractCodeBatch"
+
 /********** 登陆注册************/
 #define GetSafetyQuestion          @"api/Account/GetSafetyQuestion"
 #define VerifySafetyQuestion          @"api/Account/VerifySafetyQuestion"
@@ -40,6 +42,7 @@
 #define ModifyNickName          @"api/Account/ModifyNickName"
 #define GetQuestionByUserName          @"api/Account/GetQuestionByUserName"
 #define GetAuthorInfo          @"api/Account/GetAuthorInfo"
-
+/********** 获取设备列表************/
+#define GetDeviceList          @"api/Device/GetDeviceList"
 
 #endif /* GZMApi_h */

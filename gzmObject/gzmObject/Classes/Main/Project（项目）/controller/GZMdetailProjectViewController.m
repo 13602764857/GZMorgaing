@@ -42,7 +42,7 @@
     Moreimage.userInteractionEnabled = YES;
     [self.view addSubview:Moreimage];
     
-    NSArray * titleArr = @[@"编辑项目",@"查看事例",@"查看激活码"];
+    NSArray * titleArr = @[@"编辑项目",@"查看示例",@"查看激活码"];
     for (int i = 0; i < titleArr.count; i ++) {
         UIButton * button = [[UIButton alloc] initWithFrame:CGRectMake(0, 10 + 40 *i, Moreimage.width, 40)];
         button.tag = 100 + i;
