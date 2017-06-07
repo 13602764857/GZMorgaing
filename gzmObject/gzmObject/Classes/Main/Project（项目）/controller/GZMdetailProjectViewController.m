@@ -10,6 +10,7 @@
 #import "GZMActivationViewController.h"
 #import "GZMChangeProgectViewController.h"
 #import <UShareUI/UShareUI.h>
+#import "GZMexampleViewController.h"
 @interface GZMdetailProjectViewController ()
 /**********<#属性#> ************/
 @property(nonatomic,strong)UIScrollView * MainScrollview;
@@ -79,10 +80,15 @@
             break;
         case 101:
         {
-            [UMSocialUIManager showShareMenuViewInWindowWithPlatformSelectionBlock:^(UMSocialPlatformType platformType, NSDictionary *userInfo) {
-                // 根据获取的platformType确定所选平台进行下一步操作
-                [self shareWebPageToPlatformType:UMSocialPlatformType_QQ];
-            }];
+            GZMexampleViewController * exampleVc = [[GZMexampleViewController alloc] init];
+            exampleVc.model = self.Projectmodel;
+            [self.navigationController pushViewController:exampleVc animated:YES];
+//            [UMSocialUIManager showShareMenuViewInWindowWithPlatformSelectionBlock:^(UMSocialPlatformType platformType, NSDictionary *userInfo) {
+//                // 根据获取的platformType确定所选平台进行下一步操作
+//                NSLog(@"%ld",(long)platformType);
+//                [self shareWebPageToPlatformType:platformType];
+////                [self shareWebPageToPlatformType:platformType ];
+//            }];
         }
             break;
         case 102:

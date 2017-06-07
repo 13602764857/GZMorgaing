@@ -16,8 +16,8 @@
 }
 -(void)setMo:(ActiveModel *)mo{
     self.oneLable.text = mo.Code;
-    self.twoLable.text = mo.AuthTime;
-    self.ThreeLable.text = [mo.Effective isEqualToString:@"1"]?@"有效":@"无效";
+    self.twoLable.text = [mo.AuthTime stringByAppendingString:@" 天"];
+    self.ThreeLable.text = [mo.IsExtract isEqualToString:@"1"]?@"已提取":@"";
     self.FourLable.text = mo.CreateDate;
 }
 

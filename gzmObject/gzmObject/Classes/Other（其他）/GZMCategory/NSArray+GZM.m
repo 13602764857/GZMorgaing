@@ -95,5 +95,9 @@
    NSInteger index = [self indexOfObject:str];
     return self[index][str2];
 }
+///*********<#共有方法#>*********/
+//-(NSString *)GZMpublicGetStr{
+//    for
+//}
 
 @end

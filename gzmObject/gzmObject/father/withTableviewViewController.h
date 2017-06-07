@@ -24,6 +24,15 @@ typedef NS_OPTIONS(NSInteger, collType) {
     collTypefour                = 1 << 2,
     //    onlyTitle               = 1 << 3,
 };
+//没有数据显示的枚举
+typedef NS_OPTIONS(NSInteger, sectionType) {
+    NoGroupType          =0,
+    GroupType               = 1 << 0,
+//    onlyTitle               = 1 << 1,
+//    imageAndTitle           = 1 << 2,
+//    buttonImage             = 1 << 3,
+    //    onlyTitle               = 1 << 3,
+};
 
 
 @interface withTableviewViewController : UIViewController<UITableViewDelegate,UITableViewDataSource,UICollectionViewDelegate,UICollectionViewDataSource>
@@ -34,7 +43,8 @@ typedef NS_OPTIONS(NSInteger, collType) {
 @property(nonatomic,assign)empytype empytext;
 /******* 枚举类型  *******/
 @property(nonatomic,assign)collType collType;
-
+/******* 枚举类型  *******/
+@property(nonatomic,assign)collType sectionType;
 
 /******* 全局的瀑布流  *******/
 @property(nonatomic,strong)UICollectionView *GZMCollEctionView;

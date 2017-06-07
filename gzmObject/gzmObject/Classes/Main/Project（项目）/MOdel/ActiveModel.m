@@ -10,9 +10,15 @@
 
 @implementation ActiveModel
 +(NSMutableArray *)setModelWithArray:(NSArray *)array{
-    NSMutableArray * modelArray = [ActiveModel mj_objectArrayWithKeyValuesArray:array];
+    NSMutableArray * Marr = [NSMutableArray array];
+    for (int i = 0; i < array.count; i ++) {
+        NSMutableArray * modelArray = [ActiveModel mj_objectArrayWithKeyValuesArray:array[i][@"Codes"]];
+        [Marr addObject:modelArray];
+    }
     
-    return modelArray;
+    
+    return Marr;
+    
 }
 
 @end

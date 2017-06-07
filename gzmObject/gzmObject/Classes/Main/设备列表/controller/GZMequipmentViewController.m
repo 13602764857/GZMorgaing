@@ -8,6 +8,8 @@
 
 #import "GZMequipmentViewController.h"
 #import "GZmprojectTableViewCell.h"
+#import "GZMEqupmenttionMOdel.h"
+#import "GZmEquentTableViewCell.h"
 @interface GZMequipmentViewController ()
 
 @end
@@ -17,6 +19,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self GZM_creatFather];
+    [self GZM_setTableView];
     // Do any additional setup after loading the view.
 }
 /*********<#私有方法#>*********/
@@ -38,7 +41,7 @@
 /*********tableView的*********/
 -(void)GZM_setTableView{
     [self.view addSubview:self.GZMTableView];
-    [self.GZMTableView registerNib:[UINib nibWithNibName:@"GZmprojectTableViewCell" bundle:nil] forCellReuseIdentifier:@"cell"];
+    [self.GZMTableView registerNib:[UINib nibWithNibName:@"GZmEquentTableViewCell" bundle:nil] forCellReuseIdentifier:@"cell"];
     self.GZMTableView.frame = CGRectMake(0, 64 + 7, Width, Height - 64 - 49 -7);
     self.GZMTableView.rowHeight = 60;
 }
@@ -47,11 +50,11 @@
     /********** 下啦到底部时让其重新可以看到 ************/
     self.GZMTableView.mj_footer.state = MJRefreshStateIdle;
     NSDictionary *dic = @{@"token":toketen,@"projectID":@"",@"deviceID":@"",@"udid":@"",@"ip":@"",@"remark":@"",@"effective":@"",@"pindex":[NSString stringWithFormat:@"%ld",(long)self.page],@"pagesize":@"10"};
-    [RequestTool sendPostAFRequest:[BaseUrl stringByAppendingString:GetProjectList] parameters:dic successBlock:^(id message) {
-//        self.GZMDataArr = [GZMProjectModel setModelWithArray:message[@"message"]];
-//        [self.GZMTableView.mj_header endRefreshing];
+    [RequestTool sendPostAFRequest:[BaseUrl stringByAppendingString:GetDeviceList] parameters:dic successBlock:^(id message) {
+        self.GZMDataArr = [GZMEqupmenttionMOdel setModelWithArray:message[@"message"]];
+        [self.GZMTableView.mj_header endRefreshing];
         
-        //        [ZJModelTool createModelWithDictionary:message[@"message"][0] modelName:nil];
+//                [ZJModelTool createModelWithDictionary:message[@"message"][0] modelName:nil];
         self.GZMTableView.dataSource = self;
         [self.GZMTableView reloadData];
         NSLog(@"qweqe");
@@ -73,11 +76,11 @@
             return ;
         }
         [self.GZMTableView.mj_footer endRefreshing];
-//        NSMutableArray * tempArray = [GZMProjectModel setModelWithArray:message[@"message"]];
-//        for (GZMProjectModel *model in tempArray) {
-//            
-//            [self.GZMDataArr addObject:model];
-//        }
+        NSMutableArray * tempArray = [GZMEqupmenttionMOdel setModelWithArray:message[@"message"]];
+        for (GZMProjectModel *model in tempArray) {
+            
+            [self.GZMDataArr addObject:model];
+        }
         
         
         //        [ZJModelTool createModelWithDictionary:message[@"message"][0] modelName:nil];
@@ -93,11 +96,16 @@
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    GZmprojectTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
-    cell.mo = self.GZMDataArr[indexPath.row];
+    GZmEquentTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+//    cell.mo = self.GZMDataArr[indexPath.row];
     return cell;
 }
-
+-(NSArray<UITableViewRowAction *> *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath{
+    UITableViewRowAction *deleteRowAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@"禁用" handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
+        
+    }];
+    return @[deleteRowAction];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

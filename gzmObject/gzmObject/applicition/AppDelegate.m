@@ -48,7 +48,10 @@
 }
 
 -(void)configUSharePlatforms{
-    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_QQ appKey:@"wx6055d7d77c0e3446"/*设置QQ平台的appID*/  appSecret:nil redirectURL:@"http://mobile.umeng.com/social"];
+//    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_QQ appKey:@"wx6055d7d77c0e3446"/*设置QQ平台的appID*/  appSecret:nil redirectURL:@"http://mobile.umeng.com/social"];
+    //设置微信的appKey和appSecret
+    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_WechatSession appKey:@"wx6055d7d77c0e3446" appSecret:nil redirectURL:@"http://mobile.umeng.com/social"];
+    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_QQ appKey:@"1436e48e0596479ef4fbbd06"/*设置QQ平台的appID*/  appSecret:@"d073368aefd2799b0ca7ccdfd47ca086" redirectURL:@"http://mobile.umeng.com/social"];
 }
 
 -(void)confitUShareSettings{

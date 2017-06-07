@@ -12,6 +12,7 @@
 #import "GZMdetailProjectViewController.h"
 #import "GZMCreatViewController.h"
 #import "GZMChangeProgectViewController.h"
+#import "GZMActivationViewController.h"
 @interface GZMProjectViewController ()
 
 @end
@@ -71,7 +72,7 @@
     pindex = 1;
     /********** 下啦到底部时让其重新可以看到 ************/
     self.GZMTableView.mj_footer.state = MJRefreshStateIdle;
-    [RequestTool sendPostAFRequest:[BaseUrl stringByAppendingString:GetProjectList] parameters:@{@"token":toketen,@"pindex":[NSString stringWithFormat:@"%ld",(long)pindex],@"pagesize":@"10"} successBlock:^(id message) {
+    [RequestTool sendPostAFRequest:[BaseUrl stringByAppendingString:GetProjectList] parameters:@{@"token":toketen,@"pindex":[NSString stringWithFormat:@"%ld",(long)pindex],@"pagesize":sizePage} successBlock:^(id message) {
         self.GZMDataArr = [GZMProjectModel setModelWithArray:message[@"message"]];
         [self.GZMTableView.mj_header endRefreshing];
         
@@ -80,7 +81,7 @@
         [self.GZMTableView reloadData];
         NSLog(@"qweqe");
     } failBlock:^(id message) {
-       
+        
         [self.GZMTableView.mj_header endRefreshing];
     } delegate:self loadWith:mainLoading];
     
@@ -89,7 +90,7 @@
 /*********刷新加载跟多*********/
 -(void)creatMoreData{
     pindex += 1;
-    [RequestTool sendPostAFRequest:[BaseUrl stringByAppendingString:GetProjectList] parameters:@{@"token":toketen,@"pindex":[NSString stringWithFormat:@"%ld",(long)pindex],@"pagesize":@"10"} successBlock:^(id message) {
+    [RequestTool sendPostAFRequest:[BaseUrl stringByAppendingString:GetProjectList] parameters:@{@"token":toketen,@"pindex":[NSString stringWithFormat:@"%ld",(long)pindex],@"pagesize":sizePage} successBlock:^(id message) {
         
         if ([message[@"pageCount"] integerValue] < pindex ) {
             self.GZMTableView.mj_footer.state = MJRefreshStateNoMoreData;
@@ -101,8 +102,8 @@
             
             [self.GZMDataArr addObject:model];
         }
-
-       
+        
+        
         //        [ZJModelTool createModelWithDictionary:message[@"message"][0] modelName:nil];
         self.GZMTableView.dataSource = self;
         [self.GZMTableView reloadData];
@@ -122,22 +123,14 @@
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [super tableView:tableView didSelectRowAtIndexPath:indexPath];
-    GZMProjectModel * mo = self.GZMDataArr[indexPath.row];
     self.tabBarController.tabBar.hidden = YES;
-    GZMdetailProjectViewController * detail = [[GZMdetailProjectViewController alloc] init];
-    detail.Projectmodel = mo;
-    [self.navigationController pushViewController:detail animated:YES];
-    NSDictionary * dic = @{@"token":toketen,@"projectid":mo.ProjectID};
-//    [RequestTool sendPostAFRequest:[BaseUrl stringByAppendingString:ProjectDetails] parameters:dic successBlock:^(id message) {
-//       NSArray * arr =  [GZMProjectModel setModelWithArray:message[@"message"]];
-//        
-////        [ZJModelTool createModelWithDictionary:message[@"message"][0] modelName:nil];
-////        GZMdetailProjectViewController * detail = [[GZMdetailProjectViewController alloc] init];
-////        detail.Projectmodel = (GZMProjectModel*)arr[0];
-////        [self.navigationController pushViewController:detail animated:YES];
-//    } failBlock:^(id message) {
-//        
-//    } delegate:self loadWith:mainLoading];
+    GZMProjectModel * mo = self.GZMDataArr[indexPath.row];
+    GZMActivationViewController * GZMac = [[GZMActivationViewController alloc] init];
+    GZMac.Projectmodel = mo;
+    [self.navigationController pushViewController:GZMac animated:YES];
+    //    GZMdetailProjectViewController * detail = [[GZMdetailProjectViewController alloc] init];
+    //    detail.Projectmodel = mo;
+    //    [self.navigationController pushViewController:detail animated:YES];
     
     
 }
@@ -159,27 +152,32 @@
                 
             } delegate:self loadWith:mainLoading];
         } withErrorBlock:^{
-//            [self.GZMTableView reloadData];
+            //            [self.GZMTableView reloadData];
         }];
         
         ;
     }];
-    UITableViewRowAction *deleteRowAction1 = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@"编辑" handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
+    UITableViewRowAction *deleteRowAction1 = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@"详情" handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
+        self.tabBarController.tabBar.hidden = YES;
+        GZMProjectModel * mo = self.GZMDataArr[indexPath.row];
+        GZMdetailProjectViewController * detail = [[GZMdetailProjectViewController alloc] init];
+        detail.Projectmodel = mo;
+        [self.GZMTableView reloadData];
+        [self.navigationController pushViewController:detail animated:YES];
+        //        [RequestTool sendGetAFRequest:[BaseUrl stringByAppendingString:GetLanguageList] parameters:@{@"":@""} successBlock:^(id message) {
+        //            self.tabBarController.tabBar.hidden = YES;
+        //            GZMProjectModel * mo = self.GZMDataArr[indexPath.row];
+        //            [self.GZMTableView reloadData];
+        //            GZMChangeProgectViewController * greatVc = [[GZMChangeProgectViewController alloc] init];
+        //            greatVc.languageArr = message[@"message"];
+        //            greatVc.Projectmodel = mo;
+        //            [self.navigationController pushViewController:greatVc animated:YES];
+        //        } failBlock:^(id message) {
+        //
+        //        } delegate:self loadWith:mainLoading];
         
-        [RequestTool sendGetAFRequest:[BaseUrl stringByAppendingString:GetLanguageList] parameters:@{@"":@""} successBlock:^(id message) {
-            self.tabBarController.tabBar.hidden = YES;
-            GZMProjectModel * mo = self.GZMDataArr[indexPath.row];
-            [self.GZMTableView reloadData];
-            GZMChangeProgectViewController * greatVc = [[GZMChangeProgectViewController alloc] init];
-            greatVc.languageArr = message[@"message"];
-            greatVc.Projectmodel = mo;
-            [self.navigationController pushViewController:greatVc animated:YES];
-        } failBlock:^(id message) {
-            
-        } delegate:self loadWith:mainLoading];
-    
     }];
-
+    
     return @[deleteRowAction,deleteRowAction1];
 }
 -(void)dealloc{

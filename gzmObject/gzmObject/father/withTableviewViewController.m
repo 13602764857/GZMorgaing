@@ -24,6 +24,7 @@
     self.GZMCollData = [NSMutableArray array];
     self.empytext = onlyTitle;
     self.collType = collTypetwo;
+    self.sectionType = NoGroupType;
     // Do any additional setup after loading the view.
 }
 /******* <#name#>  *******/
@@ -108,7 +109,8 @@
 
 -(UITableView *)GZMTableView{
     if (!_GZMTableView) {
-        _GZMTableView = [[UITableView alloc] initWithFrame:self.view.frame style:UITableViewStylePlain];
+        _GZMTableView = [[UITableView alloc] initWithFrame:self.view.frame style:(self.sectionType == NoGroupType)?UITableViewStylePlain:UITableViewStyleGrouped];
+        
         _GZMTableView.delegate = self;
 //        _GZMTableView.dataSource = self;
         
@@ -130,9 +132,19 @@
     }else{
         self.empyView.hidden = YES;
     }
-    
+//    if ([self.GZMDataArr[0] isKindOfClass:[NSArray class]]) {
+//        NSArray * arr = self.GZMDataArr[section];
+//        return arr.count?arr.count:0;
+//    }
     return self.GZMDataArr.count?self.GZMDataArr.count:0;
 }
+
+//-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+//    if ([self.GZMDataArr[0] isKindOfClass:[NSArray class]]) {
+//        return self.GZMDataArr.count;
+//    }
+//    return 1;
+//}
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
 }

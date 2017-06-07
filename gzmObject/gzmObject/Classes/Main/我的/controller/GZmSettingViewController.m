@@ -10,6 +10,7 @@
 #import "simpleTableVIew.h"
 #import "GZMpassWordSecurityViewController.h"
 #import "GZMperSonMessageViewController.h"
+#import "GZMLoginViewController.h"
 @interface GZmSettingViewController ()
 
 @end
@@ -48,8 +49,32 @@
     simple.mainTableview.rowHeight = 50;
     simple.mainTableview.scrollEnabled = NO;
     [self.view addSubview:simple];
+    
+    UIButton * remoButton = [[UIButton alloc] init];
+    remoButton.center = CGPointMake(Width/2, CGRectGetMaxY(simple.frame) + 60);
+    [remoButton setTitle:@"退出登录" forState:UIControlStateNormal];
+    [remoButton addTarget:self action:@selector(remoClick) forControlEvents:UIControlEventTouchUpInside];
+    remoButton.bounds = CGRectMake(0, 0, 100, 50);
+    [self.view addSubview:remoButton];
 }
-
+-(void)remoClick{
+    [AlerYangShi creatTitleWith:@"是否要退出登录" creatOneWith:nil withTwoStr:nil WithVc:self withSuccessBlock:^{
+        [RequestTool sendPostAFRequest:[BaseUrl stringByAppendingString:Exit] parameters:@{@"token":toketen} successBlock:^(id message) {
+            if ([message[@"issuccess"] isEqual:@1]) {
+                [UserDefaults removeObjectForKey:@"toketen"];
+                
+                GZMLoginViewController * loginVc = [[GZMLoginViewController alloc] init];
+                [self presentViewController:loginVc animated:YES completion:nil];
+            }
+        } failBlock:^(id message) {
+            
+        } delegate:self loadWith:mainLoading];
+        
+    } withErrorBlock:^{
+        
+    }];
+    
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

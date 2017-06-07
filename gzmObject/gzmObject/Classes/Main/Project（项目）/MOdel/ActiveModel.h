@@ -17,5 +17,6 @@
 @property (nonatomic,copy) NSString *UniqueID;
 @property (nonatomic,copy) NSString *Code;
 @property (nonatomic,copy) NSString *Effective;
+@property (nonatomic,copy) NSString *IsExtract;
 +(NSMutableArray *)setModelWithArray:(NSArray *)array;
 @end
