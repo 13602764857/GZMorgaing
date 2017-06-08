@@ -20,6 +20,7 @@
 @property (nonatomic,copy) NSString *Model;
 @property (nonatomic,copy) NSString *Resolution;
 @property (nonatomic,copy) NSString *DeviceID;
+@property (nonatomic,copy) NSString *Effective;
 
 +(NSMutableArray *)setModelWithArray:(NSArray *)array;
 @end

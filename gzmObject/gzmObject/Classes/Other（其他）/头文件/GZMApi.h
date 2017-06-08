@@ -36,6 +36,7 @@
 #define ExtractCodeBatch          @"api/AuthCode/ExtractCodeBatch"
 #define ExtractCode          @"api/AuthCode/ExtractCode"
 #define ExtractHistory          @"api/AuthCode/ExtractHistory"
+#define ReExtractCode          @"api/AuthCode/ReExtractCode"
 
 
 /********** 登陆注册************/
@@ -52,6 +53,7 @@
 /********** 获取设备列表************/
 #define GetDeviceList          @"api/Device/GetDeviceList"
 #define GenAPICode          @"api/Project/GenAPICode"
+#define ModifyRemark          @"api/Device/ModifyRemark"
 
 
 #endif /* GZMApi_h */

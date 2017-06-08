@@ -7,7 +7,8 @@
 //
 
 #import "FatherViewController.h"
-
+#import "GZMEqupmenttionMOdel.h"
 @interface GZMDetailEuimentViewController : FatherViewController
-
+/**********<#属性#> ************/
+@property(nonatomic,strong)GZMEqupmenttionMOdel * Model;
 @end

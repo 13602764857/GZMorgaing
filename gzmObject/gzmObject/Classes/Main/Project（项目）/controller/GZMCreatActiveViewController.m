@@ -13,7 +13,9 @@
 @end
 
 @implementation GZMCreatActiveViewController
-
+{
+    UIButton * buton;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self GZM_creatFather];
@@ -27,17 +29,21 @@
     self.projectTitle.text = self.Projectmodel.ProjectName;
 }
 -(void)creatUI{
-    UIButton * buton = [[UIButton alloc] initWithFrame:CGRectMake(10, 200 - 50, Width - 20, 40)];
-    [buton setImage:[UIImage imageNamed:@"未选"] forState:UIControlStateNormal];
-    [buton setImage:[UIImage imageNamed:@"已选"] forState:UIControlStateNormal];
+    buton = [[UIButton alloc] initWithFrame:CGRectMake(10, 200 - 50, Width - 20, 40)];
+    buton.selected = YES;
+    [buton setImage:[UIImage imageNamed:@"待选"] forState:UIControlStateNormal];
+    [buton setImage:[UIImage imageNamed:@"选择"] forState:UIControlStateSelected];
     [buton setTitle:@"    提取激活码" forState:UIControlStateNormal];
-    [self.view addSubview:buton];
+//    buton.backgroundColor = MianColor;
+    [buton setTitleColor:[UIColor GZMTitleColor] forState:UIControlStateNormal];
+    [buton addTarget:self action:@selector(tiquClick:) forControlEvents:UIControlEventTouchUpInside];
+    [self.backView addSubview:buton];
     
 }
-- (IBAction)button:(id)sender {
-    UIButton * button = (UIButton *)sender;
-    button.selected = !button.selected;
+-(void)tiquClick:(UIButton *)button{
+     button.selected = !button.selected;
 }
+
 - (IBAction)confirmClick:(id)sender {
     if (self.timeTextFiled.text.length == 0 || self.timeTextFiled.text.length == 4) {
         [AlerYangShi tishiWithMessage:@"天数在0 - 999" WithVc:self];
@@ -57,14 +63,32 @@
             [AlerYangShi tishiWithMessage:message[@"message"] WithVc:self];
             return ;
         }
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"GZMActivationViewController" object:nil userInfo:nil];
-        [self.navigationController popViewControllerAnimated:YES];
+        if (buton.selected) {
+            NSArray * arr = message[@"codelist"];
+           
+            [self GZM_zhanTie:[arr componentsJoinedByString:@","]];
+        }else{
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"GZMActivationViewController" object:nil userInfo:nil];
+            [self.navigationController popViewControllerAnimated:YES];
+        }
     } failBlock:^(id message) {
         
     } delegate:self loadWith:mainLoading];
 
 }
+/*********复制带粘贴板*********/
+-(void)GZM_zhanTie:(NSString *)str{
+    UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
+    pasteboard.string = str;
+    [AlerYangShi showMessage:@"已复制到粘贴板" duration:1.5];
+}
 
+
+-(void)leftbutton1Click{
+     [[NSNotificationCenter defaultCenter] postNotificationName:@"GZMActivationViewController" object:nil userInfo:nil];
+    [self.navigationController popViewControllerAnimated:YES];
+    
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

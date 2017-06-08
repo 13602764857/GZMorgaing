@@ -82,11 +82,11 @@
             delle.ProjectArr = self.GZMDataArr;
             //        [ZJModelTool createModelWithDictionary:message[@"message"][0] modelName:nil];
             self.GZMTableView.dataSource = self;
-            [self.GZMTableView reloadData];
-        }else{
             
+        }else{
+            [self.GZMDataArr removeAllObjects];
         }
-       
+        [self.GZMTableView reloadData];
         NSLog(@"qweqe");
     } failBlock:^(id message) {
         

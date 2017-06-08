@@ -52,10 +52,10 @@
             
             //                [ZJModelTool createModelWithDictionary:message[@"message"][0] modelName:nil];
             self.GZMTableView.dataSource = self;
-            [self.GZMTableView reloadData];
         }else{
-            
+            [self.GZMDataArr removeAllObjects];
         }
+        [self.GZMTableView reloadData];
         
         NSLog(@"qweqe");
     } failBlock:^(id message) {
@@ -106,9 +106,16 @@
 }
 -(NSArray<UITableViewRowAction *> *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath{
     UITableViewRowAction *deleteRowAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@"提取" handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
-       
+        activeHistoryModel * mo = self.GZMDataArr[indexPath.row];
         [AlerYangShi creatTitleWith:@"是否提取重新提取这条记录" creatOneWith:@"取消" withTwoStr:@"提取" WithVc:self withSuccessBlock:^{
-            
+            [RequestTool sendPostAFRequest:[BaseUrl stringByAppendingString:ReExtractCode] parameters:@{@"token":toketen,@"extractID":mo.ExtractID} successBlock:^(id message) {
+                if ([message[@"issuccess"] isEqual:@1]) {
+                    [self GZM_zhanTie:message[@"message"]];
+                }
+
+            } failBlock:^(id message) {
+                
+            } delegate:self loadWith:mainLoading];
         } withErrorBlock:^{
             [self.GZMTableView reloadData];
         }];
@@ -120,7 +127,7 @@
 -(void)GZM_zhanTie:(NSString *)str{
     UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
     pasteboard.string = str;
-    [AlerYangShi showMessage:@"已复制到粘贴板" duration:1.5];
+    [AlerYangShi showMessage:@"激活码已复制到粘贴板" duration:1.5];
 }
 
 - (void)didReceiveMemoryWarning {

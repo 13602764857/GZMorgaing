@@ -52,7 +52,7 @@
     // Do any additional setup after loading the view.
 }
 -(void)creatUI{
-    NSArray * arr = @[@{@"image":@"",@"text":@"项目管理"},@{@"image":@"",@"text":@"项目管理"}];
+    NSArray * arr = @[@{@"image":@"",@"text":@"项目管理"},@{@"image":@"",@"text":@"设备管理"}];
     simpleTableVIew *simple = [[simpleTableVIew alloc] initWithFrame:CGRectMake(0, self.imageHeight.constant + 10, Width, 50 *arr.count) withArr:arr With:^(id message) {
         NSInteger num = [message integerValue];
         switch (num) {
@@ -63,7 +63,7 @@
                 break;
             case 1:
             {
-                self.tabBarController.selectedIndex = 0;
+                self.tabBarController.selectedIndex = 1;
             }
                 break;
             default:

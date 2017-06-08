@@ -350,7 +350,7 @@
 -(void)GZM_zhanTie:(NSString *)str{
     UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
     pasteboard.string = str;
-    [AlerYangShi showMessage:@"已复制到粘贴板" duration:1.5];
+    [AlerYangShi showMessage:@"激活码已复制到粘贴板" duration:1.5];
 }
 -(void)tapclick:(UITapGestureRecognizer *)tag{
     [self hiddenClick];

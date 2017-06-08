@@ -29,24 +29,38 @@
     leftButton * languageButton;
     tableVIew * tableview;
     GZMpickerView * MypickerView;
+    NSDictionary * Mdic;
+    NSString * ProjiectID;
     
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(GZMNotReshquipment) name:@"GZMequipmentViewController" object:nil];
     [self GZM_creatFather];
     [self GZM_setTableView];
     [self GZM_CreatSearchView];
     // Do any additional setup after loading the view.
 }
+
+-(void)GZMNotReshquipment{
+    [self creatData];
+}
 /*********<#私有方法#>*********/
 -(void)GZM_creatFather{
     AppDelegate * delle= (AppDelegate *)[[UIApplication sharedApplication] delegate];
     projectArr = delle.ProjectArr;
+    if (projectArr.count > 0) {
+        GZMProjectModel * mo = projectArr[0];
+        ProjiectID = mo.ProjectID;
+    }else{
+        ProjiectID = @"0";
+    }
+    Mdic = @{@"token":toketen,@"projectID":ProjiectID,@"deviceID":@"",@"udid":@"",@"code":@"",@"remark":@"",@"effective":@"",@"pindex":[NSString stringWithFormat:@"%ld",(long)self.page],@"pagesize":sizePage};
     self.leftbutton1.hidden = YES;
     self.mainlable1.text = @"设备列表";
     self.rightbutton1.x = Width - 10 - 100;
     self.rightbutton1.width = 100;
-    [self.rightbutton1 setTitle:@"🔍" forState:UIControlStateNormal];
+    [self.rightbutton1 setTitle:@"搜索" forState:UIControlStateNormal];
     
 }
 -(void)leftbutton1Click{
@@ -64,39 +78,52 @@
     SearcherView = [[UIView alloc] initWithFrame:self.GZMTableView.frame];
     SearcherView.hidden = YES;
     UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapClick:)];
-    tap.delegate = self;
     [SearcherView addGestureRecognizer:tap];
-    SearcherView.backgroundColor = MianColor;
+    SearcherView.backgroundColor = [UIColor GZMcolorWithHexString:@"#000000" withalpha:0.2];
     [self.view addSubview:SearcherView];
     
-    NSArray * titleArr = @[@"项目名字:",@"设备列表:",@"激活码:",@"UDID:",@"",@""];
-    NSArray * titleArr1 = @[@"项目名字:",@"请输入设备编号",@"请输入产品激活码",@"请输入UDID",@"",@""];
+    NSArray * titleArr = @[@"项目名字:",@"设备号:",@"UDID:",@"激活码",@"备注:",@"",@""];
+    
+    UIImageView * image = [[UIImageView alloc] initWithFrame:CGRectMake(0, 40 * titleArr.count, Width, SearcherView.height - 40 *titleArr.count)];
+//    image.backgroundColor = MianColor;
+    image.userInteractionEnabled = YES;
+    UITapGestureRecognizer * tap1 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapImageViewClick:)];
+    [image addGestureRecognizer:tap1];
+    [SearcherView addSubview:image];
+    NSArray * titleArr1 = @[@"项目名字:",@"请输入设备编号",@"请输入UDID",@"请输入产品激活码",@"请输入备注",@""];
     for (int i = 0; i < titleArr.count; i ++) {
-        UIView * view = [[UIView alloc] initWithFrame:CGRectMake(0, i * 40, Width, 39.5)];
+        UIView * view = [[UIView alloc] initWithFrame:CGRectMake(0, i * 40, Width, 40)];
         view.backgroundColor = [UIColor whiteColor];
         [SearcherView addSubview:view];
         
+        UILabel * lineLable = [[UILabel alloc] initWithFrame:CGRectMake(0, view.height - 0.5, Width, 0.5)];
+        lineLable.backgroundColor = [UIColor GZMcolorWithHexString:@"#000000" withalpha:0.2];
+        [view addSubview:lineLable];
+        
         UILabel * lable1 = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 80, view.height)];
+        lable1.font = [UIFont systemFontOfSize:14];
         lable1.textAlignment = NSTextAlignmentRight;
         lable1.text = titleArr[i];
         [view addSubview:lable1];
         if (i == 0) {
             languageButton = [[leftButton alloc] initWithFrame:CGRectMake(CGRectGetMaxX(lable1.frame) + 10, 0, 200, view.height)];
             //            languageButton.backgroundColor = [UIColor redColor];
-            
-            [languageButton setTitle:[self creatArr][0] forState:UIControlStateNormal];
+            NSString * str1 = [self creatArr].count?[self creatArr][0]:@"";
+            [languageButton setTitle:str1 forState:UIControlStateNormal];
             languageButton.titleLabel.font = [UIFont systemFontOfSize:13];
             [languageButton setImage:[UIImage imageNamed:@"下拉"] forState:UIControlStateNormal];
             [languageButton addTarget:self action:@selector(leftbuttonClick:) forControlEvents:UIControlEventTouchUpInside];
             [view addSubview:languageButton];
         }
         
-        if (i > 0 && i < 4) {
+        if (i > 0 && i < 5) {
             UITextField * textFile = [[UITextField alloc] initWithFrame:CGRectMake(CGRectGetMaxX(lable1.frame) + 10, 0, 150, view.height)];
-            textFile.placeholder = titleArr1[i];
+            [textFile GZMpublicTextFiledPlacehoderWith:nil withSize:13 WithholderText: titleArr1[i] Withalignment:NSTextAlignmentLeft];
+            textFile.tag = 1000 + i;
+//            textFile.placeholder = titleArr1[i];
             [view addSubview:textFile];
         }
-        if (i == 4) {
+        if (i == 5) {
             trueButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, Width/2, view.height)];
             [trueButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
             [trueButton setTitle:@"  有效" forState:UIControlStateNormal];
@@ -124,9 +151,16 @@
             //                trueButton.backgroundColor = MianColor;
             [view addSubview:falseButton];
         }
+        if ( i == 6) {
+            UIButton * SearChbutton =  [[UIButton alloc] initWithFrame:CGRectMake(0, 0, Width, view.height)];
+            [SearChbutton addTarget:self action:@selector(searchClick:) forControlEvents:UIControlEventTouchUpInside];
+            [SearChbutton setTitle:@"搜索" forState:UIControlStateNormal];
+            [SearChbutton setTitleColor:MianColor forState:UIControlStateNormal];
+            [view addSubview:SearChbutton];
+        }
     }
 }
-/********** 获取数组************/
+/********** 获取name数组************/
 -(NSArray *)creatArr{
     NSMutableArray * arr = [NSMutableArray array];
     for (int i = 0; i < projectArr.count; i ++) {
@@ -136,6 +170,17 @@
     return arr;
 
 }
+/********** 获取ID数组************/
+-(NSArray *)creatIDArr{
+    NSMutableArray * arr = [NSMutableArray array];
+    for (int i = 0; i < projectArr.count; i ++) {
+        GZMProjectModel * mo = projectArr[i];
+        [arr addObject:mo.ProjectID];
+    }
+    return arr;
+    
+}
+
 /********** 选择语言分类点击事件  ************/
 -(void)leftbuttonClick:(UIButton *)button{
     [self GZM_Hidden];
@@ -143,6 +188,9 @@
     [MypickerView removeFromSuperview];
     MypickerView = [[GZMpickerView alloc] initWithFrame:CGRectMake(0, Height - 250, Width, 250) withArr:[self creatArr] With:^(id message) {
         [languageButton setTitle:message[@"row"] forState:UIControlStateNormal];
+         NSArray * arr1 = [self creatIDArr];
+        NSInteger num = [[self creatArr] indexOfObject:message[@"row"]];
+        ProjiectID = arr1[num];
     } withType:PicketTypeOne];
     [KeyWindow addSubview:MypickerView];
 }
@@ -150,21 +198,36 @@
 
 /********** 有效无效的选择************/
 -(void)trueClick:(UIButton *)button{
+    [self GZM_Hidden];
     [MypickerView removeFromSuperview];
     trueButton.selected = NO;
     falseButton.selected = NO;
     button.selected = YES;
 }
 
-/*********y*********/
+/*********搜索面点击*********/
 -(void)tapClick:(UITapGestureRecognizer *)tap{
-    [self rightbutton1Click];
+    
     [self GZM_Hidden];
     
 }
--(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-//    [self rightbutton1Click];
+/*********搜索按钮点击*********/
+-(void)searchClick:(UIButton *)button{
+    UITextField * textFiled1 = [self.view viewWithTag:1001];
+    UITextField * textFiled2 = [self.view viewWithTag:1002];
+    UITextField * textFiled3 = [self.view viewWithTag:1003];
+    UITextField * textFiled4 = [self.view viewWithTag:1004];
+    [self rightbutton1Click];
+    [self GZM_Hidden];
+    Mdic = @{@"token":toketen,@"projectID":ProjiectID,@"deviceID":textFiled1.text,@"udid":textFiled2.text,@"code":textFiled3.text,@"remark":textFiled4.text,@"effective":trueButton.selected?@"true":@"false",@"pindex":[NSString stringWithFormat:@"%ld",(long)self.page],@"pagesize":sizePage};
+    [self creatData];
 }
+/*********imageView点击*********/
+-(void)tapImageViewClick:(UITapGestureRecognizer *)tap{
+    [self rightbutton1Click];
+    [self GZM_Hidden];
+}
+
 -(void)rightbutton1Click{
     [MypickerView removeFromSuperview];
     self.rightbutton1.selected = !self.rightbutton1.selected;
@@ -186,14 +249,7 @@
    self.page = 1;
     /********** 下啦到底部时让其重新可以看到 ************/
     self.GZMTableView.mj_footer.state = MJRefreshStateIdle;
-    NSString * str;
-    if (projectArr.count > 0) {
-        GZMProjectModel * mo = projectArr[0];
-        str = mo.ProjectID;
-    }else{
-        str = @"0";
-    }
-    NSDictionary *dic = @{@"token":toketen,@"projectID":str,@"deviceID":@"",@"udid":@"",@"ip":@"",@"remark":@"",@"effective":@"",@"pindex":[NSString stringWithFormat:@"%ld",(long)self.page],@"pagesize":@"10"};
+    NSDictionary *dic = Mdic;
     [RequestTool sendPostAFRequest:[BaseUrl stringByAppendingString:GetDeviceList] parameters:dic successBlock:^(id message) {
         [self.GZMTableView.mj_header endRefreshing];
         if ([message[@"issuccess"] isEqual:@1]) {
@@ -202,11 +258,11 @@
             
             [ZJModelTool createModelWithDictionary:message[@"message"][0] modelName:nil];
             self.GZMTableView.dataSource = self;
-            [self.GZMTableView reloadData];
-        }else{
             
+        }else{
+            [self.GZMDataArr removeAllObjects];
         }
-        
+        [self.GZMTableView reloadData];
         NSLog(@"qweqe");
     } failBlock:^(id message) {
         
@@ -218,7 +274,7 @@
 /*********刷新加载跟多*********/
 -(void)creatMoreData{
     self.page += 1;
-    NSDictionary *dic = @{@"token":toketen,@"projectID":[[NSUserDefaults standardUserDefaults] stringForKey:@"项目"],@"deviceID":@"",@"udid":@"",@"ip":@"",@"remark":@"",@"effective":@"",@"pindex":[NSString stringWithFormat:@"%ld",(long)self.page],@"pagesize":@"10"};
+    NSDictionary *dic = Mdic;
     [RequestTool sendPostAFRequest:[BaseUrl stringByAppendingString:GetDeviceList] parameters:dic successBlock:^(id message) {
         
         if ([message[@"pageCount"] integerValue] < self.page ) {
@@ -259,9 +315,15 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [super tableView:tableView didSelectRowAtIndexPath:indexPath];
     self.tabBarController.tabBar.hidden = YES;
+    GZMEqupmenttionMOdel * mo = self.GZMDataArr[indexPath.row];
     GZMDetailEuimentViewController * detailEuimentVc = [[GZMDetailEuimentViewController alloc] init];
+    detailEuimentVc.Model = mo;
     [self.navigationController pushViewController:detailEuimentVc animated:YES];
 }
+-(void)dealloc{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"GZMequipmentViewController" object:nil];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

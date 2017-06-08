@@ -54,7 +54,9 @@
     remoButton.center = CGPointMake(Width/2, CGRectGetMaxY(simple.frame) + 60);
     [remoButton setTitle:@"退出登录" forState:UIControlStateNormal];
     [remoButton addTarget:self action:@selector(remoClick) forControlEvents:UIControlEventTouchUpInside];
-    remoButton.bounds = CGRectMake(0, 0, 100, 50);
+    remoButton.backgroundColor = MianColor;
+    [remoButton GZMchangeStyleWith:4 withborad:0 withBoardColor:MianColor];
+    remoButton.bounds = CGRectMake(0, 0, Width - 40, 40);
     [self.view addSubview:remoButton];
 }
 -(void)remoClick{
