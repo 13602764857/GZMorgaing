@@ -11,7 +11,7 @@
 @interface GZMEqupmenttionMOdel : NSObject
 @property (nonatomic,copy) NSString *LastDate;
 @property (nonatomic,copy) NSString *LastIP;
-@property (nonatomic,copy) NSNumber *Request;
+@property (nonatomic,copy) NSString *Request;
 @property (nonatomic,copy) NSString *Remark;
 @property (nonatomic,copy) NSString *UDID;
 @property (nonatomic,copy) NSString *ProjectName;
@@ -19,6 +19,7 @@
 @property (nonatomic,copy) NSString *CreateDate;
 @property (nonatomic,copy) NSString *Model;
 @property (nonatomic,copy) NSString *Resolution;
-@property (nonatomic,copy) NSNumber *DeviceID;
+@property (nonatomic,copy) NSString *DeviceID;
+
 +(NSMutableArray *)setModelWithArray:(NSArray *)array;
 @end

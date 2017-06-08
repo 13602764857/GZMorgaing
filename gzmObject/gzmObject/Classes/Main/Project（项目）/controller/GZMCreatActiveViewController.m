@@ -17,6 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self GZM_creatFather];
+    [self creatUI];
     // Do any additional setup after loading the view from its nib.
 }
 /*********<#私有方法#>*********/
@@ -24,6 +25,18 @@
     self.mainlable1.text = @"生成激活码";
     self.view.backgroundColor = [UIColor GZMLightColor];
     self.projectTitle.text = self.Projectmodel.ProjectName;
+}
+-(void)creatUI{
+    UIButton * buton = [[UIButton alloc] initWithFrame:CGRectMake(10, 200 - 50, Width - 20, 40)];
+    [buton setImage:[UIImage imageNamed:@"未选"] forState:UIControlStateNormal];
+    [buton setImage:[UIImage imageNamed:@"已选"] forState:UIControlStateNormal];
+    [buton setTitle:@"    提取激活码" forState:UIControlStateNormal];
+    [self.view addSubview:buton];
+    
+}
+- (IBAction)button:(id)sender {
+    UIButton * button = (UIButton *)sender;
+    button.selected = !button.selected;
 }
 - (IBAction)confirmClick:(id)sender {
     if (self.timeTextFiled.text.length == 0 || self.timeTextFiled.text.length == 4) {

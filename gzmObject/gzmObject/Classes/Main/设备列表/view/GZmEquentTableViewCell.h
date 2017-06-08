@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "GZMEqupmenttionMOdel.h"
 @interface GZmEquentTableViewCell : UITableViewCell
-
+@property (weak, nonatomic) IBOutlet UILabel *typeLable;
+@property (weak, nonatomic) IBOutlet UILabel *nameLable;
+@property (weak, nonatomic) IBOutlet UILabel *timeLable;
+/**********<#属性#> ************/
+@property(nonatomic,strong)GZMEqupmenttionMOdel * mo;
 @end

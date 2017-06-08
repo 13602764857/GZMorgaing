@@ -15,5 +15,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *timeTextFiled;
 @property (weak, nonatomic) IBOutlet UILabel *projectTitle;
 @property (weak, nonatomic) IBOutlet UITextField *numTextFiled;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *heightLayout;
+@property (weak, nonatomic) IBOutlet UIButton *activeButton;
+@property (weak, nonatomic) IBOutlet UIView *backView;
 
 @end

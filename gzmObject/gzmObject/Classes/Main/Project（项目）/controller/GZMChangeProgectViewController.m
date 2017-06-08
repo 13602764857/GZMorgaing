@@ -28,9 +28,9 @@
 //    tableVIew * tableView;
     GZMpickerView * MypickerView;
     NSArray * dataArr;
+    NSString * languageStr;
     UIButton * trueButton;
     UIButton * falseButton;
-    NSString * languageStr;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];

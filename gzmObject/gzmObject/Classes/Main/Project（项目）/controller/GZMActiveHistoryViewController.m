@@ -7,7 +7,8 @@
 //
 
 #import "GZMActiveHistoryViewController.h"
-
+#import "GZmHistroyTableViewCell.h"
+#import "activeHistoryModel.h"
 @interface GZMActiveHistoryViewController ()
 
 @end
@@ -17,14 +18,109 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self GZM_creatFather];
+    [self creatUI];
     // Do any additional setup after loading the view.
 }
 /*********<#私有方法#>*********/
 -(void)GZM_creatFather{
-    self.mainlable1.text = @"批量激活码历史记录";
+    self.mainlable1.text = @"历史提取记录";
     
     //    self.sectionType = GroupType;
     
+}
+
+/*********tableView的*********/
+-(void)GZM_setTableView{
+    [self.view addSubview:self.GZMTableView];
+    [self.GZMTableView registerNib:[UINib nibWithNibName:@"GZmHistroyTableViewCell" bundle:nil] forCellReuseIdentifier:@"cell"];
+    self.GZMTableView.frame = CGRectMake(0, 64 , Width, Height - 64 - 49);
+    self.GZMTableView.rowHeight = 60;
+}
+
+-(void)creatUI{
+    [self GZM_setTableView];
+}
+-(void)creatData{
+    self.page = 1;
+    /********** 下啦到底部时让其重新可以看到 ************/
+    self.GZMTableView.mj_footer.state = MJRefreshStateIdle;
+    [RequestTool sendPostAFRequest:[BaseUrl stringByAppendingString:ExtractHistory] parameters:@{@"token":toketen,@"projectID":self.mo.ProjectID,@"pindex":[NSString stringWithFormat:@"%ld",(long)self.page],@"pagesize":sizePage} successBlock:^(id message) {
+         [self.GZMTableView.mj_header endRefreshing];
+        if ([message[@"issuccess"] isEqual:@1]) {
+            self.GZMDataArr = [activeHistoryModel setModelWithArray:message[@"message"]];
+            
+            
+            //                [ZJModelTool createModelWithDictionary:message[@"message"][0] modelName:nil];
+            self.GZMTableView.dataSource = self;
+            [self.GZMTableView reloadData];
+        }else{
+            
+        }
+        
+        NSLog(@"qweqe");
+    } failBlock:^(id message) {
+        
+        [self.GZMTableView.mj_header endRefreshing];
+    } delegate:self loadWith:mainLoading];
+    
+}
+
+/*********刷新加载跟多*********/
+-(void)creatMoreData{
+    self.page += 1;
+    [RequestTool sendPostAFRequest:[BaseUrl stringByAppendingString:GetProjectList] parameters:@{@"token":toketen,@"projectID":self.mo.ProjectID,@"pindex":[NSString stringWithFormat:@"%ld",(long)self.page],@"pagesize":sizePage} successBlock:^(id message) {
+        
+        if ([message[@"pageCount"] integerValue] < self.page ) {
+            self.GZMTableView.mj_footer.state = MJRefreshStateNoMoreData;
+            return ;
+        }
+        [self.GZMTableView.mj_footer endRefreshing];
+        NSMutableArray * tempArray = [activeHistoryModel setModelWithArray:message[@"message"]];
+        for (activeHistoryModel *model in tempArray) {
+            
+            [self.GZMDataArr addObject:model];
+        }
+        
+        
+        //        [ZJModelTool createModelWithDictionary:message[@"message"][0] modelName:nil];
+        self.GZMTableView.dataSource = self;
+        [self.GZMTableView reloadData];
+        
+        NSLog(@"qweqe");
+    } failBlock:^(id message) {
+        /********** 失败的时候重新请求这个************/
+        self.page -= 1;
+        [self.GZMTableView.mj_footer endRefreshing];
+    } delegate:self loadWith:mainLoading];
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    GZmHistroyTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    cell.mo = self.GZMDataArr[indexPath.row];
+    return cell;
+}
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [super tableView:tableView didSelectRowAtIndexPath:indexPath];
+    
+}
+-(NSArray<UITableViewRowAction *> *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath{
+    UITableViewRowAction *deleteRowAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@"提取" handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
+       
+        [AlerYangShi creatTitleWith:@"是否提取重新提取这条记录" creatOneWith:@"取消" withTwoStr:@"提取" WithVc:self withSuccessBlock:^{
+            
+        } withErrorBlock:^{
+            [self.GZMTableView reloadData];
+        }];
+    }];
+    
+    return @[deleteRowAction];
+}
+/*********复制带粘贴板*********/
+-(void)GZM_zhanTie:(NSString *)str{
+    UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
+    pasteboard.string = str;
+    [AlerYangShi showMessage:@"已复制到粘贴板" duration:1.5];
 }
 
 - (void)didReceiveMemoryWarning {

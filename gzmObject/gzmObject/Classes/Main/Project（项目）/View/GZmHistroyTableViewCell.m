@@ -1,22 +1,23 @@
 //
-//  GZmEquentTableViewCell.m
+//  GZmHistroyTableViewCell.m
 //  gzmObject
 //
-//  Created by gzm on 2017/6/5.
+//  Created by gzm on 2017/6/7.
 //  Copyright © 2017年 gzm. All rights reserved.
 //
 
-#import "GZmEquentTableViewCell.h"
+#import "GZmHistroyTableViewCell.h"
 
-@implementation GZmEquentTableViewCell
+@implementation GZmHistroyTableViewCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
 }
--(void)setMo:(GZMEqupmenttionMOdel *)mo{
-    self.timeLable.text = mo.CreateDate;
-//    self.nameLable.text = mo.
+-(void)setMo:(activeHistoryModel *)mo{
+    self.nameLable.text = mo.File;
+    self.timeLbale.text = mo.ExtractTime;
+    self.numLable.text = mo.Num;
 }
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];

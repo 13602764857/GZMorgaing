@@ -14,6 +14,7 @@
 
 @property(nonatomic,assign)AFNetworkReachabilityStatus reach;
 @property float autoSizeScale;
-
+/**********全局的项目属性 ************/
+@property(nonatomic,strong)NSArray * ProjectArr;
 @end
 

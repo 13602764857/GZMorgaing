@@ -13,6 +13,7 @@
 #import "GZMCreatViewController.h"
 #import "GZMChangeProgectViewController.h"
 #import "GZMActivationViewController.h"
+#import "AppDelegate.h"
 @interface GZMProjectViewController ()
 
 @end
@@ -71,14 +72,21 @@
 -(void)creatData{
     pindex = 1;
     /********** 下啦到底部时让其重新可以看到 ************/
+   
     self.GZMTableView.mj_footer.state = MJRefreshStateIdle;
     [RequestTool sendPostAFRequest:[BaseUrl stringByAppendingString:GetProjectList] parameters:@{@"token":toketen,@"pindex":[NSString stringWithFormat:@"%ld",(long)pindex],@"pagesize":sizePage} successBlock:^(id message) {
-        self.GZMDataArr = [GZMProjectModel setModelWithArray:message[@"message"]];
         [self.GZMTableView.mj_header endRefreshing];
-        
-        //        [ZJModelTool createModelWithDictionary:message[@"message"][0] modelName:nil];
-        self.GZMTableView.dataSource = self;
-        [self.GZMTableView reloadData];
+        if ([message[@"issuccess"] isEqual:@1]) {
+            self.GZMDataArr = [GZMProjectModel setModelWithArray:message[@"message"]];
+           AppDelegate * delle= (AppDelegate *)[[UIApplication sharedApplication] delegate];
+            delle.ProjectArr = self.GZMDataArr;
+            //        [ZJModelTool createModelWithDictionary:message[@"message"][0] modelName:nil];
+            self.GZMTableView.dataSource = self;
+            [self.GZMTableView reloadData];
+        }else{
+            
+        }
+       
         NSLog(@"qweqe");
     } failBlock:^(id message) {
         

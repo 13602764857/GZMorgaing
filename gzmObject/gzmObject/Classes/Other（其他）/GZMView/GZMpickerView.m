@@ -12,6 +12,16 @@
 {
     NSArray * dataArr1;
 }
+-(instancetype)initWithFrame:(CGRect)frame withArr:(NSArray *)dataArr With:(DataBlock)dataBlock withType:(GZMPicketTpye)type{
+    if (self = [super initWithFrame:frame]) {
+        _datablock = dataBlock;
+        dataArr1 = dataArr;
+        _picketType = type;
+        [self addSubview:self.myPickerView];
+        
+    }return self;
+}
+
 -(instancetype)initWithFrame:(CGRect)frame withArr:(NSArray *)dataArr With:(DataBlock)dataBlock{
     if (self = [super initWithFrame:frame]) {
         _datablock = dataBlock;

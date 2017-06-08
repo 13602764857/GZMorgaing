@@ -7,7 +7,8 @@
 //
 
 #import "FatherViewController.h"
-
+#import "GZMProjectModel.h"
 @interface GZMActiveHistoryViewController : FatherViewController
-
+/**********<#属性#> ************/
+@property(nonatomic,strong)GZMProjectModel * mo;
 @end

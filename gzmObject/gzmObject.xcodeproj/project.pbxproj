@@ -38,6 +38,11 @@
 		15657E741EE606B300F92365 /* GZmEquentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 15657E721EE606B300F92365 /* GZmEquentTableViewCell.m */; };
 		15657E751EE606B300F92365 /* GZmEquentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15657E731EE606B300F92365 /* GZmEquentTableViewCell.xib */; };
 		15657E781EE870DD00F92365 /* GZMActiveHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15657E771EE870DD00F92365 /* GZMActiveHistoryViewController.m */; };
+		15657E7B1EE87B7A00F92365 /* activeHistoryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 15657E7A1EE87B7A00F92365 /* activeHistoryModel.m */; };
+		15657E7F1EE8809300F92365 /* GZmHistroyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 15657E7D1EE8809300F92365 /* GZmHistroyTableViewCell.m */; };
+		15657E801EE8809300F92365 /* GZmHistroyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15657E7E1EE8809300F92365 /* GZmHistroyTableViewCell.xib */; };
+		15657E841EE8A35C00F92365 /* GZMDetailEuimentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15657E821EE8A35C00F92365 /* GZMDetailEuimentViewController.m */; };
+		15657E851EE8A35C00F92365 /* GZMDetailEuimentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15657E831EE8A35C00F92365 /* GZMDetailEuimentViewController.xib */; };
 		156DDB211ECA27D60050F037 /* UITextField+GZM.m in Sources */ = {isa = PBXBuildFile; fileRef = 156DDB201ECA27D60050F037 /* UITextField+GZM.m */; };
 		156DDB281ECB6CC20050F037 /* GZMLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 156DDB261ECB6CC20050F037 /* GZMLoginViewController.m */; };
 		156DDB291ECB6CC20050F037 /* GZMLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 156DDB271ECB6CC20050F037 /* GZMLoginViewController.xib */; };
@@ -174,6 +179,15 @@
 		15657E731EE606B300F92365 /* GZmEquentTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GZmEquentTableViewCell.xib; sourceTree = "<group>"; };
 		15657E761EE870DD00F92365 /* GZMActiveHistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GZMActiveHistoryViewController.h; sourceTree = "<group>"; };
 		15657E771EE870DD00F92365 /* GZMActiveHistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GZMActiveHistoryViewController.m; sourceTree = "<group>"; };
+		15657E791EE87B7A00F92365 /* activeHistoryModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = activeHistoryModel.h; sourceTree = "<group>"; };
+		15657E7A1EE87B7A00F92365 /* activeHistoryModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = activeHistoryModel.m; sourceTree = "<group>"; };
+		15657E7C1EE8809300F92365 /* GZmHistroyTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GZmHistroyTableViewCell.h; sourceTree = "<group>"; };
+		15657E7D1EE8809300F92365 /* GZmHistroyTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GZmHistroyTableViewCell.m; sourceTree = "<group>"; };
+		15657E7E1EE8809300F92365 /* GZmHistroyTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GZmHistroyTableViewCell.xib; sourceTree = "<group>"; };
+		15657E811EE8A35C00F92365 /* GZMDetailEuimentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GZMDetailEuimentViewController.h; sourceTree = "<group>"; };
+		15657E821EE8A35C00F92365 /* GZMDetailEuimentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GZMDetailEuimentViewController.m; sourceTree = "<group>"; };
+		15657E831EE8A35C00F92365 /* GZMDetailEuimentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GZMDetailEuimentViewController.xib; sourceTree = "<group>"; };
+		15657E871EE8C39500F92365 /* GZMConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GZMConfig.h; sourceTree = "<group>"; };
 		156DDB1F1ECA27D60050F037 /* UITextField+GZM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+GZM.h"; sourceTree = "<group>"; };
 		156DDB201ECA27D60050F037 /* UITextField+GZM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+GZM.m"; sourceTree = "<group>"; };
 		156DDB251ECB6CC20050F037 /* GZMLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GZMLoginViewController.h; sourceTree = "<group>"; };
@@ -301,6 +315,7 @@
 				1505E12E1EB14E8C00C61DFC /* GZMCAtegory.h */,
 				1505E12F1EB14FAE00C61DFC /* ThreePart.h */,
 				1505E1511EB15D9400C61DFC /* GZMSecret.h */,
+				15657E871EE8C39500F92365 /* GZMConfig.h */,
 			);
 			path = "头文件";
 			sourceTree = "<group>";
@@ -438,6 +453,9 @@
 			children = (
 				1579B95B1ED647B0000325FC /* GZMequipmentViewController.h */,
 				1579B95C1ED647B0000325FC /* GZMequipmentViewController.m */,
+				15657E811EE8A35C00F92365 /* GZMDetailEuimentViewController.h */,
+				15657E821EE8A35C00F92365 /* GZMDetailEuimentViewController.m */,
+				15657E831EE8A35C00F92365 /* GZMDetailEuimentViewController.xib */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -547,6 +565,8 @@
 				1579B9501ED64732000325FC /* GZMProjectModel.m */,
 				1579B9751ED89A55000325FC /* ActiveModel.h */,
 				1579B9761ED89A55000325FC /* ActiveModel.m */,
+				15657E791EE87B7A00F92365 /* activeHistoryModel.h */,
+				15657E7A1EE87B7A00F92365 /* activeHistoryModel.m */,
 			);
 			path = MOdel;
 			sourceTree = "<group>";
@@ -560,6 +580,9 @@
 				1579B96B1ED7545C000325FC /* GZMActiveTableViewCell.h */,
 				1579B96C1ED7545C000325FC /* GZMActiveTableViewCell.m */,
 				1579B96D1ED7545C000325FC /* GZMActiveTableViewCell.xib */,
+				15657E7C1EE8809300F92365 /* GZmHistroyTableViewCell.h */,
+				15657E7D1EE8809300F92365 /* GZmHistroyTableViewCell.m */,
+				15657E7E1EE8809300F92365 /* GZmHistroyTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -837,6 +860,8 @@
 				158797911EAFEF6100DA40CF /* LaunchScreen.storyboard in Resources */,
 				1579B9741ED7633A000325FC /* GZMCreatActiveViewController.xib in Resources */,
 				156DDB291ECB6CC20050F037 /* GZMLoginViewController.xib in Resources */,
+				15657E801EE8809300F92365 /* GZmHistroyTableViewCell.xib in Resources */,
+				15657E851EE8A35C00F92365 /* GZMDetailEuimentViewController.xib in Resources */,
 				1505E1681EB2B10700C61DFC /* onrViewController.xib in Resources */,
 				15E5D7E61EE084440040172E /* GZMChangeencryptedViewController.xib in Resources */,
 				1579B95A1ED64732000325FC /* GZmprojectTableViewCell.xib in Resources */,
@@ -929,6 +954,7 @@
 				158797E21EB02C8400DA40CF /* NSString+GZM.m in Sources */,
 				15657E781EE870DD00F92365 /* GZMActiveHistoryViewController.m in Sources */,
 				158797E81EB02C8400DA40CF /* UILabel+GZMlable.m in Sources */,
+				15657E7F1EE8809300F92365 /* GZmHistroyTableViewCell.m in Sources */,
 				1579B9561ED64732000325FC /* GZMZongViewController.m in Sources */,
 				1505E14C1EB15B6100C61DFC /* RequestTool.m in Sources */,
 				158797E51EB02C8400DA40CF /* UIColor+GZM.m in Sources */,
@@ -946,6 +972,7 @@
 				1579B96A1ED75025000325FC /* GZMActivationViewController.m in Sources */,
 				156DDB211ECA27D60050F037 /* UITextField+GZM.m in Sources */,
 				1505E15B1EB27B5500C61DFC /* ViewController.m in Sources */,
+				15657E7B1EE87B7A00F92365 /* activeHistoryModel.m in Sources */,
 				158797E31EB02C8400DA40CF /* UIActivityIndicatorView+GZM.m in Sources */,
 				1579B9591ED64732000325FC /* GZmprojectTableViewCell.m in Sources */,
 				1579B9581ED64732000325FC /* GZMProjectModel.m in Sources */,
@@ -956,6 +983,7 @@
 				1579B8EB1ED5F8E3000325FC /* GZMForgetViewController.m in Sources */,
 				1579B95D1ED647B0000325FC /* GZMequipmentViewController.m in Sources */,
 				15657E6D1EE5E3B000F92365 /* GZMexampleViewController.m in Sources */,
+				15657E841EE8A35C00F92365 /* GZMDetailEuimentViewController.m in Sources */,
 				1505E1411EB15A0300C61DFC /* AlerYangShi.m in Sources */,
 				15657E741EE606B300F92365 /* GZmEquentTableViewCell.m in Sources */,
 				1505E1461EB15A0300C61DFC /* XLWave.m in Sources */,

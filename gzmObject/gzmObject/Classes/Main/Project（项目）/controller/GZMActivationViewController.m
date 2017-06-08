@@ -81,6 +81,7 @@
         case 101:
         {
             GZMActiveHistoryViewController * historyVc = [[GZMActiveHistoryViewController alloc] init];
+            historyVc.mo = self.Projectmodel;
             [self.navigationController pushViewController:historyVc animated:YES];
         }
             break;
