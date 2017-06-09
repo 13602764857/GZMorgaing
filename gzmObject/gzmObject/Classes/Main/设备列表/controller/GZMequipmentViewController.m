@@ -58,8 +58,8 @@
     Mdic = @{@"token":toketen,@"projectID":ProjiectID,@"deviceID":@"",@"udid":@"",@"code":@"",@"remark":@"",@"effective":@"",@"pindex":[NSString stringWithFormat:@"%ld",(long)self.page],@"pagesize":sizePage};
     self.leftbutton1.hidden = YES;
     self.mainlable1.text = @"设备列表";
-    self.rightbutton1.x = Width - 10 - 100;
-    self.rightbutton1.width = 100;
+//    self.rightbutton1.x = Width - 10 - 100;
+//    self.rightbutton1.width = 100;
     [self.rightbutton1 setTitle:@"搜索" forState:UIControlStateNormal];
     
 }
@@ -106,7 +106,7 @@
         lable1.text = titleArr[i];
         [view addSubview:lable1];
         if (i == 0) {
-            languageButton = [[leftButton alloc] initWithFrame:CGRectMake(CGRectGetMaxX(lable1.frame) + 10, 0, 200, view.height)];
+            languageButton = [[leftButton alloc] initWithFrame:CGRectMake(CGRectGetMaxX(lable1.frame) + 10, 0, 150, view.height)];
             //            languageButton.backgroundColor = [UIColor redColor];
             NSString * str1 = [self creatArr].count?[self creatArr][0]:@"";
             [languageButton setTitle:str1 forState:UIControlStateNormal];
@@ -207,7 +207,7 @@
 
 /*********搜索面点击*********/
 -(void)tapClick:(UITapGestureRecognizer *)tap{
-    
+    [MypickerView removeFromSuperview];
     [self GZM_Hidden];
     
 }
@@ -240,7 +240,9 @@
 }
 /*********tableView的*********/
 -(void)GZM_setTableView{
+
     [self.view addSubview:self.GZMTableView];
+    
     [self.GZMTableView registerNib:[UINib nibWithNibName:@"GZmEquentTableViewCell" bundle:nil] forCellReuseIdentifier:@"cell"];
     self.GZMTableView.frame = CGRectMake(0, 64 , Width, Height - 64 - 49 );
     self.GZMTableView.rowHeight = 60;
@@ -319,6 +321,26 @@
     GZMDetailEuimentViewController * detailEuimentVc = [[GZMDetailEuimentViewController alloc] init];
     detailEuimentVc.Model = mo;
     [self.navigationController pushViewController:detailEuimentVc animated:YES];
+}
+
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    UILabel * lable = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, Width, 30)];
+    lable.backgroundColor = [UIColor whiteColor];
+    lable.textColor = MianColor;
+    
+    UILabel * lineLable = [[UILabel alloc] initWithFrame:CGRectMake(0, lable.height - 1, Width, 1)];
+    lineLable.backgroundColor = [UIColor GZMLightColor];
+    [lable addSubview:lineLable];
+    
+    lable.textAlignment = NSTextAlignmentCenter;
+    if (self.GZMDataArr.count != 0) {
+        GZMEqupmenttionMOdel * mo = self.GZMDataArr[section];
+        lable.text = mo.ProjectName;
+    }
+    return lable;
+}
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 30;
 }
 -(void)dealloc{
     [[NSNotificationCenter defaultCenter] removeObserver:self name:@"GZMequipmentViewController" object:nil];

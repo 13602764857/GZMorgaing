@@ -104,6 +104,7 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="nameLable" destination="3Wa-RU-NCu" id="Wzf-xj-oMf"/>
+                <outlet property="projectLable" destination="TAM-YD-CGf" id="2UF-ab-VeD"/>
                 <outlet property="timeLable" destination="C7p-aV-bdc" id="H97-MX-NIB"/>
                 <outlet property="typeLable" destination="Ocv-Mb-YVj" id="Spw-xj-24d"/>
             </connections>

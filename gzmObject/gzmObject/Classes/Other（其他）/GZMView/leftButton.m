@@ -18,6 +18,8 @@
     self.titleLabel.centerX = self.width * 3 / 4.0/2 +5;
     self.titleLabel.centerY = self.height / 2;
     self.titleLabel.textColor = [UIColor blackColor];
+//    self.titleLabel.textAlignment = NSTextAlignmentRight;
+//    self.titleLabel.backgroundColor = MianColor;
     
     //设置图片
     self.imageView.centerY = self.height/2;

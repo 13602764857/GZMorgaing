@@ -15,6 +15,7 @@
     // Initialization code
 }
 -(void)setMo:(GZMEqupmenttionMOdel *)mo{
+    self.projectLable.text = mo.DeviceID;
     self.timeLable.text = mo.CreateDate;
     self.nameLable.text = mo.Remark.length > 0 ? mo.Remark:@"暂无备注";
     self.typeLable.text = [mo.Effective isEqualToString:@"1"]?@"正常":@"禁用";

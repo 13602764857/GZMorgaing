@@ -67,6 +67,11 @@
 }
 
 -(void)lastButtonClick{
+    if ([mainTextView.text isEqualToString:self.Model.Remark]) {
+        [AlerYangShi tishiWithMessage:@"请修改备注后再保存" WithVc:self];
+        return;
+    }
+    
     [RequestTool sendPostAFRequest:[BaseUrl stringByAppendingString:ModifyRemark] parameters:@{@"token":toketen,@"deviceID":self.Model.DeviceID,@"remark":mainTextView.text} successBlock:^(id message) {
         if ([message[@"issuccess"] isEqual:@1]) {
             [[NSNotificationCenter defaultCenter]postNotificationName:@"GZMequipmentViewController" object:nil];
