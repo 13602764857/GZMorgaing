@@ -76,9 +76,19 @@
         [AlerYangShi tishiWithMessage:@"用户名不能为空" WithVc:self];
         return;
     }
-    GZMForgetViewController * forget = [[GZMForgetViewController alloc] init];
-    forget.username = self.userTextField.text;
-    [self presentViewController:forget animated:YES completion:nil];
+    [RequestTool sendPostAFRequest:[BaseUrl stringByAppendingString:GetQuestionByUserName] parameters:@{@"username":self.userTextField.text} successBlock:^(id message){
+        if ([message[@"issuccess"] isEqual:@1]) {
+            GZMForgetViewController * forget = [[GZMForgetViewController alloc] init];
+            forget.questionDic = message[@"message"];
+            [self presentViewController:forget animated:YES completion:nil];
+        }else{
+            
+        }
+        
+    } failBlock:^(id message) {
+        
+    } delegate:self loadWith:mainLoading];
+    
 }
 - (IBAction)registered:(id)sender {
     [self GZM_Hidden];

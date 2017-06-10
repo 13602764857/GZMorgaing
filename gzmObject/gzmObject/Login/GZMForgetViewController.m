@@ -14,7 +14,7 @@
 
 @implementation GZMForgetViewController
 {
-    NSDictionary * questionDic;
+    
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -23,20 +23,11 @@
     // Do any additional setup after loading the view from its nib.
 }
 -(void)creatData{
-    [RequestTool sendPostAFRequest:[BaseUrl stringByAppendingString:GetQuestionByUserName] parameters:@{@"username":self.username} successBlock:^(id message){
-        if ([message[@"issuccess"] isEqual:@1]) {
-            questionDic = message[@"message"];
-            [self.oneButton setTitle:questionDic[@"SafetyQuestion1"] forState:UIControlStateNormal];
-            [self.twoButton setTitle:questionDic[@"SafetyQuestion2"] forState:UIControlStateNormal];
-            self.oneTextfiled.text = @"";
-            self.twoTextFiled.text = @"";
-        }else{
-            
-        }
-        
-    } failBlock:^(id message) {
-        
-    } delegate:self loadWith:mainLoading];
+    
+    [self.oneButton setTitle:_questionDic[@"SafetyQuestion1"] forState:UIControlStateNormal];
+    [self.twoButton setTitle:_questionDic[@"SafetyQuestion2"] forState:UIControlStateNormal];
+    self.oneTextfiled.text = @"";
+    
 }
 /*********父类的方法*********/
 -(void)GZM_creatFather{

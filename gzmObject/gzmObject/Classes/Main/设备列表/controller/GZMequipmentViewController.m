@@ -106,7 +106,7 @@
         lable1.text = titleArr[i];
         [view addSubview:lable1];
         if (i == 0) {
-            languageButton = [[leftButton alloc] initWithFrame:CGRectMake(CGRectGetMaxX(lable1.frame) + 10, 0, 150, view.height)];
+            languageButton = [[leftButton alloc] initWithFrame:CGRectMake(CGRectGetMaxX(lable1.frame) + 10, 0, 200, view.height)];
             //            languageButton.backgroundColor = [UIColor redColor];
             NSString * str1 = [self creatArr].count?[self creatArr][0]:@"";
             [languageButton setTitle:str1 forState:UIControlStateNormal];

@@ -18,4 +18,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *nextButton;
 /**********<#属性#> ************/
 @property(nonatomic,copy)NSString * username;
+/**********<#属性#> ************/
+@property(nonatomic,strong)NSDictionary  * questionDic;
 @end

@@ -17,5 +17,6 @@
 @property (weak, nonatomic) IBOutlet UITextField *threeTextFiled;
 @property (weak, nonatomic) IBOutlet UIButton *saveButton;
 /**********<#属性#> ************/
+@property (weak, nonatomic) IBOutlet UIView *BackView;
 @property(nonatomic,strong)NSString * encryptToken;
 @end

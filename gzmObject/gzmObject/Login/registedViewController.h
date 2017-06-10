@@ -9,7 +9,9 @@
 #import "FatherViewController.h"
 
 @interface registedViewController : FatherViewController
-@property (strong, nonatomic)UIPickerView *myPickerView;
+@property (strong, nonatomic)UIPickerView *myPickerView1;
+/**********<#属性#> ************/
+@property(nonatomic,strong)UIView * pivketView1;
 @property (weak, nonatomic) IBOutlet UITextField *usertextField;
 @property (weak, nonatomic) IBOutlet UITextField *passWordTexield;
 @property (weak, nonatomic) IBOutlet UIButton *oneButton;
@@ -23,5 +25,6 @@
 @property (weak, nonatomic) IBOutlet UITextField *oneanswertextFiled;
 @property (weak, nonatomic) IBOutlet UITextField *TwoanswertextFiled;
 @property (weak, nonatomic) IBOutlet UITextField *threeanswertextFiled;
+@property (weak, nonatomic) IBOutlet UIButton *zhuceButton;
 
 @end

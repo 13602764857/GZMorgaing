@@ -132,10 +132,6 @@
     }else{
         self.empyView.hidden = YES;
     }
-//    if ([self.GZMDataArr[0] isKindOfClass:[NSArray class]]) {
-//        NSArray * arr = self.GZMDataArr[section];
-//        return arr.count?arr.count:0;
-//    }
     return self.GZMDataArr.count?self.GZMDataArr.count:0;
 }
 

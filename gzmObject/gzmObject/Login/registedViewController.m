@@ -7,7 +7,7 @@
 //
 
 #import "registedViewController.h"
-
+#import "GZMpickerView.h"
 @interface registedViewController ()<UIPickerViewDelegate,UIPickerViewDataSource,UITextFieldDelegate>
 /**********<#属性#> ************/
 @property(nonatomic,strong)NSArray * dataArr;
@@ -19,6 +19,7 @@
     NSString * oneNum;
     NSString * twoNum;
     NSString * threeNum;
+    NSInteger  row1;
 }
 
 - (void)viewDidLoad {
@@ -26,16 +27,66 @@
     [self GZM_CreatFather];
     // Do any additional setup after loading the view.
 }
-
--(UIPickerView *)myPickerView{
-    if (!_myPickerView) {
-        _myPickerView = [[UIPickerView alloc] initWithFrame:CGRectMake(0, Height - 200, Width, 200)];
-        _myPickerView.delegate = self;
-//        [self.myPickerView reloadAllComponents];
-        _myPickerView.dataSource = self;
-        _myPickerView.backgroundColor = [UIColor whiteColor];
+-(void)creatButton{
+    UIView * view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, Width, 30)];
+    view.backgroundColor = [UIColor GZMcolorWithHexString:@"#f5f5f5"];
+    [view GZMchangeStyleWith:1 withborad:1 withBoardColor:[UIColor blackColor]];
+    [_pivketView1 addSubview:view];
+    
+    UIButton * button1 = [[UIButton alloc] initWithFrame:CGRectMake(20, 0, 80, 30)];
+    //    button1.backgroundColor = [UIColor GZMcolorWithHexString:@"#ededed"];
+    [button1 addTarget:self action:@selector(button1Click:) forControlEvents:UIControlEventTouchUpInside];
+    //    [button1 GZMchangeStyleWith:4 withborad:1 withBoardColor:[UIColor GZMcolorWithHexString:@"#199fff"]];
+    button1.tag = 1001;
+    [button1 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [button1 setTitle:@"取消" forState:UIControlStateNormal];
+    //    button1.backgroundColor = MianColor;
+    [view addSubview:button1];
+    
+    UIButton * button2 = [[UIButton alloc] initWithFrame:CGRectMake(Width - 100, 0, 80, 30)];
+    //    button2.backgroundColor = [UIColor GZMcolorWithHexString:@"#ededed"];
+    [button2 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [button2 addTarget:self action:@selector(button1Click:) forControlEvents:UIControlEventTouchUpInside];
+    //    [button2 GZMchangeStyleWith:4 withborad:1 withBoardColor:[UIColor GZMcolorWithHexString:@"#199fff"]];
+    [button2 setTitle:@"确定" forState:UIControlStateNormal];
+    button2.tag = 1002;
+    //    button2.backgroundColor = MianColor;
+    [view addSubview:button2];
+}
+-(void)button1Click:(UIButton *)button{
+    _pivketView1.hidden = YES;
+    if (button.tag == 1001) {
+        return;
     }
-    return _myPickerView;
+    if (num == 0) {
+        [self.oneButton setTitle:self.dataArr[row1][@"SafetyQuestion"] forState:UIControlStateNormal];
+        oneNum = [NSString stringWithFormat:@"%@",self.dataArr[row1][@"QuestionID"]];
+    }
+    if (num == 1) {
+        [self.twoButton setTitle:self.dataArr[row1][@"SafetyQuestion"] forState:UIControlStateNormal];
+        twoNum = [NSString stringWithFormat:@"%@",self.dataArr[row1][@"QuestionID"]];
+    }
+    if (num == 2) {
+        [self.threeButton setTitle:self.dataArr[row1][@"SafetyQuestion"] forState:UIControlStateNormal];
+        threeNum = [NSString stringWithFormat:@"%@",self.dataArr[row1][@"QuestionID"]];
+    }
+
+}
+-(UIView *)pivketView1{
+    if (!_pivketView1) {
+        _pivketView1 = [[UIView alloc] initWithFrame:CGRectMake(0, Height - 200, Width, 200)];
+        
+        _pivketView1.backgroundColor = [UIColor whiteColor];
+        
+        _myPickerView1 = [[UIPickerView alloc] initWithFrame:CGRectMake(0, 30, Width, 170)];
+        _myPickerView1.delegate = self;
+        //        [self.myPickerView reloadAllComponents];
+        _myPickerView1.dataSource = self;
+        _myPickerView1.backgroundColor = [UIColor whiteColor];
+        [_pivketView1 addSubview:_myPickerView1];
+        [self creatButton];
+    }
+    return _pivketView1;
 }
 /*********私有父类的方法*********/
 -(void)GZM_CreatFather{
@@ -77,6 +128,8 @@
      [self.oneButton GZMchangeStyleWith:4 withborad:1 withBoardColor:[UIColor GZMcolorWithHexString:@"#199fff"]];
      [self.twoButton GZMchangeStyleWith:4 withborad:1 withBoardColor:[UIColor GZMcolorWithHexString:@"#199fff"]];
     [self.threeButton GZMchangeStyleWith:4 withborad:1 withBoardColor:[UIColor GZMcolorWithHexString:@"#199fff"]];
+     [self.zhuceButton GZMchangeStyleWith:4 withborad:1 withBoardColor:[UIColor GZMcolorWithHexString:@"#199fff"]];
+    
     
 }
 
@@ -89,7 +142,7 @@
 
 -(void)tapClick{
     [self GZM_Hidden];
-    _myPickerView.hidden = YES;
+    _pivketView1.hidden = YES;
 }
 -(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
     return self.dataArr[row][@"SafetyQuestion"];
@@ -100,20 +153,10 @@
 }
 -(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
     NSLog(@"%ld",(long)row);
-    if (num == 0) {
-        [self.oneButton setTitle:self.dataArr[row][@"SafetyQuestion"] forState:UIControlStateNormal];
-        oneNum = [NSString stringWithFormat:@"%@",self.dataArr[row][@"QuestionID"]];
-    }
-    if (num == 1) {
-        [self.twoButton setTitle:self.dataArr[row][@"SafetyQuestion"] forState:UIControlStateNormal];
-        twoNum = [NSString stringWithFormat:@"%@",self.dataArr[row][@"QuestionID"]];
-    }
-    if (num == 2) {
-        [self.threeButton setTitle:self.dataArr[row][@"SafetyQuestion"] forState:UIControlStateNormal];
-        threeNum = [NSString stringWithFormat:@"%@",self.dataArr[row][@"QuestionID"]];
-    }
+    row1 = row;
 }
 -(void)leftbutton1Click{
+    _pivketView1.hidden = YES;
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -121,6 +164,7 @@
     return 1;
 }
 - (IBAction)registered:(id)sender {
+    
     if (self.usertextField.text.length == 0) {
         [AlerYangShi tishiWithMessage:@"请输入用户名" WithVc:self];
         return;
@@ -179,22 +223,23 @@
 
 
 - (IBAction)answerClick:(id)sender {
+    
     [self GZM_Hidden];
     
     UIButton * button= (UIButton *)sender;
     NSLog(@"%ld",(long)button.tag);
     num = button.tag - 100;
-    if (!_myPickerView) {
+    if (!_myPickerView1) {
         [RequestTool sendPostAFRequest:[BaseUrl stringByAppendingString:QuestionList] parameters:@{@"":@""} successBlock:^(id message) {
             self.dataArr = message[@"message"];
-            [[[UIApplication sharedApplication] keyWindow] addSubview:self.myPickerView];
-            [self.myPickerView reloadAllComponents];
+            [[[UIApplication sharedApplication] keyWindow] addSubview:self.pivketView1];
+            [self.myPickerView1 reloadAllComponents];
         } failBlock:^(id message) {
             
         } delegate:self loadWith:mainLoading];
     }
     
-    _myPickerView.hidden = NO;
+    _pivketView1.hidden = NO;
     switch (button.tag) {
         case 100:
         {
@@ -208,7 +253,7 @@
             break;
         case 102:
         {
-            [self GZM_Show];
+            [self GZMpublic_show];
         }
             break;
         default:
@@ -217,28 +262,28 @@
 }
 
 /*********激活输入框*********/
--(void)GZM_Show{
-    [UIView animateWithDuration:0.25 animations:^{
-        self.view.y = -200;
-    } completion:^(BOOL finished) {
-        
-    }];
-}
+//-(void)GZM_Show{
+//    [UIView animateWithDuration:0.25 animations:^{
+//        self.mainScrollView.y = -200;
+//    } completion:^(BOOL finished) {
+//        
+//    }];
+//}
 
 /*********输入框*********/
--(void)GZM_Hidden{
-    [UIView animateWithDuration:0.25 animations:^{
-        self.view.y = 0;
-        [[[UIApplication sharedApplication] keyWindow] endEditing:YES];
-    } completion:^(BOOL finished) {
-        
-    }];
-}
+//-(void)GZM_Hidden{
+//    [UIView animateWithDuration:0.25 animations:^{
+//        self.mainScrollView.y = 64;
+//        [[[UIApplication sharedApplication] keyWindow] endEditing:YES];
+//    } completion:^(BOOL finished) {
+//        
+//    }];
+//}
 
 -(void)textFieldDidBeginEditing:(UITextField *)textField{
     
-    [self GZM_Show];
-    _myPickerView.hidden = YES;
+    [self GZMpublic_show];
+    _pivketView1.hidden = YES;
     
 }
 

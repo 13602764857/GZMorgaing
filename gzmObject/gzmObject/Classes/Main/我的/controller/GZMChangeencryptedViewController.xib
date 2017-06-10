@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GZMChangeencryptedViewController">
             <connections>
+                <outlet property="BackView" destination="LHJ-gY-tY2" id="Z7n-f3-xKc"/>
                 <outlet property="oneButton" destination="2CG-Cr-zNO" id="ZcD-dC-nV3"/>
                 <outlet property="oneTextFiled" destination="9HC-gY-eoS" id="gtp-8Q-aY1"/>
                 <outlet property="saveButton" destination="Vj1-cz-fnU" id="yav-5o-cc8"/>

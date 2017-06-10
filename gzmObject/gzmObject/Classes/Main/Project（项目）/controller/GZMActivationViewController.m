@@ -131,15 +131,23 @@
     self.GZMTableView.mj_footer.state = MJRefreshStateIdle;
     NSDictionary * dic = @{@"token":toketen,@"projectID":self.Projectmodel.ProjectID,@"pindex":[NSString stringWithFormat:@"%ld",(long)self.page],@"pagesize":sizePage,@"effective":@"true",@"code":@"",@"deviceID":@"",@"uniqueID":@""};
     [RequestTool sendPostAFRequest:[BaseUrl stringByAppendingString:GetAuthCodeGroup] parameters:dic successBlock:^(id message) {
-        self.GZMDataArr = [ActiveModel setModelWithArray:message[@"message"]];
-        NSLog(@"%@",message[@"message"]);
-        [self GZM_CreatSectionArr];
-        //        self.GZMDataArr = [NSMutableArray arrayWithObjects:@"",@"",@"",@"", nil];
-        [self.GZMTableView.mj_header endRefreshing];
-        
-        //        [ZJModelTool createModelWithDictionary:message[@"message"][0] modelName:nil];
         self.GZMTableView.dataSource = self;
-        [self.GZMTableView reloadData];
+        NSLog(@"%@",message[@"message"]);
+        if ([message[@"issuccess"] isEqual:@1]) {
+            self.GZMDataArr = [ActiveModel setModelWithArray:message[@"message"]];
+            [self GZM_CreatSectionArr];
+            //        self.GZMDataArr = [NSMutableArray arrayWithObjects:@"",@"",@"",@"", nil];
+            [self.GZMTableView.mj_header endRefreshing];
+            
+            //        [ZJModelTool createModelWithDictionary:message[@"message"][0] modelName:nil];
+            
+            [self.GZMTableView reloadData];
+        }else{
+            [self.GZMDataArr removeAllObjects];
+            [self.GZMTableView.mj_header endRefreshing];
+            [self.GZMTableView reloadData];
+        }
+        
         NSLog(@"qweqe");
     } failBlock:^(id message) {
         
@@ -291,20 +299,24 @@
     [headView addSubview:imageView1];
     
     [headView GZMchangeStyleWith:0 withborad:0.5 withBoardColor:[UIColor GZMLightColor]];
-    
-    return view1;
+        return view1;
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     [super tableView:tableView numberOfRowsInSection:section];
     if ([sectionArr[section] isEqualToString:@"0"]) {
         return 0;
     }
-    NSArray * arr = self.GZMDataArr[section];
-    return arr.count?arr.count:0;
+    if (self.GZMDataArr.count != 0) {
+        NSArray * arr = self.GZMDataArr[section];
+        return arr.count?arr.count:0;
+    }else{
+        return 0;
+    }
+    
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return self.GZMDataArr.count?self.GZMDataArr.count:0;
+    return self.GZMDataArr.count?self.GZMDataArr.count:1;
 }
 
 -(void)piliangClick:(UIButton *)button{
@@ -372,7 +384,7 @@
         }
         
     }else{
-        return 40;
+        return 0;
     }
     
 }
