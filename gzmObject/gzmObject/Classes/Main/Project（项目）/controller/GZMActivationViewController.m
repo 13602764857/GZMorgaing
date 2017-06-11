@@ -129,24 +129,26 @@
     self.page = 1;
     /********** 下啦到底部时让其重新可以看到 ************/
     self.GZMTableView.mj_footer.state = MJRefreshStateIdle;
-    NSDictionary * dic = @{@"token":toketen,@"projectID":self.Projectmodel.ProjectID,@"pindex":[NSString stringWithFormat:@"%ld",(long)self.page],@"pagesize":sizePage,@"effective":@"true",@"code":@"",@"deviceID":@"",@"uniqueID":@""};
+    NSDictionary * dic = @{@"token":toketen,@"projectID":self.Projectmodel.ProjectID,@"pindex":[NSString stringWithFormat:@"%ld",(long)self.page],@"pagesize":sizePage,@"status":@"1",@"code":@"",@"deviceID":@"",@"uniqueID":@""};
     [RequestTool sendPostAFRequest:[BaseUrl stringByAppendingString:GetAuthCodeGroup] parameters:dic successBlock:^(id message) {
         self.GZMTableView.dataSource = self;
+         [self.GZMTableView.mj_header endRefreshing];
         NSLog(@"%@",message[@"message"]);
         if ([message[@"issuccess"] isEqual:@1]) {
             self.GZMDataArr = [ActiveModel setModelWithArray:message[@"message"]];
             [self GZM_CreatSectionArr];
             //        self.GZMDataArr = [NSMutableArray arrayWithObjects:@"",@"",@"",@"", nil];
-            [self.GZMTableView.mj_header endRefreshing];
+           
             
             //        [ZJModelTool createModelWithDictionary:message[@"message"][0] modelName:nil];
             
-            [self.GZMTableView reloadData];
+            
         }else{
             [self.GZMDataArr removeAllObjects];
-            [self.GZMTableView.mj_header endRefreshing];
-            [self.GZMTableView reloadData];
+           
+           
         }
+         [self.GZMTableView reloadData];
         
         NSLog(@"qweqe");
     } failBlock:^(id message) {
@@ -159,7 +161,7 @@
 /*********刷新加载跟多*********/
 -(void)creatMoreData{
     self.page += 1;
-    NSDictionary * dic = @{@"token":toketen,@"projectID":self.Projectmodel.ProjectID,@"pindex":[NSString stringWithFormat:@"%ld",(long)self.page],@"pagesize":sizePage,@"effective":@"true",@"code":@"",@"deviceID":@"",@"uniqueID":@""};
+    NSDictionary * dic = @{@"token":toketen,@"projectID":self.Projectmodel.ProjectID,@"pindex":[NSString stringWithFormat:@"%ld",(long)self.page],@"pagesize":sizePage,@"status":@"1",@"code":@"",@"deviceID":@"",@"uniqueID":@""};
     
     [RequestTool sendPostAFRequest:[BaseUrl stringByAppendingString:GetAuthCodeGroup] parameters:dic successBlock:^(id message) {
         
@@ -315,9 +317,9 @@
     
 }
 
--(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return self.GZMDataArr.count?self.GZMDataArr.count:1;
-}
+//-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+//    return self.GZMDataArr.count?self.GZMDataArr.count:0;
+//}
 
 -(void)piliangClick:(UIButton *)button{
     
@@ -376,16 +378,22 @@
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     NSLog(@"heightForHeaderInSection-->%zi",section);
-    if (sectionArr.count != 0) {
-        if ([sectionArr[section] isEqualToString:@"0"]) {
-            return 40;
-        }else{
-            return 70;
-        }
-        
+//    if (sectionArr.count != 0) {
+//        if ([sectionArr[section] isEqualToString:@"0"]) {
+//            return 40;
+//        }else{
+//            return 70;
+//        }
+//        
+//    }else{
+//        return 0;
+//    }
+    if ([sectionArr[section] isEqualToString:@"0"]) {
+        return 40;
     }else{
-        return 0;
+        return 70;
     }
+
     
 }
 -(void)dealloc{

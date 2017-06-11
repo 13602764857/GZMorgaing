@@ -49,6 +49,8 @@
 #define GetAuthorInfo          @"api/Account/GetAuthorInfo"
 #define Exit          @"api/Account/Exit"
 #define ExtractCodeBatch          @"api/AuthCode/ExtractCodeBatch"
+#define VerifySafetyQuestion2          @"api/Account/VerifySafetyQuestion2"
+#define ResetPass          @"api/Account/ResetPass"
 
 /********** 获取设备列表************/
 #define GetDeviceList          @"api/Device/GetDeviceList"

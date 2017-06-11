@@ -112,7 +112,7 @@
         _GZMTableView = [[UITableView alloc] initWithFrame:self.view.frame style:(self.sectionType == NoGroupType)?UITableViewStylePlain:UITableViewStyleGrouped];
         
         _GZMTableView.delegate = self;
-//        _GZMTableView.dataSource = self;
+        _GZMTableView.dataSource = self;
         
         _GZMTableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(creatData)];
         [_GZMTableView.mj_header beginRefreshing];
@@ -125,22 +125,24 @@
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     NSLog(@"qar2r2");
-    if (self.GZMDataArr.count == 0) {
-        if (tableView) {
-            self.empyView.hidden = NO;
-        }
-    }else{
-        self.empyView.hidden = YES;
-    }
+    self.empyView.hidden = self.GZMDataArr.count > 0?YES:NO;
     return self.GZMDataArr.count?self.GZMDataArr.count:0;
 }
 
-//-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-//    if ([self.GZMDataArr[0] isKindOfClass:[NSArray class]]) {
-//        return self.GZMDataArr.count;
-//    }
-//    return 1;
-//}
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    self.empyView.hidden = self.GZMDataArr.count > 0?YES:NO;
+    if (self.GZMDataArr.count > 0) {
+        if ([self.GZMDataArr[0] isKindOfClass:[NSArray class]]) {
+            return self.GZMDataArr.count?self.GZMDataArr.count:0;
+        }else{
+            return 1;
+        }
+ 
+    }else{
+        return 0;
+    }
+    
+}
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
 }

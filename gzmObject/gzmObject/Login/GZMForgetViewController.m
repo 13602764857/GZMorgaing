@@ -14,7 +14,8 @@
 
 @implementation GZMForgetViewController
 {
-    
+    NSString * id1;
+    NSString * id2;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -23,10 +24,22 @@
     // Do any additional setup after loading the view from its nib.
 }
 -(void)creatData{
+    [RequestTool sendPostAFRequest:[BaseUrl stringByAppendingString:GetQuestionByUserName] parameters:@{@"username":self.username} successBlock:^(id message){
+        if ([message[@"issuccess"] isEqual:@1]) {
+            [self.oneButton setTitle:message[@"message"][@"SafetyQuestion1"] forState:UIControlStateNormal];
+            [self.twoButton setTitle:message[@"message"][@"SafetyQuestion2"] forState:UIControlStateNormal];
+            id1 = [NSString stringWithFormat:@"%@",message[@"message"][@"QuestionID1"]];
+            id2 = [NSString stringWithFormat:@"%@",message[@"message"][@"QuestionID2"]];
+            self.oneTextfiled.text = @"";
+            self.twoTextFiled.text = @"";
+        }else{
+           
+        }
+        
+    } failBlock:^(id message) {
+        
+    } delegate:self loadWith:mainLoading];
     
-    [self.oneButton setTitle:_questionDic[@"SafetyQuestion1"] forState:UIControlStateNormal];
-    [self.twoButton setTitle:_questionDic[@"SafetyQuestion2"] forState:UIControlStateNormal];
-    self.oneTextfiled.text = @"";
     
 }
 /*********父类的方法*********/
@@ -45,8 +58,29 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 - (IBAction)nextClick:(id)sender {
-    ChangePasswordViewController * changVc = [[ChangePasswordViewController alloc] init];
-    [self presentViewController:changVc animated:YES completion:nil];
+    [self GZM_Hidden];
+    if (self.oneTextfiled.text.length == 0) {
+        [AlerYangShi tishiWithMessage:@"问题一的答案不能为空" WithVc:self];
+        return;
+    }
+    if (self.twoTextFiled.text.length == 0) {
+        [AlerYangShi tishiWithMessage:@"问题二的答案不能为空" WithVc:self];
+        return;
+    }
+    [RequestTool sendPostAFRequest:[BaseUrl stringByAppendingString:VerifySafetyQuestion2] parameters:@{@"username":self.username,@"qid1":id1,@"qid2":id2,@"answer1":self.oneTextfiled.text,@"answer2":self.twoTextFiled.text} successBlock:^(id message) {
+        if (issuccess) {
+            ChangePasswordViewController * changVc = [[ChangePasswordViewController alloc] init];
+            changVc.onlytoken = [NSString stringWithFormat:@"%@",message[@"token"]];
+            changVc.encryptToken = [NSString stringWithFormat:@"%@",message[@"encryptToken"]];
+            [self presentViewController:changVc animated:YES completion:nil];
+        }else{
+            [self creatData];
+        }
+        
+    } failBlock:^(id message) {
+        
+    } delegate:self loadWith:mainLoading];
+    
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

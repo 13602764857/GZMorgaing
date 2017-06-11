@@ -30,6 +30,7 @@
 }
 /*********<#私有方法#>*********/
 -(void)GZM_creatFather{
+
     self.mainlable1.text = @"修改密保";
     self.threeTextFiled.delegate = self;
     self.twoTextFiled.delegate = self;

@@ -19,4 +19,6 @@
 /**********<#属性#> ************/
 @property (weak, nonatomic) IBOutlet UIView *BackView;
 @property(nonatomic,strong)NSString * encryptToken;
+/**********<#属性#> ************/
+@property(nonatomic,copy)NSString * onlytoken;
 @end

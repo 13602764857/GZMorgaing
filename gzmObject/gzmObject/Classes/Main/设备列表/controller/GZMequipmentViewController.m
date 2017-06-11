@@ -254,12 +254,10 @@
     NSDictionary *dic = Mdic;
     [RequestTool sendPostAFRequest:[BaseUrl stringByAppendingString:GetDeviceList] parameters:dic successBlock:^(id message) {
         [self.GZMTableView.mj_header endRefreshing];
+        self.GZMTableView.dataSource = self;
         if ([message[@"issuccess"] isEqual:@1]) {
             self.GZMDataArr = [GZMEqupmenttionMOdel setModelWithArray:message[@"message"]];
-           
-            
             [ZJModelTool createModelWithDictionary:message[@"message"][0] modelName:nil];
-            self.GZMTableView.dataSource = self;
             
         }else{
             [self.GZMDataArr removeAllObjects];

@@ -55,6 +55,7 @@
 }
 -(void)button1Click:(UIButton *)button{
     _pivketView1.hidden = YES;
+    [self GZM_Hidden];
     if (button.tag == 1001) {
         return;
     }
@@ -173,6 +174,15 @@
         [AlerYangShi tishiWithMessage:@"请输入密码" WithVc:self];
         return;
     }
+    if (self.usertextField.text.length < 6) {
+        [AlerYangShi tishiWithMessage:@"用户名长度不得少于6位" WithVc:self];
+        return;
+    }
+    if (self.passWordTexield.text.length < 6) {
+        [AlerYangShi tishiWithMessage:@"密码长度不得少于6位" WithVc:self];
+        return;
+    }
+
     if (![self.twoPasswordTextField.text isEqualToString:self.passWordTexield.text]) {
         [AlerYangShi tishiWithMessage:@"两次密码请输入一致" WithVc:self];
         return;
@@ -210,10 +220,9 @@
     
     NSDictionary * dic = @{@"username":self.usertextField.text,@"userpass":self.passWordTexield.text,@"qid1":oneNum,@"answer1":self.oneanswertextFiled.text,@"qid2":twoNum,@"answer2":self.TwoanswertextFiled.text,@"qid3":threeNum,@"answer3":self.threeanswertextFiled.text,@"valicode":@"zzzzzz"};
     [RequestTool sendPostAFRequest:[BaseUrl stringByAppendingString:Register] parameters:dic successBlock:^(id message) {
-        if ([message[@"issuccess"] isEqualToNumber:@0]) {
-            
-            [AlerYangShi tishiWithMessage:message[@"message"] WithVc:self];
-            return ;
+        if ([message[@"issuccess"] isEqualToNumber:@1]) {
+            [AlerYangShi showMessage:message[@"message"] duration:1];
+           [self dismissViewControllerAnimated:YES completion:nil];
         }
         
     } failBlock:^(id message) {

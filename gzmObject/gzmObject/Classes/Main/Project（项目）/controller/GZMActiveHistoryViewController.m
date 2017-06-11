@@ -33,7 +33,7 @@
 -(void)GZM_setTableView{
     [self.view addSubview:self.GZMTableView];
     [self.GZMTableView registerNib:[UINib nibWithNibName:@"GZmHistroyTableViewCell" bundle:nil] forCellReuseIdentifier:@"cell"];
-    self.GZMTableView.frame = CGRectMake(0, 64 , Width, Height - 64 - 49);
+    self.GZMTableView.frame = CGRectMake(0, 64 , Width, Height - 64);
     self.GZMTableView.rowHeight = 60;
 }
 
@@ -45,13 +45,14 @@
     /********** 下啦到底部时让其重新可以看到 ************/
     self.GZMTableView.mj_footer.state = MJRefreshStateIdle;
     [RequestTool sendPostAFRequest:[BaseUrl stringByAppendingString:ExtractHistory] parameters:@{@"token":toketen,@"projectID":self.mo.ProjectID,@"pindex":[NSString stringWithFormat:@"%ld",(long)self.page],@"pagesize":sizePage} successBlock:^(id message) {
-         [self.GZMTableView.mj_header endRefreshing];
+        [self.GZMTableView.mj_header endRefreshing];
+        self.GZMTableView.dataSource = self;
         if ([message[@"issuccess"] isEqual:@1]) {
             self.GZMDataArr = [activeHistoryModel setModelWithArray:message[@"message"]];
             
             
             //                [ZJModelTool createModelWithDictionary:message[@"message"][0] modelName:nil];
-            self.GZMTableView.dataSource = self;
+            
         }else{
             [self.GZMDataArr removeAllObjects];
         }
@@ -112,7 +113,7 @@
                 if ([message[@"issuccess"] isEqual:@1]) {
                     [self GZM_zhanTie:message[@"message"]];
                 }
-
+                
             } failBlock:^(id message) {
                 
             } delegate:self loadWith:mainLoading];
@@ -136,13 +137,13 @@
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end

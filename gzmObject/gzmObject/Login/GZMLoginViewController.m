@@ -80,6 +80,7 @@
         if ([message[@"issuccess"] isEqual:@1]) {
             GZMForgetViewController * forget = [[GZMForgetViewController alloc] init];
             forget.questionDic = message[@"message"];
+            forget.username = self.userTextField.text;
             [self presentViewController:forget animated:YES completion:nil];
         }else{
             

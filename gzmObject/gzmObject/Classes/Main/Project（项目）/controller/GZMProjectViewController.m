@@ -76,13 +76,13 @@
     self.GZMTableView.mj_footer.state = MJRefreshStateIdle;
     [RequestTool sendPostAFRequest:[BaseUrl stringByAppendingString:GetProjectList] parameters:@{@"token":toketen,@"pindex":[NSString stringWithFormat:@"%ld",(long)pindex],@"pagesize":sizePage} successBlock:^(id message) {
         [self.GZMTableView.mj_header endRefreshing];
+        self.GZMTableView.dataSource = self;
         if ([message[@"issuccess"] isEqual:@1]) {
             self.GZMDataArr = [GZMProjectModel setModelWithArray:message[@"message"]];
            AppDelegate * delle= (AppDelegate *)[[UIApplication sharedApplication] delegate];
             delle.ProjectArr = self.GZMDataArr;
             //        [ZJModelTool createModelWithDictionary:message[@"message"][0] modelName:nil];
-            self.GZMTableView.dataSource = self;
-            
+
         }else{
             [self.GZMDataArr removeAllObjects];
         }
@@ -165,6 +165,7 @@
         
         ;
     }];
+    deleteRowAction.backgroundColor = [UIColor redColor];
     UITableViewRowAction *deleteRowAction1 = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@"详情" handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
         self.tabBarController.tabBar.hidden = YES;
         GZMProjectModel * mo = self.GZMDataArr[indexPath.row];
