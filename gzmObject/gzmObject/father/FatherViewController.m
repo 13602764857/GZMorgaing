@@ -121,12 +121,24 @@
 -(void)GZMpublic_show{
     [UIView animateWithDuration:0.25 animations:^{
         self.view.y = -200;
-        self.imageView1.y = 200;
-    } completion:^(BOOL finished) {
         
+    } completion:^(BOOL finished) {
+        self.imageView1.y = 200;
+        [self.view bringSubviewToFront:self.imageView1];
+
     }];
 }
 
+-(void)GZMpublic_show:(NSInteger)heigh{
+    [UIView animateWithDuration:0.25 animations:^{
+        self.view.y = -heigh;
+        
+
+    } completion:^(BOOL finished) {
+        self.imageView1.y = heigh;
+        [self.view bringSubviewToFront:self.imageView1];
+    }];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

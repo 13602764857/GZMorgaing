@@ -28,9 +28,9 @@
     // Do any additional setup after loading the view.
 }
 -(void)creatButton{
-    UIView * view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, Width, 30)];
+    UIView * view = [[UIView alloc] initWithFrame:CGRectMake(-1, 0, Width + 2, 30)];
     view.backgroundColor = [UIColor GZMcolorWithHexString:@"#f5f5f5"];
-    [view GZMchangeStyleWith:1 withborad:1 withBoardColor:[UIColor blackColor]];
+    [view GZMchangeStyleWith:1 withborad:1 withBoardColor:[UIColor GZMcolorWithHexString:@"#c4c4c4"]];
     [_pivketView1 addSubview:view];
     
     UIButton * button1 = [[UIButton alloc] initWithFrame:CGRectMake(20, 0, 80, 30)];

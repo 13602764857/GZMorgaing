@@ -59,8 +59,8 @@
     [self.view addSubview:self.MainScrollview];
     /********** 装控件的数组************/
     NSMutableArray * Marr = [NSMutableArray array];
-    NSArray * placeholderArr = @[@"请输入项目名称",@"请输入版本信息"];
-    NSArray * titleArr = @[@"项目名称：",@"版  本  号：",@"所属平台：",@"项目描述："];
+    NSArray * placeholderArr = @[@"请输入项目名称",@"请输入版本信息",@"请输入单次试用时长（秒）"];
+    NSArray * titleArr = @[@"项目名称：",@"版  本  号：",@"试用时长",@"所属平台：",@"项目描述："];
     for (int i = 0; i < titleArr.count; i ++) {
         UILabel * imageLable = [[UILabel alloc] initWithFrame:CGRectMake(0, 44*i, Width, 0.5)];
         imageLable.backgroundColor = [UIColor GZMLightColor];
@@ -72,7 +72,7 @@
         [_MainScrollview addSubview:titleLable];
         
         UITextField *titleLable1 = [[UITextField alloc] initWithFrame:CGRectMake(CGRectGetMaxX(titleLable.frame), CGRectGetMaxY(imageLable.frame), 220, 43.5)];
-        if (i  == 0 || i == 1) {
+        if (i  == 0 || i == 1 || i == 2) {
             titleLable1.tag = 100 + i;
             titleLable1.delegate = self;
             titleLable1.font = [UIFont systemFontOfSize:13];
@@ -80,7 +80,7 @@
             [_MainScrollview addSubview:titleLable1];
         }
         
-        if (i == 2) {
+        if (i == 3) {
             languageButton = [[leftButton alloc] initWithFrame:CGRectMake(CGRectGetMaxX(titleLable.frame) + 10, CGRectGetMaxY(imageLable.frame), (Width - titleLable.width - 10 - 20) - 10, 43.5)];
             
             [languageButton setTitle:@"请选择平台" forState:UIControlStateNormal];
@@ -204,6 +204,7 @@
     [self GZM_Hidden];
     UITextField * protextFile = (UITextField *)[self.view viewWithTag:100];
     UITextField * VersionstextFile = (UITextField *)[self.view viewWithTag:101];
+    UITextField * VersionstextFile1 = (UITextField *)[self.view viewWithTag:102];
     if (protextFile.text.length == 0) {
         [AlerYangShi tishiWithMessage:@"项目名称不能为空" WithVc:self];
         return;
@@ -217,7 +218,11 @@
         [AlerYangShi tishiWithMessage:@"项目描述不能为空" WithVc:self];
         return;
     }
-    NSDictionary * dic = @{@"token":toketen,@"pname":protextFile.text,@"version":VersionstextFile.text,@"remark":textView.text,@"platformid":platformid,@"effective":@"true",@"projectid":@""};
+    if ([languageButton.titleLabel.text isEqualToString:@"请选择平台"]) {
+        [AlerYangShi tishiWithMessage:@"平台选择不能为空" WithVc:self];
+        return;
+    }
+    NSDictionary * dic = @{@"token":toketen,@"pname":protextFile.text,@"version":VersionstextFile.text,@"remark":textView.text,@"platformid":platformid,@"effective":@"true",@"projectid":@"",@"trialTime":VersionstextFile1.text};
     NSLog(@"%@",dic);
     [RequestTool sendPostAFRequest:[BaseUrl stringByAppendingString:CreateProject] parameters:dic successBlock:^(id message) {
         if ([message[@"issuccess"] isEqual:@1]) {
@@ -231,30 +236,36 @@
     
 }
 /*********输入框*********/
--(void)GZM_Hidden{
-    [MypickerView removeFromSuperview];
-    [UIView animateWithDuration:0.25 animations:^{
-        self.view.y = 0;
-        [[[UIApplication sharedApplication] keyWindow] endEditing:YES];
-    } completion:^(BOOL finished) {
-        
-    }];
-}
-/*********激活输入框*********/
--(void)GZM_Show{
-    [UIView animateWithDuration:0.25 animations:^{
-        self.view.y = -80;
-    } completion:^(BOOL finished) {
-        
-    }];
-}
+//-(void)GZM_Hidden{
+//    [MypickerView removeFromSuperview];
+//    [UIView animateWithDuration:0.25 animations:^{
+//        self.MainScrollview.contentOffset = CGPointMake(0, 0);
+//        [[[UIApplication sharedApplication] keyWindow] endEditing:YES];
+//    } completion:^(BOOL finished) {
+//        
+//    }];
+//}
+//********激活输入框********
+//-(void)GZM_Show{
+//    [UIView animateWithDuration:0.25 animations:^{
+//        self.MainScrollview.contentOffset = CGPointMake(0, 80);
+//    } completion:^(BOOL finished) {
+//        
+//    }];
+//}
 -(void)textFieldDidBeginEditing:(UITextField *)textField{
     self.view.y = 0;
 }
 -(void)textViewDidBeginEditing:(UITextView *)textView{
-    [self GZM_Show];
+    [self GZMpublic_show];
 }
-
+-(void)leftbutton1Click{
+    [AlerYangShi creatTitleWith:@"主人离创建成功只有一步了，确定要离开？" creatOneWith:nil withTwoStr:nil WithVc:self withSuccessBlock:^{
+        [self.navigationController popViewControllerAnimated:YES];
+    } withErrorBlock:^{
+        
+    }];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

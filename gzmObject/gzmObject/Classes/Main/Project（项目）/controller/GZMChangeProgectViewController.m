@@ -271,26 +271,26 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 /*********输入框*********/
--(void)GZM_Hidden{
-    [MypickerView removeFromSuperview];
-    [UIView animateWithDuration:0.25 animations:^{
-        self.view.y = 0;
-        [[[UIApplication sharedApplication] keyWindow] endEditing:YES];
-    } completion:^(BOOL finished) {
-        
-    }];
-}
+//-(void)GZM_Hidden{
+//    [MypickerView removeFromSuperview];
+//    [UIView animateWithDuration:0.25 animations:^{
+//        self.MainScrollview.contentOffset = CGPointMake(0, 0);
+//        [[[UIApplication sharedApplication] keyWindow] endEditing:YES];
+//    } completion:^(BOOL finished) {
+//        
+//    }];
+//}
 /*********激活输入框*********/
--(void)GZM_Show{
-    [UIView animateWithDuration:0.25 animations:^{
-        self.view.y = -200;
-    } completion:^(BOOL finished) {
-        
-    }];
-}
+//-(void)GZM_Show{
+//    [UIView animateWithDuration:0.25 animations:^{
+//        self.MainScrollview.contentOffset = CGPointMake(0, 150);
+//    } completion:^(BOOL finished) {
+//        
+//    }];
+//}
 
 -(void)textViewDidBeginEditing:(UITextView *)textView{
-     [self GZM_Show];
+     [self GZMpublic_show:150];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

@@ -19,7 +19,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self GZM_creatFather];
-    [self creatUI];
+//    [self creatUI];
     // Do any additional setup after loading the view from its nib.
 }
 /*********<#私有方法#>*********/
