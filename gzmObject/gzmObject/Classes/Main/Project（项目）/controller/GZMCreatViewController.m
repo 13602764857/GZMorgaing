@@ -10,6 +10,7 @@
 #import "leftButton.h"
 #import "tableVIew.h"
 #import "GZMpickerView.h"
+#import "YaoqingView.h"
 @interface GZMCreatViewController ()<UITextFieldDelegate,UITextViewDelegate,UIGestureRecognizerDelegate>
 /**********<#属性#> ************/
 @property(nonatomic,strong)UIScrollView * MainScrollview;
@@ -29,6 +30,8 @@
     GZMpickerView * MypickerView;
     NSArray * dataArr;
     NSString * languageStr;
+    UIButton * Savebutton;
+    YaoqingView * yaoqingView1;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -89,13 +92,7 @@
             [languageButton addTarget:self action:@selector(leftbuttonClick:) forControlEvents:UIControlEventTouchUpInside];
             [_MainScrollview addSubview:languageButton];
             
-//            ClassButton = [[leftButton alloc] initWithFrame:CGRectMake(CGRectGetMaxX(languageButton.frame) + 10, CGRectGetMaxY(imageLable.frame), (Width - titleLable.width - 10)/2 - 10, 43.5)];
-//            [ClassButton setTitle:_langIDArr[0][@"PlatformName"] forState:UIControlStateNormal];
-//            ClassButton.titleLabel.font = [UIFont systemFontOfSize:13];
-//            [ClassButton setImage:[UIImage imageNamed:@"下拉"] forState:UIControlStateNormal];
-//            [ClassButton addTarget:self action:@selector(leftbuttonClick:) forControlEvents:UIControlEventTouchUpInside];
-////            ClassButton.backgroundColor = [UIColor redColor];
-//            [_MainScrollview addSubview:ClassButton];
+
         }
         
         [Marr addObject:titleLable];
@@ -109,11 +106,42 @@
     [_MainScrollview addSubview:textView];
     
     CGFloat btHeight = (_MainScrollview.height > _MainScrollview.contentSize.height)?_MainScrollview.height:_MainScrollview.contentSize.height;
-    UIButton * button = [[UIButton alloc] initWithFrame:CGRectMake(0, btHeight - 50, Width, 50)];
-    button.backgroundColor = MianColor;
-    [button setTitle:@"保存" forState:UIControlStateNormal];
-    [button addTarget:self action:@selector(proClick) forControlEvents:UIControlEventTouchUpInside];
-    [_MainScrollview addSubview:button];
+    Savebutton = [[UIButton alloc] initWithFrame:CGRectMake(0, btHeight - 50, Width, 50)];
+    Savebutton.backgroundColor = MianColor;
+    [Savebutton setTitle:@"保存" forState:UIControlStateNormal];
+    [Savebutton addTarget:self action:@selector(proClick) forControlEvents:UIControlEventTouchUpInside];
+    [_MainScrollview addSubview:Savebutton];
+    
+    leftButton * YaoqingButton = [[leftButton alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(textView.frame) + 5, 180, 40)];
+    YaoqingButton.titleLabel.font = [UIFont systemFontOfSize:15];
+    [YaoqingButton addTarget:self action:@selector(YaoqingClick:) forControlEvents:UIControlEventTouchUpInside];
+    [YaoqingButton setTitle:@"是否开启邀请功能" forState:UIControlStateNormal];
+    [YaoqingButton setImage:[UIImage imageNamed:@"待选"] forState:UIControlStateNormal];
+    [YaoqingButton setImage:[UIImage imageNamed:@"选择"] forState:UIControlStateSelected];
+    
+    [_MainScrollview addSubview:YaoqingButton];
+    
+    yaoqingView1  = [[YaoqingView alloc] initWithFrame:CGRectMake(15, CGRectGetMaxY(YaoqingButton.frame )+ 5, Width - 20, 300) withDic:@{}];
+    yaoqingView1.hidden = YES;
+    __weak GZMCreatViewController * Sself = self;
+    yaoqingView1.deleteBookBlock = ^{
+        [Sself GZMpublic_show];
+    };
+    [_MainScrollview addSubview:yaoqingView1];
+}
+/********** 邀请功能是否开启************/
+-(void)YaoqingClick:(UIButton *)button{
+    [self GZM_Hidden];
+    button.selected = !button.selected;
+    if (button.selected) {
+        yaoqingView1.hidden = NO;
+        _MainScrollview.contentSize = CGSizeMake(Width, 900);
+    }else{
+        yaoqingView1.hidden = YES;
+        _MainScrollview.contentSize = CGSizeMake(Width, 500);
+    }
+    CGFloat btHeight = (_MainScrollview.height > _MainScrollview.contentSize.height)?_MainScrollview.height:_MainScrollview.contentSize.height;
+    Savebutton.y = btHeight - 50;
 }
 
 /*********获取平台列表*********/

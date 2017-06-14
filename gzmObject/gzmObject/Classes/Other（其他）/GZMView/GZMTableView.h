@@ -1,14 +1,14 @@
 //
-//  tableVIew.h
+//  GZMTableView.h
 //  gzmObject
 //
-//  Created by gzm on 2017/5/27.
+//  Created by gzm on 2017/6/13.
 //  Copyright © 2017年 gzm. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 typedef void (^DataBlock)(id message);
-@interface tableVIew : UIView<UITableViewDelegate,UITableViewDataSource>
+@interface GZMTableView : UIView<UITableViewDelegate,UITableViewDataSource>
 -(instancetype)initWithFrame:(CGRect)frame withArr:(NSArray *)dataArr With:(DataBlock)dataBlock;
 -(instancetype)initWithFrame:(CGRect)frame withArr:(NSArray *)dataArr;
 /**********<#属性#> ************/

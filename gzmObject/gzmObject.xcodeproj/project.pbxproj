@@ -48,6 +48,10 @@
 		156DDB291ECB6CC20050F037 /* GZMLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 156DDB271ECB6CC20050F037 /* GZMLoginViewController.xib */; };
 		156DDB2C1ECB6DC20050F037 /* registedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 156DDB2B1ECB6DC20050F037 /* registedViewController.m */; };
 		156DDB321ECE4EAC0050F037 /* registedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 156DDB311ECE4EAC0050F037 /* registedViewController.xib */; };
+		157415C71EF08CDE00B2513E /* GZMTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 157415C61EF08CDE00B2513E /* GZMTableView.m */; };
+		157415CB1EF094EC00B2513E /* GZMIPTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 157415C91EF094EC00B2513E /* GZMIPTableViewCell.m */; };
+		157415CC1EF094EC00B2513E /* GZMIPTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 157415CA1EF094EC00B2513E /* GZMIPTableViewCell.xib */; };
+		157415D01EF09E5700B2513E /* YaoqingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 157415CF1EF09E5700B2513E /* YaoqingView.m */; };
 		1579B8EB1ED5F8E3000325FC /* GZMForgetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1579B8E91ED5F8E3000325FC /* GZMForgetViewController.m */; };
 		1579B8EC1ED5F8E3000325FC /* GZMForgetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1579B8EA1ED5F8E3000325FC /* GZMForgetViewController.xib */; };
 		1579B9561ED64732000325FC /* GZMZongViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1579B9471ED64732000325FC /* GZMZongViewController.m */; };
@@ -196,6 +200,13 @@
 		156DDB2A1ECB6DC20050F037 /* registedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = registedViewController.h; sourceTree = "<group>"; };
 		156DDB2B1ECB6DC20050F037 /* registedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = registedViewController.m; sourceTree = "<group>"; };
 		156DDB311ECE4EAC0050F037 /* registedViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = registedViewController.xib; sourceTree = "<group>"; };
+		157415C51EF08CDE00B2513E /* GZMTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GZMTableView.h; sourceTree = "<group>"; };
+		157415C61EF08CDE00B2513E /* GZMTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GZMTableView.m; sourceTree = "<group>"; };
+		157415C81EF094EC00B2513E /* GZMIPTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GZMIPTableViewCell.h; sourceTree = "<group>"; };
+		157415C91EF094EC00B2513E /* GZMIPTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GZMIPTableViewCell.m; sourceTree = "<group>"; };
+		157415CA1EF094EC00B2513E /* GZMIPTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GZMIPTableViewCell.xib; sourceTree = "<group>"; };
+		157415CE1EF09E5700B2513E /* YaoqingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YaoqingView.h; sourceTree = "<group>"; };
+		157415CF1EF09E5700B2513E /* YaoqingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YaoqingView.m; sourceTree = "<group>"; };
 		1579B8E81ED5F8E3000325FC /* GZMForgetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GZMForgetViewController.h; sourceTree = "<group>"; };
 		1579B8E91ED5F8E3000325FC /* GZMForgetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GZMForgetViewController.m; sourceTree = "<group>"; };
 		1579B8EA1ED5F8E3000325FC /* GZMForgetViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GZMForgetViewController.xib; sourceTree = "<group>"; };
@@ -345,6 +356,8 @@
 				150D01411EDA3B9E004D97A1 /* leftButton.m */,
 				150D01461EDA4C13004D97A1 /* tableVIew.h */,
 				150D01471EDA4C13004D97A1 /* tableVIew.m */,
+				157415C51EF08CDE00B2513E /* GZMTableView.h */,
+				157415C61EF08CDE00B2513E /* GZMTableView.m */,
 				150D01561EDFA2C5004D97A1 /* GZMpickerView.h */,
 				150D01571EDFA2C5004D97A1 /* GZMpickerView.m */,
 				150D01501EDF8A34004D97A1 /* simpleTableVIew.h */,
@@ -438,6 +451,15 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
+		157415CD1EF09E0F00B2513E /* proView */ = {
+			isa = PBXGroup;
+			children = (
+				157415CE1EF09E5700B2513E /* YaoqingView.h */,
+				157415CF1EF09E5700B2513E /* YaoqingView.m */,
+			);
+			name = proView;
+			sourceTree = "<group>";
+		};
 		1579B93C1ED64732000325FC /* 设备列表 */ = {
 			isa = PBXGroup;
 			children = (
@@ -475,6 +497,9 @@
 				15657E711EE606B300F92365 /* GZmEquentTableViewCell.h */,
 				15657E721EE606B300F92365 /* GZmEquentTableViewCell.m */,
 				15657E731EE606B300F92365 /* GZmEquentTableViewCell.xib */,
+				157415C81EF094EC00B2513E /* GZMIPTableViewCell.h */,
+				157415C91EF094EC00B2513E /* GZMIPTableViewCell.m */,
+				157415CA1EF094EC00B2513E /* GZMIPTableViewCell.xib */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -574,6 +599,7 @@
 		1579B9511ED64732000325FC /* View */ = {
 			isa = PBXGroup;
 			children = (
+				157415CD1EF09E0F00B2513E /* proView */,
 				1579B9521ED64732000325FC /* GZmprojectTableViewCell.h */,
 				1579B9531ED64732000325FC /* GZmprojectTableViewCell.m */,
 				1579B9541ED64732000325FC /* GZmprojectTableViewCell.xib */,
@@ -867,6 +893,7 @@
 				1579B95A1ED64732000325FC /* GZmprojectTableViewCell.xib in Resources */,
 				15E5D7F01EE0CAFD0040172E /* GZMperSonMessageViewController.xib in Resources */,
 				1587978E1EAFEF6100DA40CF /* Assets.xcassets in Resources */,
+				157415CC1EF094EC00B2513E /* GZMIPTableViewCell.xib in Resources */,
 				15657E751EE606B300F92365 /* GZmEquentTableViewCell.xib in Resources */,
 				1587978C1EAFEF6100DA40CF /* Main.storyboard in Resources */,
 				1579B96F1ED7545C000325FC /* GZMActiveTableViewCell.xib in Resources */,
@@ -949,11 +976,13 @@
 			files = (
 				158797E41EB02C8400DA40CF /* UIButton+GZM.m in Sources */,
 				1579B9571ED64732000325FC /* GZMProjectViewController.m in Sources */,
+				157415C71EF08CDE00B2513E /* GZMTableView.m in Sources */,
 				158797C71EB027C800DA40CF /* withTableviewViewController.m in Sources */,
 				1505E15A1EB27B5500C61DFC /* AppDelegate.m in Sources */,
 				158797E21EB02C8400DA40CF /* NSString+GZM.m in Sources */,
 				15657E781EE870DD00F92365 /* GZMActiveHistoryViewController.m in Sources */,
 				158797E81EB02C8400DA40CF /* UILabel+GZMlable.m in Sources */,
+				157415D01EF09E5700B2513E /* YaoqingView.m in Sources */,
 				15657E7F1EE8809300F92365 /* GZmHistroyTableViewCell.m in Sources */,
 				1579B9561ED64732000325FC /* GZMZongViewController.m in Sources */,
 				1505E14C1EB15B6100C61DFC /* RequestTool.m in Sources */,
@@ -977,6 +1006,7 @@
 				1579B9591ED64732000325FC /* GZmprojectTableViewCell.m in Sources */,
 				1579B9581ED64732000325FC /* GZMProjectModel.m in Sources */,
 				158797E71EB02C8400DA40CF /* UIImageView+GZM.m in Sources */,
+				157415CB1EF094EC00B2513E /* GZMIPTableViewCell.m in Sources */,
 				1505E14F1EB15C4900C61DFC /* LoadIngView.m in Sources */,
 				150D013C1ED8AB8C004D97A1 /* GZMMyViewController.m in Sources */,
 				1579B9731ED7633A000325FC /* GZMCreatActiveViewController.m in Sources */,

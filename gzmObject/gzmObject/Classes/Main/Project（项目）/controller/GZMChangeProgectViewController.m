@@ -10,6 +10,7 @@
 #import "leftButton.h"
 #import "tableVIew.h"
 #import "GZMpickerView.h"
+#import "YaoqingView.h"
 @interface GZMChangeProgectViewController ()<UITextFieldDelegate,UITextViewDelegate,UIGestureRecognizerDelegate>
 /**********<#属性#> ************/
 @property(nonatomic,strong)UIScrollView * MainScrollview;
@@ -31,6 +32,8 @@
     NSString * languageStr;
     UIButton * trueButton;
     UIButton * falseButton;
+    UIButton * Savebutton;
+    YaoqingView * yaoqingView1;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -86,13 +89,7 @@
                 [languageButton addTarget:self action:@selector(leftbuttonClick:) forControlEvents:UIControlEventTouchUpInside];
                 [_MainScrollview addSubview:languageButton];
                 
-//                ClassButton = [[leftButton alloc] initWithFrame:CGRectMake(CGRectGetMaxX(languageButton.frame) + 10, CGRectGetMaxY(imageLable.frame), (Width - titleLable.width - 10)/2 - 10, 43.5)];
-//                [ClassButton setTitle:self.Projectmodel.PlatformName forState:UIControlStateNormal];
-//                ClassButton.titleLabel.font = [UIFont systemFontOfSize:13];
-//                [ClassButton setImage:[UIImage imageNamed:@"下拉"] forState:UIControlStateNormal];
-//                [ClassButton addTarget:self action:@selector(leftbuttonClick:) forControlEvents:UIControlEventTouchUpInside];
-//                //            ClassButton.backgroundColor = [UIColor redColor];
-//                [_MainScrollview addSubview:ClassButton];
+
             }
             if (i == 6) {
                 
@@ -141,11 +138,42 @@
     [_MainScrollview addSubview:textView];
     
     CGFloat btHeight = (_MainScrollview.height > _MainScrollview.contentSize.height)?_MainScrollview.height:_MainScrollview.contentSize.height;
-    UIButton * button = [[UIButton alloc] initWithFrame:CGRectMake(0, btHeight - 50, Width, 50)];
-    button.backgroundColor = MianColor;
-    [button setTitle:@"保存" forState:UIControlStateNormal];
-    [button addTarget:self action:@selector(proClick) forControlEvents:UIControlEventTouchUpInside];
-    [_MainScrollview addSubview:button];
+    Savebutton = [[UIButton alloc] initWithFrame:CGRectMake(0, btHeight - 50, Width, 50)];
+    Savebutton.backgroundColor = MianColor;
+    [Savebutton setTitle:@"保存" forState:UIControlStateNormal];
+    [Savebutton addTarget:self action:@selector(proClick) forControlEvents:UIControlEventTouchUpInside];
+    [_MainScrollview addSubview:Savebutton];
+    
+    leftButton * YaoqingButton = [[leftButton alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(textView.frame) + 5, 180, 40)];
+    YaoqingButton.titleLabel.font = [UIFont systemFontOfSize:15];
+    [YaoqingButton addTarget:self action:@selector(YaoqingClick:) forControlEvents:UIControlEventTouchUpInside];
+    [YaoqingButton setTitle:@"是否开启邀请功能" forState:UIControlStateNormal];
+    [YaoqingButton setImage:[UIImage imageNamed:@"待选"] forState:UIControlStateNormal];
+    [YaoqingButton setImage:[UIImage imageNamed:@"选择"] forState:UIControlStateSelected];
+    
+    [_MainScrollview addSubview:YaoqingButton];
+    
+    yaoqingView1  = [[YaoqingView alloc] initWithFrame:CGRectMake(15, CGRectGetMaxY(YaoqingButton.frame )+ 5, Width - 20, 300) withDic:@{}];
+    yaoqingView1.hidden = YES;
+    __weak GZMChangeProgectViewController * Sself = self;
+    yaoqingView1.deleteBookBlock = ^{
+        [Sself GZMpublic_show];
+    };
+
+    [_MainScrollview addSubview:yaoqingView1];
+}
+/********** 邀请功能是否开启************/
+-(void)YaoqingClick:(UIButton *)button{
+    button.selected = !button.selected;
+    if (button.selected) {
+        yaoqingView1.hidden = NO;
+        _MainScrollview.contentSize = CGSizeMake(Width, 900);
+    }else{
+        yaoqingView1.hidden = YES;
+        _MainScrollview.contentSize = CGSizeMake(Width, 500);
+    }
+     CGFloat btHeight = (_MainScrollview.height > _MainScrollview.contentSize.height)?_MainScrollview.height:_MainScrollview.contentSize.height;
+    Savebutton.y = btHeight - 50;
 }
 /********** 有效无效的选择************/
 -(void)trueClick:(UIButton *)button{
@@ -162,13 +190,7 @@
         MypickerView.secondData = [dataArr GZMpublicSetArrWithStr:@"PlatformName"];
         [MypickerView.myPickerView reloadAllComponents ];
         [languageButton setTitle:[NSString stringWithFormat:@"%@,%@",languageStr,MypickerView.secondData[0]] forState:UIControlStateNormal];
-//        tableView = [[tableVIew alloc]initWithFrame:CGRectMake(CGRectGetMinX(ClassButton.frame), CGRectGetMaxY(ClassButton.frame), ClassButton.width, 150) withArr:[arr GZMpublicSetArrWithStr:@"PlatformName"] With:^(id message) {
-//            NSLog(@"%@",message);
-//            [ClassButton setTitle:message forState:UIControlStateNormal];
-//            platformid = [arr GZMpublicSetStrWith:message andStr:@"PlatformName" getStr:@"PlatformID"];
-//            [tableView removeFromSuperview];
-//        }];
-//        [_MainScrollview addSubview:tableView];
+
     } failBlock:^(id message) {
         
     } delegate:self loadWith:mainLoading];
@@ -176,19 +198,7 @@
 /********** 选择语言分类点击事件  ************/
 -(void)leftbuttonClick:(UIButton *)button{
     [self GZM_Hidden];
-//    [tableView removeFromSuperview];
-//    if (button != languageButton) {
-//        [self GZM_getPlatformList];
-//        return;
-//    }
-//    tableView = [[tableVIew alloc]initWithFrame:CGRectMake(CGRectGetMinX(button.frame), CGRectGetMaxY(button.frame), button.width, 150) withArr:[self.languageArr GZMpublicSetArrWithStr:@"LangName"] With:^(id message) {
-//        NSLog(@"%@",message);
-//        langID =  [self.languageArr GZMpublicSetStrWith:message andStr:@"LangName" getStr:@"LangID"];
-//        [languageButton setTitle:message forState:UIControlStateNormal];
-//        [tableView removeFromSuperview];
-//        [self leftbuttonClick:ClassButton];
-//    }];
-//    [_MainScrollview addSubview:tableView];
+
     [MypickerView removeFromSuperview];
     MypickerView = [[GZMpickerView alloc] initWithFrame:CGRectMake(0, Height - 250, Width, 250) withArr:[self.languageArr GZMpublicSetArrWithStr:@"LangName"] With:^(id message) {
         if ([message[@"component"] isEqualToString:@"0"]) {
@@ -202,20 +212,6 @@
         
     }];
     [self.view addSubview:MypickerView];
-}
-- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch
-{
-    
-    // 输出点击的view的类名
-    // 若为UITableViewCellContentView（即点击了tableViewCell），则不截获Touch事件
-    if ([NSStringFromClass([touch.view class]) isEqualToString:@"UITableViewCellContentView"])
-    {
-        return NO;
-    }
-    
-    //截获Touch事件
-    return  YES;
-    
 }
 
 -(UIScrollView *)MainScrollview{
@@ -235,19 +231,38 @@
 -(void)proClick{
     UITextField * protextFile = (UITextField *)[self.view viewWithTag:100];
     UITextField * VersionstextFile = (UITextField *)[self.view viewWithTag:104];
+    UITextField * VersionstextFile1 = (UITextField *)[self.view viewWithTag:110];
+    UITextField * VersionstextFile2 = (UITextField *)[self.view viewWithTag:112];
+    UITextField * VersionstextFile3 = (UITextField *)[self.view viewWithTag:113];
     if (protextFile.text.length == 0) {
         [AlerYangShi tishiWithMessage:@"项目名称不能为零" WithVc:self];
         return;
     }
     if (VersionstextFile.text.length == 0) {
-        [AlerYangShi tishiWithMessage:@"项目名称不能为零" WithVc:self];
+        [AlerYangShi tishiWithMessage:@"版本号不能为零" WithVc:self];
         return;
+    }
+        if (textView.text.length == 0) {
+        [AlerYangShi tishiWithMessage:@"项目描述不能为零" WithVc:self];
+        return;
+    }
+    if (!yaoqingView1.hidden) {
+        if (VersionstextFile1.text.length == 0) {
+            [AlerYangShi tishiWithMessage:@"开启邀请功能后，有效期不能为空" WithVc:self];
+            return;
+        }
+        if (VersionstextFile2.text.length == 0) {
+            [AlerYangShi tishiWithMessage:@"开启邀请功能后，使用时长不能为空" WithVc:self];
+            return;
+        }
+        if (VersionstextFile3.text.length == 0) {
+            [AlerYangShi tishiWithMessage:@"开启邀请功能后，使用次数不能为空" WithVc:self];
+            return;
+        }
+        
     }
 
-    if (textView.text.length == 0) {
-        [AlerYangShi tishiWithMessage:@"项目名称不能为零" WithVc:self];
-        return;
-    }
+    
     NSDictionary * dic = @{@"token":toketen,@"projectid":self.Projectmodel.ProjectID,@"pname":protextFile.text,@"version":VersionstextFile.text,@"platformid":platformid,@"remark":textView.text,@"trialTime":@"",@"userpass":@"",@"effective":trueButton.selected == YES?@"true":@"false"};
     [RequestTool sendPostAFRequest:[BaseUrl stringByAppendingString:ModifyProject] parameters:dic successBlock:^(id message) {
         if ([message[@"issuccess"] isEqual:@1]) {
