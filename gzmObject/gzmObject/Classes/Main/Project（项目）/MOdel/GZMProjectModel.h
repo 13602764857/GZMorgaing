@@ -23,7 +23,11 @@
 @property (nonatomic,copy) NSString *PlatformID;
 @property (nonatomic,copy) NSString *LangID;
 
-
+@property (nonatomic,copy) NSString *ReachTimes;
+@property (nonatomic,copy) NSString *LargessDay;
+@property (nonatomic,copy) NSString *TrialTime;
+@property (nonatomic,copy) NSString *EnableInvite;
+@property (nonatomic,copy) NSString *ReachDay;
 
 +(NSMutableArray *)setModelWithArray:(NSArray *)array;
 @end

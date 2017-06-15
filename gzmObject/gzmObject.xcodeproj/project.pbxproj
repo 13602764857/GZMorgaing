@@ -52,6 +52,7 @@
 		157415CB1EF094EC00B2513E /* GZMIPTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 157415C91EF094EC00B2513E /* GZMIPTableViewCell.m */; };
 		157415CC1EF094EC00B2513E /* GZMIPTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 157415CA1EF094EC00B2513E /* GZMIPTableViewCell.xib */; };
 		157415D01EF09E5700B2513E /* YaoqingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 157415CF1EF09E5700B2513E /* YaoqingView.m */; };
+		157415D41EF1ACD600B2513E /* GZMequipmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 157415D31EF1ACD600B2513E /* GZMequipmentView.m */; };
 		1579B8EB1ED5F8E3000325FC /* GZMForgetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1579B8E91ED5F8E3000325FC /* GZMForgetViewController.m */; };
 		1579B8EC1ED5F8E3000325FC /* GZMForgetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1579B8EA1ED5F8E3000325FC /* GZMForgetViewController.xib */; };
 		1579B9561ED64732000325FC /* GZMZongViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1579B9471ED64732000325FC /* GZMZongViewController.m */; };
@@ -207,6 +208,8 @@
 		157415CA1EF094EC00B2513E /* GZMIPTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GZMIPTableViewCell.xib; sourceTree = "<group>"; };
 		157415CE1EF09E5700B2513E /* YaoqingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YaoqingView.h; sourceTree = "<group>"; };
 		157415CF1EF09E5700B2513E /* YaoqingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YaoqingView.m; sourceTree = "<group>"; };
+		157415D21EF1ACD600B2513E /* GZMequipmentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GZMequipmentView.h; sourceTree = "<group>"; };
+		157415D31EF1ACD600B2513E /* GZMequipmentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GZMequipmentView.m; sourceTree = "<group>"; };
 		1579B8E81ED5F8E3000325FC /* GZMForgetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GZMForgetViewController.h; sourceTree = "<group>"; };
 		1579B8E91ED5F8E3000325FC /* GZMForgetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GZMForgetViewController.m; sourceTree = "<group>"; };
 		1579B8EA1ED5F8E3000325FC /* GZMForgetViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GZMForgetViewController.xib; sourceTree = "<group>"; };
@@ -460,6 +463,15 @@
 			name = proView;
 			sourceTree = "<group>";
 		};
+		157415D11EF1AA7F00B2513E /* equipmentView */ = {
+			isa = PBXGroup;
+			children = (
+				157415D21EF1ACD600B2513E /* GZMequipmentView.h */,
+				157415D31EF1ACD600B2513E /* GZMequipmentView.m */,
+			);
+			name = equipmentView;
+			sourceTree = "<group>";
+		};
 		1579B93C1ED64732000325FC /* 设备列表 */ = {
 			isa = PBXGroup;
 			children = (
@@ -494,6 +506,7 @@
 		1579B93F1ED64732000325FC /* view */ = {
 			isa = PBXGroup;
 			children = (
+				157415D11EF1AA7F00B2513E /* equipmentView */,
 				15657E711EE606B300F92365 /* GZmEquentTableViewCell.h */,
 				15657E721EE606B300F92365 /* GZmEquentTableViewCell.m */,
 				15657E731EE606B300F92365 /* GZmEquentTableViewCell.xib */,
@@ -980,6 +993,7 @@
 				158797C71EB027C800DA40CF /* withTableviewViewController.m in Sources */,
 				1505E15A1EB27B5500C61DFC /* AppDelegate.m in Sources */,
 				158797E21EB02C8400DA40CF /* NSString+GZM.m in Sources */,
+				157415D41EF1ACD600B2513E /* GZMequipmentView.m in Sources */,
 				15657E781EE870DD00F92365 /* GZMActiveHistoryViewController.m in Sources */,
 				158797E81EB02C8400DA40CF /* UILabel+GZMlable.m in Sources */,
 				157415D01EF09E5700B2513E /* YaoqingView.m in Sources */,

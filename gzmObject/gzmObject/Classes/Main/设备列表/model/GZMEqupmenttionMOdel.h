@@ -22,5 +22,15 @@
 @property (nonatomic,copy) NSString *DeviceID;
 @property (nonatomic,copy) NSString *Effective;
 
+
+
+@property (nonatomic,copy) NSString *Codes;
+
+
+@property (nonatomic,strong) NSArray *Locations;
+
+
+@property (nonatomic,copy) NSString *LastLocation;
+
 +(NSMutableArray *)setModelWithArray:(NSArray *)array;
 @end

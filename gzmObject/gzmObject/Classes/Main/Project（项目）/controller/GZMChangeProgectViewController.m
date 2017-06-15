@@ -153,7 +153,7 @@
     
     [_MainScrollview addSubview:YaoqingButton];
     
-    yaoqingView1  = [[YaoqingView alloc] initWithFrame:CGRectMake(15, CGRectGetMaxY(YaoqingButton.frame )+ 5, Width - 20, 300) withDic:@{}];
+    yaoqingView1  = [[YaoqingView alloc] initWithFrame:CGRectMake(15, CGRectGetMaxY(YaoqingButton.frame )+ 5, Width - 20, 300) withDic:@[self.Projectmodel.LargessDay,@"",self.Projectmodel.ReachDay,self.Projectmodel.ReachTimes]];
     yaoqingView1.hidden = YES;
     __weak GZMChangeProgectViewController * Sself = self;
     yaoqingView1.deleteBookBlock = ^{
@@ -263,7 +263,7 @@
     }
 
     
-    NSDictionary * dic = @{@"token":toketen,@"projectid":self.Projectmodel.ProjectID,@"pname":protextFile.text,@"version":VersionstextFile.text,@"platformid":platformid,@"remark":textView.text,@"trialTime":@"",@"userpass":@"",@"effective":trueButton.selected == YES?@"true":@"false"};
+    NSDictionary * dic = @{@"token":toketen,@"projectid":self.Projectmodel.ProjectID,@"pname":protextFile.text,@"version":VersionstextFile.text,@"platformid":platformid,@"remark":textView.text,@"trialTime":@"",@"userpass":@"",@"effective":trueButton.selected == YES?@"true":@"false",@"invite":yaoqingView1.hidden == NO?@"true":@"false",@"gessday":VersionstextFile1.text.length > 0 ?VersionstextFile1.text:@"0",@"reachDay":VersionstextFile2.text.length > 0 ?VersionstextFile2.text:@"0",@"reachtimes":VersionstextFile3.text.length > 0 ?VersionstextFile3.text:@"0"};
     [RequestTool sendPostAFRequest:[BaseUrl stringByAppendingString:ModifyProject] parameters:dic successBlock:^(id message) {
         if ([message[@"issuccess"] isEqual:@1]) {
             [[NSNotificationCenter defaultCenter] postNotificationName:@"GZMProjectViewController" object:nil userInfo:nil];

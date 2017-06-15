@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface YaoqingView : UIView<UITextFieldDelegate>
--(instancetype)initWithFrame:(CGRect)frame withDic:(NSDictionary *)DataDic;
+-(instancetype)initWithFrame:(CGRect)frame withDic:(NSArray *)DataDic;
 /****block ******************/
 @property(nonatomic, strong) void(^deleteBookBlock)();
 @end

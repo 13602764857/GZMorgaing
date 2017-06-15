@@ -87,9 +87,8 @@
     GZMIPTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:cellID];
    
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    cell.textLabel.text = dataArr1[indexPath.row];
-    cell.textLabel.textAlignment = NSTextAlignmentCenter;
-    cell.textLabel.font = [UIFont systemFontOfSize:14];
+    
+    cell.dataArr = dataArr1[indexPath.row];
     cell.oneLable.text = [NSString stringWithFormat:@"%ld%@",(long)indexPath.row + 1,@"."];
     return cell;
 }

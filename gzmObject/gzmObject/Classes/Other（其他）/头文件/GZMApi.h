@@ -56,6 +56,7 @@
 #define GetDeviceList          @"api/Device/GetDeviceList"
 #define GenAPICode          @"api/Project/GenAPICode"
 #define ModifyRemark          @"api/Device/ModifyRemark"
+#define DeviceDetails          @"api/Device/DeviceDetails"
 
 
 #endif /* GZMApi_h */

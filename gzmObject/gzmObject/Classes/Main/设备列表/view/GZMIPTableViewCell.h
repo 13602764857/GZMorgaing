@@ -12,5 +12,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *oneLable;
 @property (weak, nonatomic) IBOutlet UILabel *TwoLable;
 @property (weak, nonatomic) IBOutlet UILabel *ThreeLable;
-
+/**********<#属性#> ************/
+@property(nonatomic,strong)NSArray * dataArr;
 @end

@@ -314,11 +314,22 @@
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [super tableView:tableView didSelectRowAtIndexPath:indexPath];
-    self.tabBarController.tabBar.hidden = YES;
     GZMEqupmenttionMOdel * mo = self.GZMDataArr[indexPath.row];
-    GZMDetailEuimentViewController * detailEuimentVc = [[GZMDetailEuimentViewController alloc] init];
-    detailEuimentVc.Model = mo;
-    [self.navigationController pushViewController:detailEuimentVc animated:YES];
+    [RequestTool sendPostAFRequest:[BaseUrl stringByAppendingString:DeviceDetails] parameters:@{@"token":toketen,@"deviceID":mo.DeviceID} successBlock:^(id message) {
+        if (issuccess) {
+            self.tabBarController.tabBar.hidden = YES;
+            [ZJModelTool createModelWithDictionary:message[@"message"][0] modelName:nil];
+            NSArray * arr = [GZMEqupmenttionMOdel setModelWithArray:message[@"message"]];
+            GZMEqupmenttionMOdel * model = arr[0];
+            GZMDetailEuimentViewController * detailEuimentVc = [[GZMDetailEuimentViewController alloc] init];
+            detailEuimentVc.Model = model;
+            [self.navigationController pushViewController:detailEuimentVc animated:YES];
+        }
+        
+    } failBlock:^(id message) {
+        
+    } delegate:self loadWith:mainLoading];
+    
 }
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{

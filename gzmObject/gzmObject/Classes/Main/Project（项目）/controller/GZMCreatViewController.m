@@ -121,7 +121,7 @@
     
     [_MainScrollview addSubview:YaoqingButton];
     
-    yaoqingView1  = [[YaoqingView alloc] initWithFrame:CGRectMake(15, CGRectGetMaxY(YaoqingButton.frame )+ 5, Width - 20, 300) withDic:@{}];
+    yaoqingView1  = [[YaoqingView alloc] initWithFrame:CGRectMake(15, CGRectGetMaxY(YaoqingButton.frame )+ 5, Width - 20, 300) withDic:@[@"",@"",@"",@""]];
     yaoqingView1.hidden = YES;
     __weak GZMCreatViewController * Sself = self;
     yaoqingView1.deleteBookBlock = ^{
@@ -232,7 +232,11 @@
     [self GZM_Hidden];
     UITextField * protextFile = (UITextField *)[self.view viewWithTag:100];
     UITextField * VersionstextFile = (UITextField *)[self.view viewWithTag:101];
-    UITextField * VersionstextFile1 = (UITextField *)[self.view viewWithTag:102];
+    UITextField * VersionstextFile4 = (UITextField *)[self.view viewWithTag:102];
+    UITextField * VersionstextFile1 = (UITextField *)[self.view viewWithTag:110];
+    UITextField * VersionstextFile2 = (UITextField *)[self.view viewWithTag:112];
+    UITextField * VersionstextFile3 = (UITextField *)[self.view viewWithTag:113];
+
     if (protextFile.text.length == 0) {
         [AlerYangShi tishiWithMessage:@"项目名称不能为空" WithVc:self];
         return;
@@ -250,7 +254,24 @@
         [AlerYangShi tishiWithMessage:@"平台选择不能为空" WithVc:self];
         return;
     }
-    NSDictionary * dic = @{@"token":toketen,@"pname":protextFile.text,@"version":VersionstextFile.text,@"remark":textView.text,@"platformid":platformid,@"effective":@"true",@"projectid":@"",@"trialTime":VersionstextFile1.text};
+    
+    if (!yaoqingView1.hidden) {
+        if (VersionstextFile1.text.length == 0) {
+            [AlerYangShi tishiWithMessage:@"开启邀请功能后，有效期不能为空" WithVc:self];
+            return;
+        }
+        if (VersionstextFile2.text.length == 0) {
+            [AlerYangShi tishiWithMessage:@"开启邀请功能后，使用时长不能为空" WithVc:self];
+            return;
+        }
+        if (VersionstextFile3.text.length == 0) {
+            [AlerYangShi tishiWithMessage:@"开启邀请功能后，使用次数不能为空" WithVc:self];
+            return;
+        }
+        
+    }
+
+    NSDictionary * dic = @{@"token":toketen,@"pname":protextFile.text,@"version":VersionstextFile.text,@"remark":textView.text,@"platformid":platformid,@"effective":@"true",@"projectid":@"",@"trialTime":VersionstextFile4.text,@"invite":yaoqingView1.hidden == NO?@"true":@"false",@"gessday":VersionstextFile1.text.length > 0 ?VersionstextFile1.text:@"0",@"reachDay":VersionstextFile2.text.length > 0 ?VersionstextFile2.text:@"0",@"reachtimes":VersionstextFile3.text.length > 0 ?VersionstextFile3.text:@"0"};
     NSLog(@"%@",dic);
     [RequestTool sendPostAFRequest:[BaseUrl stringByAppendingString:CreateProject] parameters:dic successBlock:^(id message) {
         if ([message[@"issuccess"] isEqual:@1]) {

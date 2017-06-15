@@ -110,7 +110,7 @@
     /********** 装控件的数组************/
     NSMutableArray * Marr = [NSMutableArray array];
     NSArray * titleArr = @[@"项目名称：",@"创建日期：",@"APP ID   ：",@"使用人数：",@"版  本  号：",@"所属平台：",@"项目状态：",@"邀请功能：",@"项目描述："];
-    NSArray * dataArr = @[self.Projectmodel.ProjectName,self.Projectmodel.CreateDate,self.Projectmodel.AppID,self.Projectmodel.Count,self.Projectmodel.Versions,self.Projectmodel.PlatformName,[self.Projectmodel.Effective integerValue] == 1 ?@"有效":@"无效",@"567yut",@""];
+    NSArray * dataArr = @[self.Projectmodel.ProjectName,self.Projectmodel.CreateDate,self.Projectmodel.AppID,self.Projectmodel.Count,self.Projectmodel.Versions,self.Projectmodel.PlatformName,[self.Projectmodel.Effective integerValue] == 1 ?@"有效":@"无效",[self.Projectmodel.EnableInvite integerValue] == 1 ?@"开启":@"已关闭",@""];
     for (int i = 0; i < titleArr.count; i ++) {
         UILabel * imageLable = [[UILabel alloc] initWithFrame:CGRectMake(0, 44*i, Width, 0.5)];
         imageLable.backgroundColor = [UIColor GZMLightColor];

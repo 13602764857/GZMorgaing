@@ -10,11 +10,11 @@
 
 @implementation YaoqingView
 {
-    NSDictionary * dic;
+    NSArray * dataArr;
 }
--(instancetype)initWithFrame:(CGRect)frame withDic:(NSDictionary *)DataDic{
+-(instancetype)initWithFrame:(CGRect)frame withDic:(NSArray *)DataDic{
     if (self = [super initWithFrame:frame]) {
-        dic = DataDic;
+        dataArr = DataDic;
         [self creatView];
     }
     return self;
@@ -57,9 +57,14 @@
             textFile.font = [UIFont systemFontOfSize:14];
             textFile.delegate = self;
             textFile.tag = 110 + i;
+            textFile.text = dataArr[i];
+            textFile.textAlignment = NSTextAlignmentRight;
 //            textFile.placeholder = @"请输入";
             [textFile GZMpublicTextFiledPlacehoderWith:[UIColor GZMTitleColor] withSize:14 WithholderText:titleArr2[i] Withalignment:NSTextAlignmentCenter];
+        if (i != 1) {
             [view addSubview:textFile];
+        }
+        
         
         
         UIView * lineView = [[UIView alloc] initWithFrame:CGRectMake(0, view.height - 1, view.width, 1)];

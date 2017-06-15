@@ -77,7 +77,7 @@
 
 -(void)moreButtonClick{
     NSLog(@"q4r");
-    GZMTableView * tableView = [[GZMTableView alloc] initWithFrame:self.view.frame withArr:@[@"12",@"12",@"12"]];
+    GZMTableView * tableView = [[GZMTableView alloc] initWithFrame:self.view.frame withArr:self.Model.Locations];
 //    tableView.
     [self.view addSubview:tableView];
 }

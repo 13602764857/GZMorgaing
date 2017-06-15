@@ -167,23 +167,28 @@
     }];
     deleteRowAction.backgroundColor = [UIColor redColor];
     UITableViewRowAction *deleteRowAction1 = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@"详情" handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
-        self.tabBarController.tabBar.hidden = YES;
+//        self.tabBarController.tabBar.hidden = YES;
         GZMProjectModel * mo = self.GZMDataArr[indexPath.row];
-        GZMdetailProjectViewController * detail = [[GZMdetailProjectViewController alloc] init];
-        detail.Projectmodel = mo;
-        [self.GZMTableView reloadData];
-        [self.navigationController pushViewController:detail animated:YES];
-        //        [RequestTool sendGetAFRequest:[BaseUrl stringByAppendingString:GetLanguageList] parameters:@{@"":@""} successBlock:^(id message) {
-        //            self.tabBarController.tabBar.hidden = YES;
-        //            GZMProjectModel * mo = self.GZMDataArr[indexPath.row];
-        //            [self.GZMTableView reloadData];
-        //            GZMChangeProgectViewController * greatVc = [[GZMChangeProgectViewController alloc] init];
-        //            greatVc.languageArr = message[@"message"];
-        //            greatVc.Projectmodel = mo;
-        //            [self.navigationController pushViewController:greatVc animated:YES];
-        //        } failBlock:^(id message) {
-        //
-        //        } delegate:self loadWith:mainLoading];
+//        GZMdetailProjectViewController * detail = [[GZMdetailProjectViewController alloc] init];
+//        detail.Projectmodel = mo;
+//        [self.GZMTableView reloadData];
+//        [self.navigationController pushViewController:detail animated:YES];
+                [RequestTool sendGetAFRequest:[BaseUrl stringByAppendingString:ProjectDetails] parameters:@{@"token":toketen,@"projectid":mo.ProjectID} successBlock:^(id message) {
+                    if (issuccess) {
+                        self.tabBarController.tabBar.hidden = YES;
+                        [self.GZMTableView reloadData];
+                        GZMdetailProjectViewController * greatVc = [[GZMdetailProjectViewController alloc] init];
+                        //                    greatVc.languageArr = message[@"message"];
+                        [ZJModelTool createModelWithDictionary:message[@"message"][0] modelName:nil];
+                        NSMutableArray * arr = [GZMProjectModel setModelWithArray:message[@"message"]];
+                        GZMProjectModel * model = arr[0];
+                        greatVc.Projectmodel = model;
+                        [self.navigationController pushViewController:greatVc animated:YES];
+                    }
+                    
+                } failBlock:^(id message) {
+        
+                } delegate:self loadWith:mainLoading];
         
     }];
     
