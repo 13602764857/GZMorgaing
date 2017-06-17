@@ -24,6 +24,8 @@
 }
 /*********<#私有方法#>*********/
 -(void)GZM_creatFather{
+    self.timeTextFiled.keyboardType = UIKeyboardTypeNumberPad;
+    self.numTextFiled.keyboardType = UIKeyboardTypeNumberPad;
     self.mainlable1.text = @"生成激活码";
     self.view.backgroundColor = [UIColor GZMLightColor];
     self.projectTitle.text = self.Projectmodel.ProjectName;
@@ -31,6 +33,7 @@
 -(void)creatUI{
     buton = [[UIButton alloc] initWithFrame:CGRectMake(10, 200 - 50, Width - 20, 40)];
     buton.selected = YES;
+    
     [buton setImage:[UIImage imageNamed:@"待选"] forState:UIControlStateNormal];
     [buton setImage:[UIImage imageNamed:@"选择"] forState:UIControlStateSelected];
     [buton setTitle:@"    提取激活码" forState:UIControlStateNormal];

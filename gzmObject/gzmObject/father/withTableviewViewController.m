@@ -186,7 +186,14 @@
     }
     return _GZMCollEctionView;
 }
-
+-(void)creatData{
+    self.GZMTableView.mj_header.state = MJRefreshStateNoMoreData;
+    self.GZMTableView.mj_footer.state = MJRefreshStateNoMoreData;
+}
+-(void)creatMoreData{
+    self.GZMTableView.mj_header.state = MJRefreshStateNoMoreData;
+    self.GZMTableView.mj_footer.state = MJRefreshStateNoMoreData;
+}
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
     if (self.GZMCollData.count == 0) {
         if (collectionView) {

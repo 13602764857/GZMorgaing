@@ -37,6 +37,7 @@
 #define ExtractCode          @"api/AuthCode/ExtractCode"
 #define ExtractHistory          @"api/AuthCode/ExtractHistory"
 #define ReExtractCode          @"api/AuthCode/ReExtractCode"
+#define BlockCode          @"api/AuthCode/BlockCode"
 
 
 /********** 登陆注册************/
@@ -57,6 +58,8 @@
 #define GenAPICode          @"api/Project/GenAPICode"
 #define ModifyRemark          @"api/Device/ModifyRemark"
 #define DeviceDetails          @"api/Device/DeviceDetails"
+#define DisableDevice          @"api/Device/DisableDevice"
+#define GetDeviceCode          @"api/Device/GetDeviceCode"
 
 
 #endif /* GZMApi_h */

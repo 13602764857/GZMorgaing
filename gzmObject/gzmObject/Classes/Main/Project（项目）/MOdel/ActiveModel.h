@@ -18,5 +18,12 @@
 @property (nonatomic,copy) NSString *Code;
 @property (nonatomic,copy) NSString *Effective;
 @property (nonatomic,copy) NSString *IsExtract;
+
+
+@property (nonatomic,copy) NSString *Status;
+@property (nonatomic,copy) NSString *CanBlock;
+@property (nonatomic,copy) NSString *UseDate;
+
+
 +(NSMutableArray *)setModelWithArray:(NSArray *)array;
 @end

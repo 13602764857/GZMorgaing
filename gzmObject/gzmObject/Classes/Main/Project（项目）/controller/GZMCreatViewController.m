@@ -81,6 +81,9 @@
             titleLable1.font = [UIFont systemFontOfSize:13];
             titleLable1.placeholder = placeholderArr[i];
             [_MainScrollview addSubview:titleLable1];
+            if (i == 2) {
+                titleLable1.keyboardType = UIKeyboardTypeNumberPad;
+            }
         }
         
         if (i == 3) {

@@ -16,4 +16,6 @@
 
 /**********<#属性#> ************/
 @property(nonatomic,strong)ActiveModel * mo;
+@property(nonatomic,strong)ActiveModel * mo1;
+
 @end

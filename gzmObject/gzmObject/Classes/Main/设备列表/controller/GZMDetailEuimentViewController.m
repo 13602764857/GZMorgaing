@@ -8,6 +8,7 @@
 
 #import "GZMDetailEuimentViewController.h"
 #import "GZMTableView.h"
+#import "GZMMeActiveViewController.h"
 @interface GZMDetailEuimentViewController ()<UITextViewDelegate>
 /**********<#属性#> ************/
 @property(nonatomic,strong)UIScrollView * mainScrollView;
@@ -26,9 +27,15 @@
 /*********<#私有方法#>*********/
 -(void)GZM_creatFather{
     self.mainlable1.text = @"设备列表详情";
-   
+    self.rightbutton1.x = Width - 80;
+    self.rightbutton1.width = 80;
+    [self.rightbutton1 setTitle:@"激活码" forState:UIControlStateNormal];
 }
-
+-(void)rightbutton1Click{
+    GZMMeActiveViewController * vc = [[GZMMeActiveViewController alloc] init];
+    vc.deviceID = self.Model.DeviceID;
+    [self.navigationController pushViewController:vc animated:YES];
+}
 -(void)creatUI{
     [self.view addSubview:self.mainScrollView];
 //    NSArray * titleArr = @[@"有效时间",@"最后登录地址",@"最后登录IP",@"最后登录时间",@"请求次数",@"UDID",@"是否有效",@"备注"];

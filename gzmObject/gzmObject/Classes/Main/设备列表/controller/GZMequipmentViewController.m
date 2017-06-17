@@ -307,9 +307,39 @@
     return cell;
 }
 -(NSArray<UITableViewRowAction *> *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath{
-    UITableViewRowAction *deleteRowAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@"禁用" handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
+    GZMEqupmenttionMOdel * mo = self.GZMDataArr[indexPath.row];
+    NSString * str = @"禁用";
+    NSString * str1 = @"false";
+    NSString * str2 = @"是否确定禁用？";
+    if ([mo.Effective isEqualToString:@"1"]) {
+        
+    }else{
+        str1 = @"true";
+        str = @"启用";
+        str2 = @"是否确定启用？";
+    }
+    UITableViewRowAction *deleteRowAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:str handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
+        [AlerYangShi creatTitleWith:str2 creatOneWith:nil withTwoStr:nil WithVc:self withSuccessBlock:^{
+            [RequestTool sendPostAFRequest:[BaseUrl stringByAppendingString:DisableDevice] parameters:@{@"token":toketen,@"deviceID":mo.DeviceID,@"effective":str1} successBlock:^(id message) {
+                if (issuccess) {
+                    
+                    if ([mo.Effective isEqualToString:@"1"]) {
+                        mo.Effective = @"0";
+                    }else{
+                        mo.Effective = @"1";
+                    }
+                    [self.GZMDataArr replaceObjectAtIndex:indexPath.row withObject:mo];
+                    [self.GZMTableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:indexPath.row inSection:indexPath.section]] withRowAnimation:YES];
+                }
+            } failBlock:^(id message) {
+                
+            } delegate:self loadWith:mainLoading];
+        } withErrorBlock:^{
+            
+        }];
         
     }];
+    
     return @[deleteRowAction];
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{

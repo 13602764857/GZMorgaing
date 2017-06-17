@@ -59,6 +59,7 @@
             textFile.tag = 110 + i;
             textFile.text = dataArr[i];
             textFile.textAlignment = NSTextAlignmentRight;
+        textFile.keyboardType = UIKeyboardTypeNumberPad;
 //            textFile.placeholder = @"请输入";
             [textFile GZMpublicTextFiledPlacehoderWith:[UIColor GZMTitleColor] withSize:14 WithholderText:titleArr2[i] Withalignment:NSTextAlignmentCenter];
         if (i != 1) {

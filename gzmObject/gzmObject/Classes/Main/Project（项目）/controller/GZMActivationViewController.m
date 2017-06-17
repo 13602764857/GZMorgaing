@@ -30,6 +30,7 @@
 }
 /********** 通知刷新************/
 -(void)GZMNotReshAction{
+    [sectionArr removeAllObjects];
     [self creatData];
 }
 /*********<#私有方法#>*********/
@@ -119,10 +120,14 @@
 }
 /*********分组的标记*********/
 -(void)GZM_CreatSectionArr{
-    [sectionArr removeAllObjects];
-    for (int i = 0; i < self.GZMDataArr.count; i ++) {
-        [sectionArr addObject:@"0"];
+//    [sectionArr removeAllObjects];
+    if (sectionArr.count == 0 ) {
+        for (int i = 0; i < self.GZMDataArr.count; i ++) {
+            [sectionArr addObject:@"0"];
+        }
+
     }
+    
     
 }
 -(void)creatData{
@@ -136,6 +141,7 @@
         NSLog(@"%@",message[@"message"]);
         if ([message[@"issuccess"] isEqual:@1]) {
             self.GZMDataArr = [ActiveModel setModelWithArray:message[@"message"]];
+            
             [self GZM_CreatSectionArr];
             //        self.GZMDataArr = [NSMutableArray arrayWithObjects:@"",@"",@"",@"", nil];
            
@@ -171,7 +177,7 @@
         }
         [self.GZMTableView.mj_footer endRefreshing];
         NSMutableArray * tempArray = [ActiveModel setModelWithArray:message[@"message"]];
-        for (GZMProjectModel *model in tempArray) {
+        for (ActiveModel *model in tempArray) {
             
             [self.GZMDataArr addObject:model];
         }
