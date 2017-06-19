@@ -78,6 +78,12 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="状态：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bwe-Q0-1tT">
+                        <rect key="frame" x="210" y="38" width="40" height="16"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="qyQ-bA-3eY" firstAttribute="leading" secondItem="TAM-YD-CGf" secondAttribute="trailing" id="0SL-by-BmI"/>
@@ -92,6 +98,8 @@
                     <constraint firstAttribute="bottomMargin" secondItem="qyQ-bA-3eY" secondAttribute="bottom" constant="5" id="Ku3-Kh-A4y"/>
                     <constraint firstAttribute="bottom" secondItem="YRS-tN-Mz5" secondAttribute="bottom" constant="0.5" id="Orc-Hp-ks4"/>
                     <constraint firstItem="YRS-tN-Mz5" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="TUv-Ne-pQb"/>
+                    <constraint firstItem="Ocv-Mb-YVj" firstAttribute="leading" secondItem="bwe-Q0-1tT" secondAttribute="trailing" constant="10" id="acy-sf-llg"/>
+                    <constraint firstItem="Ocv-Mb-YVj" firstAttribute="centerY" secondItem="bwe-Q0-1tT" secondAttribute="centerY" id="gY2-VD-a2w"/>
                     <constraint firstItem="IPy-F8-6oq" firstAttribute="leading" secondItem="ror-Uh-Dhp" secondAttribute="leading" id="gzr-7I-Cna"/>
                     <constraint firstItem="qyQ-bA-3eY" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="5" id="hyL-BT-BM3"/>
                     <constraint firstItem="ror-Uh-Dhp" firstAttribute="leading" secondItem="qyQ-bA-3eY" secondAttribute="trailing" constant="5" id="i28-sZ-6cI"/>

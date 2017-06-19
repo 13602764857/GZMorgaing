@@ -18,7 +18,7 @@
     self.projectLable.text = mo.DeviceID;
     self.timeLable.text = mo.CreateDate;
     self.nameLable.text = mo.Remark.length > 0 ? mo.Remark:@"暂无备注";
-    self.typeLable.text = [mo.Effective isEqualToString:@"1"]?@"设备正常":@"设备被禁用";
+    self.typeLable.text = [mo.Effective isEqualToString:@"1"]?@"正常":@"禁用";
     if ([mo.Effective isEqualToString:@"1"]) {
         self.typeLable.textColor = [UIColor blackColor];
     }else{
