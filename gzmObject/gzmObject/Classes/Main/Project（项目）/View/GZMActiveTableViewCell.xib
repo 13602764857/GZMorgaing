@@ -35,7 +35,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u5t-xX-77V">
-                        <rect key="frame" x="81.5" y="41.5" width="33" height="15"/>
+                        <rect key="frame" x="90.5" y="41.5" width="33" height="15"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" red="0.098039215690000001" green="0.62352941179999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <nil key="highlightedColor"/>
@@ -51,7 +51,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="33q-NU-71O">
-                        <rect key="frame" x="134.5" y="42" width="31" height="14.5"/>
+                        <rect key="frame" x="143.5" y="42" width="31" height="14.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" red="0.71372549019607845" green="0.71372549019607845" blue="0.71372549019607845" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -66,7 +66,7 @@
                     <constraint firstItem="u5t-xX-77V" firstAttribute="top" secondItem="cjF-fz-m9R" secondAttribute="top" id="WfR-Al-UQU"/>
                     <constraint firstAttribute="bottom" secondItem="Yr4-BX-StN" secondAttribute="bottom" constant="0.5" id="bAn-hM-Pny"/>
                     <constraint firstItem="kGM-Uc-nm5" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="cYD-BI-4Zw"/>
-                    <constraint firstItem="u5t-xX-77V" firstAttribute="leading" secondItem="cjF-fz-m9R" secondAttribute="trailing" constant="1" id="h29-Uy-L1Y"/>
+                    <constraint firstItem="u5t-xX-77V" firstAttribute="leading" secondItem="cjF-fz-m9R" secondAttribute="trailing" constant="10" id="h29-Uy-L1Y"/>
                     <constraint firstAttribute="trailing" secondItem="Yr4-BX-StN" secondAttribute="trailing" id="tU0-rA-vFB"/>
                     <constraint firstItem="cjF-fz-m9R" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="15" id="v3h-hb-vqK"/>
                     <constraint firstItem="cjF-fz-m9R" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="vsg-EU-eQj"/>
@@ -75,6 +75,7 @@
             <connections>
                 <outlet property="FourLable" destination="33q-NU-71O" id="egb-Hc-m9H"/>
                 <outlet property="ThreeLable" destination="kGM-Uc-nm5" id="Oyh-oF-zTW"/>
+                <outlet property="nameLbale" destination="cjF-fz-m9R" id="bfo-UF-wxM"/>
                 <outlet property="oneLable" destination="u5t-xX-77V" id="RLq-nR-CSU"/>
             </connections>
             <point key="canvasLocation" x="-29" y="-30"/>

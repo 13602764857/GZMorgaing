@@ -21,13 +21,14 @@
     self.FourLable.text = mo.CreateDate;
 }
 -(void)setMo1:(ActiveModel *)mo1{
-    self.oneLable.text = mo1.Code;
-    self.twoLable.text = [mo1.AuthTime stringByAppendingString:@" 天"];
-    self.ThreeLable.text = [mo1.Status isEqualToString:@"2"]?@"已经停用":@"";
+    self.nameLbale.text = mo1.Code;
+    self.nameLbale.textColor = MianColor;
+    self.oneLable.text = [mo1.AuthTime stringByAppendingString:@" 天"];
+    self.ThreeLable.text = [mo1.Status isEqualToString:@"2"]?@"已停用":@"";
     
     self.ThreeLable.text = ![mo1.CanBlock isEqualToString:@"1"]?@"已经过期":self.ThreeLable.text;
     
-    self.FourLable.text = mo1.CreateDate;
+    self.FourLable.text = mo1.UseDate;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

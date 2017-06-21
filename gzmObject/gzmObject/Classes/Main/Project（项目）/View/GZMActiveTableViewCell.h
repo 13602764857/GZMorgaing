@@ -13,6 +13,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *twoLable;
 @property (weak, nonatomic) IBOutlet UILabel *ThreeLable;
 @property (weak, nonatomic) IBOutlet UILabel *FourLable;
+@property (weak, nonatomic) IBOutlet UILabel *nameLbale;
 
 /**********<#属性#> ************/
 @property(nonatomic,strong)ActiveModel * mo;

@@ -154,7 +154,7 @@
         if ( i == 6) {
             UIButton * SearChbutton =  [[UIButton alloc] initWithFrame:CGRectMake(0, 0, Width, view.height)];
             [SearChbutton addTarget:self action:@selector(searchClick:) forControlEvents:UIControlEventTouchUpInside];
-            [SearChbutton setTitle:@"搜索" forState:UIControlStateNormal];
+            [SearChbutton setTitle:@"确定" forState:UIControlStateNormal];
             [SearChbutton setTitleColor:MianColor forState:UIControlStateNormal];
             [view addSubview:SearChbutton];
         }
