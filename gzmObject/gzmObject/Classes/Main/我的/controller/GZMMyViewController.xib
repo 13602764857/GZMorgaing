@@ -71,7 +71,6 @@
                         <constraint firstAttribute="height" constant="18" id="5bN-JU-8sv"/>
                         <constraint firstAttribute="width" constant="18" id="scs-dg-sUE"/>
                     </constraints>
-                    <state key="normal" title="Button" image="Personal center-news"/>
                     <connections>
                         <action selector="messageClick:" destination="-1" eventType="touchUpInside" id="pJk-bE-jEO"/>
                     </connections>
@@ -194,7 +193,6 @@
         </view>
     </objects>
     <resources>
-        <image name="Personal center-news" width="18" height="14"/>
         <image name="Personal center-tab-tpinformation" width="374" height="44"/>
         <image name="Personal center_bg" width="375" height="204"/>
         <image name="圆角矩形-12-副本-3" width="20" height="20"/>

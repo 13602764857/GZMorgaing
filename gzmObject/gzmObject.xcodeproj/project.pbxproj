@@ -859,7 +859,7 @@
 				TargetAttributes = {
 					1587977D1EAFEF6000DA40CF = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = 9QWJDSLGEA;
+						DevelopmentTeam = 3UG7TST5MP;
 						ProvisioningStyle = Automatic;
 					};
 					158797961EAFEF6100DA40CF = {
@@ -1210,16 +1210,20 @@
 			baseConfigurationReference = A79306C1D935AE284618FC12 /* Pods-gzmObject.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: xu zheng (3UG7TST5MP)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 9QWJDSLGEA;
+				DEVELOPMENT_TEAM = 3UG7TST5MP;
 				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = gzmObject/PrefixHeader.pch;
 				INFOPLIST_FILE = gzmObject/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = gzm.gzmObject;
+				PRODUCT_BUNDLE_IDENTIFIER = zhihuimao;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1228,16 +1232,20 @@
 			baseConfigurationReference = 9568F3247A7056AEF5115234 /* Pods-gzmObject.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: xu zheng (3UG7TST5MP)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 9QWJDSLGEA;
+				DEVELOPMENT_TEAM = 3UG7TST5MP;
 				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = gzmObject/PrefixHeader.pch;
 				INFOPLIST_FILE = gzmObject/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = gzm.gzmObject;
+				PRODUCT_BUNDLE_IDENTIFIER = zhihuimao;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

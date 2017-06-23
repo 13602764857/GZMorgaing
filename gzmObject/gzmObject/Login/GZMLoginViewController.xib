@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -27,7 +27,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                 </imageView>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dX6-5T-Qp3">
-                    <rect key="frame" x="30" y="255" width="315" height="40"/>
+                    <rect key="frame" x="30" y="196" width="315" height="40"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="bkQ-pz-6ZZ"/>
                     </constraints>
@@ -36,7 +36,7 @@
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wcP-5s-AfN">
-                    <rect key="frame" x="30" y="315" width="315" height="40"/>
+                    <rect key="frame" x="30" y="256" width="315" height="40"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="gRP-Q1-aB1"/>
                     </constraints>
@@ -45,7 +45,7 @@
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Cy-TG-HjZ">
-                    <rect key="frame" x="30" y="375" width="315" height="40"/>
+                    <rect key="frame" x="30" y="316" width="315" height="40"/>
                     <color key="backgroundColor" red="0.32837602834667645" green="0.55030772180737231" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="TRV-ZV-Ohh"/>
@@ -58,7 +58,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jaj-aX-pnt">
-                    <rect key="frame" x="30" y="435" width="315" height="40"/>
+                    <rect key="frame" x="30" y="376" width="315" height="40"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="M3K-ZR-fFs"/>
                     </constraints>
@@ -69,7 +69,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jkp-KX-0iy">
-                    <rect key="frame" x="147" y="495" width="80" height="40"/>
+                    <rect key="frame" x="147.5" y="436" width="80" height="40"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="SHt-Dh-1lU"/>
                         <constraint firstAttribute="width" constant="80" id="up0-xU-oCU"/>
@@ -81,15 +81,15 @@
                         <action selector="forgetPassWord:" destination="-1" eventType="touchUpInside" id="geH-2f-qh6"/>
                     </connections>
                 </button>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="Db7-or-mQe">
-                    <rect key="frame" x="120" y="70" width="135" height="135"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-1" translatesAutoresizingMaskIntoConstraints="NO" id="Db7-or-mQe">
+                    <rect key="frame" x="132.5" y="70" width="110" height="76"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="135" id="7wU-sU-5gI"/>
-                        <constraint firstAttribute="width" constant="135" id="FOf-Sk-zex"/>
+                        <constraint firstAttribute="height" constant="76" id="7wU-sU-5gI"/>
+                        <constraint firstAttribute="width" constant="110" id="FOf-Sk-zex"/>
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pTV-QE-mhX">
-                    <rect key="frame" x="30" y="295" width="315" height="1"/>
+                    <rect key="frame" x="30" y="236" width="315" height="1"/>
                     <color key="backgroundColor" red="0.098039215686274508" green="0.62352941176470589" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="1" id="ZOR-rw-29a"/>
@@ -99,7 +99,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SVl-8C-zRu">
-                    <rect key="frame" x="30" y="355" width="315" height="1"/>
+                    <rect key="frame" x="30" y="296" width="315" height="1"/>
                     <color key="backgroundColor" red="0.098039215690000001" green="0.62352941179999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="1" id="bMo-2W-mTA"/>
@@ -139,10 +139,10 @@
                 <constraint firstItem="SVl-8C-zRu" firstAttribute="top" secondItem="wcP-5s-AfN" secondAttribute="bottom" id="uOm-nn-OTo"/>
                 <constraint firstItem="4Cy-TG-HjZ" firstAttribute="leading" secondItem="wcP-5s-AfN" secondAttribute="leading" id="vVB-7g-Gec"/>
             </constraints>
-            <point key="canvasLocation" x="530" y="-91"/>
+            <point key="canvasLocation" x="386.5" y="-132.5"/>
         </view>
     </objects>
     <resources>
-        <image name="logo" width="135" height="135"/>
+        <image name="logo-1" width="54" height="39"/>
     </resources>
 </document>

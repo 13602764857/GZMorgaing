@@ -42,9 +42,10 @@
 }
 -(void)creatData{
     self.page = 1;
-    /********** 下啦到底部时让其重新可以看到 ************/
+    /********** 下啦到底部时让其重新可®以看到 ************/
+    NSDictionary * dic = @{@"token":toketen,@"projectID":self.mo.ProjectID,@"pindex":[NSString stringWithFormat:@"%ld",(long)self.page],@"pagesize":sizePage};
     self.GZMTableView.mj_footer.state = MJRefreshStateIdle;
-    [RequestTool sendPostAFRequest:[BaseUrl stringByAppendingString:ExtractHistory] parameters:@{@"token":toketen,@"projectID":self.mo.ProjectID,@"pindex":[NSString stringWithFormat:@"%ld",(long)self.page],@"pagesize":sizePage} successBlock:^(id message) {
+    [RequestTool sendPostAFRequest:[BaseUrl stringByAppendingString:ExtractHistory] parameters:dic successBlock:^(id message) {
         [self.GZMTableView.mj_header endRefreshing];
         self.GZMTableView.dataSource = self;
         if ([message[@"issuccess"] isEqual:@1]) {

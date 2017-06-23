@@ -9,7 +9,7 @@
 #ifndef GZMApi_h
 #define GZMApi_h
 #import "RequestTool.h"
-#define BaseUrl @"http://192.168.0.160:8080/"
+#define BaseUrl @"http://42.51.38.105/"
 /********** 登陆************/
 #define ModifyNickName          @"api/Account/ModifyNickName"
 #define UserLogin                   @"Author/UserLogin"
